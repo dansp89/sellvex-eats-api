@@ -1,0 +1,86 @@
+{
+  "kind": "collectionType",
+  "collectionName": "banners",
+  "info": {
+    "singularName": "banner",
+    "pluralName": "banners",
+    "displayName": "Banner",
+    "description": "Banners promocionais para app e website"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"],
+      "required": true
+    },
+    "mobileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "actionType": {
+      "type": "enumeration",
+      "enum": ["none", "product", "category", "promotion", "external_link", "internal_page"],
+      "default": "none"
+    },
+    "actionValue": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "position": {
+      "type": "enumeration",
+      "enum": ["home_top", "home_middle", "home_bottom", "category_top", "product_page", "checkout"],
+      "default": "home_top"
+    },
+    "priority": {
+      "type": "integer",
+      "default": 0
+    },
+    "startDate": {
+      "type": "datetime"
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "targetAudience": {
+      "type": "enumeration",
+      "enum": ["all", "new_customers", "existing_customers", "vip_customers"],
+      "default": "all"
+    },
+    "clickCount": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    },
+    "impressionCount": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    },
+    "metadata": {
+      "type": "json",
+      "default": {}
+    }
+  }
+}

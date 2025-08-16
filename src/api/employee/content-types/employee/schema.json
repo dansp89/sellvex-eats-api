@@ -1,0 +1,125 @@
+{
+  "kind": "collectionType",
+  "collectionName": "employees",
+  "info": {
+    "singularName": "employee",
+    "pluralName": "employees",
+    "displayName": "Employee",
+    "description": "Funcionários da empresa (cozinha, atendimento, etc.)"
+  },
+  "options": {
+    "draftAndPublish": false,
+    "privateAttributes": ["user", "salary"]
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "employeeId": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "cpf": {
+      "type": "string",
+      "unique": true,
+      "minLength": 11,
+      "maxLength": 14,
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email"
+    },
+    "position": {
+      "type": "enumeration",
+      "enum": ["manager", "chef", "cook", "kitchen_assistant", "cashier", "waiter", "cleaner", "maintenance"],
+      "required": true
+    },
+    "department": {
+      "type": "enumeration",
+      "enum": ["kitchen", "service", "delivery", "management", "cleaning", "maintenance"],
+      "required": true
+    },
+    "hireDate": {
+      "type": "date",
+      "required": true
+    },
+    "terminationDate": {
+      "type": "date"
+    },
+    "salary": {
+      "type": "decimal",
+      "min": 0,
+      "required": true
+    },
+    "salaryType": {
+      "type": "enumeration",
+      "enum": ["monthly", "hourly", "commission"],
+      "default": "monthly"
+    },
+    "workSchedule": {
+      "type": "json",
+      "default": {}
+    },
+    "emergencyContact": {
+      "type": "json",
+      "default": {}
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    },
+    "birthDate": {
+      "type": "date"
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "permissions": {
+      "type": "json",
+      "default": []
+    },
+    "notes": {
+      "type": "text"
+    },
+    "shifts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::shift.shift",
+      "mappedBy": "employee"
+    },
+    "salaries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::salary.salary",
+      "mappedBy": "employee"
+    },
+    "branch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::store-branch.store-branch",
+      "inversedBy": "employees"
+    },
+    "metadata": {
+      "type": "json",
+      "default": {}
+    }
+  }
+}

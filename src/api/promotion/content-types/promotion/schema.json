@@ -80,13 +80,13 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::product.product",
-      "inversedBy": "promotions"
+      "mappedBy": "promotions"
     },
     "categories": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::category.category",
-      "inversedBy": "promotions"
+      "mappedBy": "promotions"
     },
     "combos": {
       "type": "relation",

@@ -1,0 +1,105 @@
+{
+  "kind": "collectionType",
+  "collectionName": "store_branches",
+  "info": {
+    "singularName": "store-branch",
+    "pluralName": "store-branches",
+    "displayName": "Store Branch",
+    "description": "Filiais e unidades da loja"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email"
+    },
+    "manager": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::employee.employee"
+    },
+    "coordinates": {
+      "type": "json"
+    },
+    "operatingHours": {
+      "type": "json",
+      "default": {}
+    },
+    "deliveryRadius": {
+      "type": "decimal",
+      "min": 0,
+      "default": 10
+    },
+    "deliveryFee": {
+      "type": "decimal",
+      "min": 0,
+      "default": 5
+    },
+    "minimumOrderValue": {
+      "type": "decimal",
+      "min": 0,
+      "default": 0
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "acceptsDelivery": {
+      "type": "boolean",
+      "default": true
+    },
+    "acceptsPickup": {
+      "type": "boolean",
+      "default": true
+    },
+    "acceptsDineIn": {
+      "type": "boolean",
+      "default": false
+    },
+    "capacity": {
+      "type": "integer",
+      "min": 0
+    },
+    "employees": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::employee.employee",
+      "mappedBy": "branch"
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "branch"
+    },
+    "equipment": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::equipment.equipment",
+      "mappedBy": "branch"
+    },
+    "metadata": {
+      "type": "json",
+      "default": {}
+    }
+  }
+}

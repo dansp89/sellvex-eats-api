@@ -128,6 +128,24 @@
     "preferences": {
       "type": "json"
     },
+    "communicationPreferences": {
+      "type": "json",
+      "default": {
+        "email": true,
+        "sms": true,
+        "push": true,
+        "whatsapp": false
+      }
+    },
+    "deliveryPreferences": {
+      "type": "json",
+      "default": {}
+    },
+    "defaultTip": {
+      "type": "decimal",
+      "min": 0,
+      "default": 0
+    },
     "promotions": {
       "type": "relation",
       "relation": "manyToMany",
@@ -144,6 +162,36 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::notification.notification",
+      "mappedBy": "customer"
+    },
+    "loyaltyPrograms": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::loyalty-program.loyalty-program",
+      "inversedBy": "customers"
+    },
+    "pointsTransactions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::points-transaction.points-transaction",
+      "mappedBy": "customer"
+    },
+    "carts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cart.cart",
+      "mappedBy": "customer"
+    },
+    "wishlists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::wishlist.wishlist",
+      "mappedBy": "customer"
+    },
+    "supportTickets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::support-ticket.support-ticket",
       "mappedBy": "customer"
     },
     "metadata": {

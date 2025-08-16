@@ -73,7 +73,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::category.category",
-      "inversedBy": "combos"
+      "mappedBy": "combos"
     },
     "reviews": {
       "type": "relation",
@@ -105,6 +105,11 @@
       "min": 1,
       "default": 20
     },
-
+    "wishlists": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::wishlist.wishlist",
+      "inversedBy": "combos"
+    }
   }
 }

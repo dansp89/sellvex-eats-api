@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inventory_movements",
+  "info": {
+    "singularName": "inventory-movement",
+    "pluralName": "inventory-movements",
+    "displayName": "Inventory Movement",
+    "description": "Movimentações de estoque (entrada, saída, ajustes)"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "inventory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::inventory.inventory",
+      "inversedBy": "movements"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["in", "out", "adjustment", "waste", "transfer"],
+      "required": true
+    },
+    "quantity": {
+      "type": "decimal",
+      "required": true
+    },
+    "unitCost": {
+      "type": "decimal",
+      "min": 0
+    },
+    "totalCost": {
+      "type": "decimal",
+      "min": 0
+    },
+    "reason": {
+      "type": "string",
+      "required": true
+    },
+    "reference": {
+      "type": "string"
+    },
+    "referenceType": {
+      "type": "enumeration",
+      "enum": ["purchase_order", "production", "waste", "adjustment", "transfer"],
+      "default": "adjustment"
+    },
+    "performedBy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "metadata": {
+      "type": "json",
+      "default": {}
+    }
+  }
+}

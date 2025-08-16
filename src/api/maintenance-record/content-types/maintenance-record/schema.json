@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "maintenance_records",
+  "info": {
+    "singularName": "maintenance-record",
+    "pluralName": "maintenance-records",
+    "displayName": "Maintenance Record",
+    "description": "Registros de manutenção de equipamentos"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "equipment": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::equipment.equipment",
+      "inversedBy": "maintenanceRecords"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["preventive", "corrective", "emergency", "inspection"],
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "scheduledDate": {
+      "type": "date",
+      "required": true
+    },
+    "completedDate": {
+      "type": "date"
+    },
+    "performedBy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::employee.employee"
+    },
+    "externalTechnician": {
+      "type": "string"
+    },
+    "cost": {
+      "type": "decimal",
+      "min": 0
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["scheduled", "in_progress", "completed", "cancelled"],
+      "default": "scheduled"
+    },
+    "priority": {
+      "type": "enumeration",
+      "enum": ["low", "medium", "high", "urgent"],
+      "default": "medium"
+    },
+    "partsReplaced": {
+      "type": "json",
+      "default": []
+    },
+    "workPerformed": {
+      "type": "text"
+    },
+    "nextMaintenanceDate": {
+      "type": "date"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "attachments": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images", "files"]
+    },
+    "metadata": {
+      "type": "json",
+      "default": {}
+    }
+  }
+}

@@ -189,6 +189,32 @@
       "target": "api::payment.payment",
       "mappedBy": "order"
     },
+    "branch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::store-branch.store-branch",
+      "inversedBy": "orders"
+    },
+    "kitchenNotes": {
+      "type": "text"
+    },
+    "timeToKitchen": {
+      "type": "integer",
+      "min": 0
+    },
+    "estimatedCompletionTime": {
+      "type": "datetime"
+    },
+    "pointsEarned": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    },
+    "pointsRedeemed": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    },
     "metadata": {
       "type": "json"
     }

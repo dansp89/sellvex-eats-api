@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chat_conversations",
+  "info": {
+    "singularName": "chat-conversation",
+    "pluralName": "chat-conversations",
+    "displayName": "Chat Conversation",
+    "description": "Conversas de chat com clientes"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer"
+    },
+    "supportAgent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "subject": {
+      "type": "string",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["open", "in_progress", "waiting_customer", "resolved", "closed"],
+      "default": "open"
+    },
+    "priority": {
+      "type": "enumeration",
+      "enum": ["low", "medium", "high", "urgent"],
+      "default": "medium"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": ["general", "order_issue", "payment", "delivery", "product", "complaint", "suggestion"],
+      "default": "general"
+    },
+    "lastMessageAt": {
+      "type": "datetime"
+    },
+    "assignedAt": {
+      "type": "datetime"
+    },
+    "resolvedAt": {
+      "type": "datetime"
+    },
+    "closedAt": {
+      "type": "datetime"
+    },
+    "customerSatisfactionRating": {
+      "type": "integer",
+      "min": 1,
+      "max": 5
+    },
+    "customerFeedback": {
+      "type": "text"
+    },
+    "messages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::chat-message.chat-message",
+      "mappedBy": "conversation"
+    },
+    "relatedOrder": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::order.order"
+    },
+    "tags": {
+      "type": "json",
+      "default": []
+    },
+    "metadata": {
+      "type": "json",
+      "default": {}
+    }
+  }
+}

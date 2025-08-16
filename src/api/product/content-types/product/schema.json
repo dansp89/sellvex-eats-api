@@ -211,6 +211,34 @@
       "type": "json",
       "default": []
     },
+    "wishlists": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::wishlist.wishlist",
+      "inversedBy": "products"
+    },
+    "frequentlyBoughtWith": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::frequently-bought-together.frequently-bought-together",
+      "mappedBy": "mainProduct"
+    },
+    "cost": {
+      "type": "decimal",
+      "min": 0
+    },
+    "profitMargin": {
+      "type": "decimal",
+      "min": 0,
+      "max": 100
+    },
+    "supplierCost": {
+      "type": "decimal",
+      "min": 0
+    },
+    "lastRestocked": {
+      "type": "datetime"
+    },
     "menus": {
       "type": "relation",
       "relation": "manyToMany",

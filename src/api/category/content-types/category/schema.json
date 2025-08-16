@@ -86,6 +86,12 @@
       "target": "api::menu.menu",
       "inversedBy": "categories"
     },
+    "taxConfigurations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tax-configuration.tax-configuration",
+      "inversedBy": "applicableCategories"
+    },
     "metadata": {
       "type": "json"
     }

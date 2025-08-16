@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "points_transactions",
+  "info": {
+    "singularName": "points-transaction",
+    "pluralName": "points-transactions",
+    "displayName": "Points Transaction",
+    "description": "Transações de pontos de fidelidade"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "pointsTransactions"
+    },
+    "loyaltyProgram": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::loyalty-program.loyalty-program",
+      "inversedBy": "pointsTransactions"
+    },
+    "order": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::order.order"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["earned", "redeemed", "expired", "bonus", "adjustment"],
+      "required": true
+    },
+    "points": {
+      "type": "integer",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "referenceValue": {
+      "type": "decimal",
+      "min": 0
+    },
+    "expirationDate": {
+      "type": "date"
+    },
+    "isExpired": {
+      "type": "boolean",
+      "default": false
+    },
+    "metadata": {
+      "type": "json",
+      "default": {}
+    }
+  }
+}

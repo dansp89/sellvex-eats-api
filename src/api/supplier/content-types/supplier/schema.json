@@ -1,0 +1,108 @@
+{
+  "kind": "collectionType",
+  "collectionName": "suppliers",
+  "info": {
+    "singularName": "supplier",
+    "pluralName": "suppliers",
+    "displayName": "Supplier",
+    "description": "Fornecedores de ingredientes e produtos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "tradeName": {
+      "type": "string"
+    },
+    "cnpj": {
+      "type": "string",
+      "unique": true,
+      "minLength": 14,
+      "maxLength": 18
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "website": {
+      "type": "string"
+    },
+    "contactPerson": {
+      "type": "string"
+    },
+    "contactPersonPhone": {
+      "type": "string"
+    },
+    "contactPersonEmail": {
+      "type": "email"
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    },
+    "paymentTerms": {
+      "type": "enumeration",
+      "enum": ["immediate", "days_15", "days_30", "days_45", "days_60"],
+      "default": "days_30"
+    },
+    "deliveryDays": {
+      "type": "json",
+      "default": []
+    },
+    "minimumOrderValue": {
+      "type": "decimal",
+      "min": 0,
+      "default": 0
+    },
+    "rating": {
+      "type": "decimal",
+      "min": 0,
+      "max": 5,
+      "default": 0
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "notes": {
+      "type": "text"
+    },
+    "contractStartDate": {
+      "type": "date"
+    },
+    "contractEndDate": {
+      "type": "date"
+    },
+    "ingredients": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ingredient.ingredient",
+      "mappedBy": "supplier"
+    },
+    "inventoryItems": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::inventory.inventory",
+      "mappedBy": "supplier"
+    },
+    "purchaseOrders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::purchase-order.purchase-order",
+      "mappedBy": "supplier"
+    },
+    "metadata": {
+      "type": "json",
+      "default": {}
+    }
+  }
+}

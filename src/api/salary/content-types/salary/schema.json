@@ -1,0 +1,94 @@
+{
+  "kind": "collectionType",
+  "collectionName": "salaries",
+  "info": {
+    "singularName": "salary",
+    "pluralName": "salaries",
+    "displayName": "Salary",
+    "description": "Controle de salários e pagamentos dos funcionários"
+  },
+  "options": {
+    "draftAndPublish": false,
+    "privateAttributes": ["grossAmount", "netAmount", "deductions"]
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "employee": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::employee.employee",
+      "inversedBy": "salaries"
+    },
+    "referenceMonth": {
+      "type": "string",
+      "required": true
+    },
+    "referenceYear": {
+      "type": "integer",
+      "required": true,
+      "min": 2020,
+      "max": 2100
+    },
+    "grossAmount": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "deductions": {
+      "type": "json",
+      "default": {}
+    },
+    "bonuses": {
+      "type": "json",
+      "default": {}
+    },
+    "overtimeAmount": {
+      "type": "decimal",
+      "min": 0,
+      "default": 0
+    },
+    "netAmount": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "paymentDate": {
+      "type": "date"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["pending", "paid", "cancelled"],
+      "default": "pending"
+    },
+    "paymentMethod": {
+      "type": "enumeration",
+      "enum": ["bank_transfer", "cash", "check"],
+      "default": "bank_transfer"
+    },
+    "workingDays": {
+      "type": "integer",
+      "min": 0,
+      "default": 22
+    },
+    "workedDays": {
+      "type": "integer",
+      "min": 0
+    },
+    "totalHours": {
+      "type": "decimal",
+      "min": 0
+    },
+    "overtimeHours": {
+      "type": "decimal",
+      "min": 0,
+      "default": 0
+    },
+    "notes": {
+      "type": "text"
+    },
+    "metadata": {
+      "type": "json",
+      "default": {}
+    }
+  }
+}
