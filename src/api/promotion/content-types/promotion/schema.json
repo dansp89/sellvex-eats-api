@@ -74,26 +74,25 @@
     "customers": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::customer.customer",
-      "mappedBy": "promotions"
+      "target": "api::customer.customer"
     },
     "products": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::product.product",
-      "mappedBy": "promotions"
+      "inversedBy": "promotions"
     },
     "categories": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::category.category",
-      "mappedBy": "promotions"
+      "inversedBy": "promotions"
     },
     "combos": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::combo.combo",
-      "mappedBy": "promotions"
+      "inversedBy": "promotions"
     },
     "bannerImage": {
       "type": "media",

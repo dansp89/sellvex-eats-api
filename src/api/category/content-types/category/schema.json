@@ -29,6 +29,12 @@
       "multiple": false,
       "allowedTypes": ["images"]
     },
+    "icon": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
     "isActive": {
       "type": "boolean",
       "default": true
@@ -60,6 +66,28 @@
       "relation": "oneToMany",
       "target": "api::product.product",
       "mappedBy": "category"
+    },
+    "coupons": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::coupon.coupon",
+      "inversedBy": "categories"
+    },
+    "promotions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::promotion.promotion",
+      "inversedBy": "categories"
+    },
+
+    "menus": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::menu.menu",
+      "inversedBy": "categories"
+    },
+    "metadata": {
+      "type": "json"
     }
   }
 }

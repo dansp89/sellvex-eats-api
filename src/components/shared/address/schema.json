@@ -1,0 +1,54 @@
+{
+  "collectionName": "components_shared_address",
+  "info": {
+    "displayName": "Address",
+    "description": "Componente para endereços completos",
+    "icon": "map-pin"
+  },
+  "options": {},
+  "attributes": {
+    "street": {
+      "type": "string",
+      "required": true
+    },
+    "number": {
+      "type": "string",
+      "required": true
+    },
+    "complement": {
+      "type": "string"
+    },
+    "neighborhood": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "state": {
+      "type": "string",
+      "required": true
+    },
+    "zipCode": {
+      "type": "string",
+      "required": true,
+      "minLength": 8,
+      "maxLength": 9
+    },
+    "country": {
+      "type": "string",
+      "default": "Brasil"
+    },
+    "coordinates": {
+      "type": "json"
+    },
+    "label": {
+      "type": "string"
+    },
+    "isDefault": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

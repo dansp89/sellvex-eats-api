@@ -63,6 +63,23 @@
     "actions": {
       "type": "json"
     },
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "notifications"
+    },
+    "deliveryDriver": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::delivery-driver.delivery-driver",
+      "inversedBy": "notifications"
+    },
+    "order": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::order.order"
+    },
     "metadata": {
       "type": "json"
     }

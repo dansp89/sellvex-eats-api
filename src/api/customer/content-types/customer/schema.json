@@ -30,6 +30,7 @@
     "birthDate": {
       "type": "date"
     },
+
     "addressesText": {
       "type": "text"
     },
@@ -81,12 +82,7 @@
         "images"
       ]
     },
-    "favoriteProducts": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::product.product",
-      "mappedBy": "favoritedBy"
-    },
+
     "orders": {
       "type": "relation",
       "relation": "oneToMany",
@@ -125,20 +121,30 @@
       "min": 0,
       "default": 0
     },
-    "totalSpent": {
-      "type": "decimal",
-      "min": 0,
-      "default": 0
-    },
-    "lastOrderAt": {
-      "type": "datetime"
-    },
     "isPremium": {
       "type": "boolean",
       "default": false
     },
     "preferences": {
       "type": "json"
+    },
+    "promotions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::promotion.promotion",
+      "mappedBy": "customers"
+    },
+    "coupons": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::coupon.coupon",
+      "inversedBy": "customers"
+    },
+    "notifications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::notification.notification",
+      "mappedBy": "customer"
     },
     "metadata": {
       "type": "json"

@@ -64,6 +64,25 @@
     },
     "serviceHoursText": {
       "type": "text"
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "deliveryZone"
+    },
+    "drivers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::delivery-driver.delivery-driver",
+      "mappedBy": "workingZones"
+    },
+    "specialInstructions": {
+      "type": "text"
+    },
+    "isEmergencyZone": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

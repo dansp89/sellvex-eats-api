@@ -22,12 +22,26 @@
       "target": "api::customer.customer",
       "inversedBy": "orders"
     },
+    "items": {
+      "type": "json",
+      "required": true
+    },
+    "itemsOld": {
+      "type": "json",
+      "required": false
+    },
     "itemsDescription": {
       "type": "text"
     },
+    "orderType": {
+      "type": "enumeration",
+      "enum": ["delivery", "pickup", "dine_in"],
+      "default": "delivery"
+    },
+
     "deliveryAddressText": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "billingAddressText": {
       "type": "text"
@@ -38,6 +52,16 @@
       "min": 0
     },
     "deliveryFee": {
+      "type": "decimal",
+      "min": 0,
+      "default": 0
+    },
+    "taxAmount": {
+      "type": "decimal",
+      "min": 0,
+      "default": 0
+    },
+    "tips": {
       "type": "decimal",
       "min": 0,
       "default": 0
@@ -145,6 +169,11 @@
       "relation": "manyToOne",
       "target": "api::delivery-driver.delivery-driver",
       "inversedBy": "orders"
+    },
+    "deliveryZone": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::delivery-zone.delivery-zone"
     },
     "rating": {
       "type": "integer",

@@ -36,9 +36,10 @@
     "storePhone": {
       "type": "string"
     },
+
     "storeAddressText": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "businessHoursText": {
       "type": "text"
@@ -92,12 +93,7 @@
     "socialMediaLinks": {
       "type": "json"
     },
-    "metaTitle": {
-      "type": "string"
-    },
-    "metaDescription": {
-      "type": "text"
-    },
+
     "maintenanceMode": {
       "type": "boolean",
       "default": false

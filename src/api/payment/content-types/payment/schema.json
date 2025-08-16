@@ -52,6 +52,28 @@
     "paymentDate": {
       "type": "datetime"
     },
+    "gateway": {
+      "type": "string"
+    },
+    "gatewayTransactionId": {
+      "type": "string"
+    },
+    "cardMask": {
+      "type": "string"
+    },
+    "cardBrand": {
+      "type": "string"
+    },
+    "installments": {
+      "type": "integer",
+      "min": 1,
+      "default": 1
+    },
+    "feeAmount": {
+      "type": "decimal",
+      "min": 0,
+      "default": 0
+    },
     "metadata": {
       "type": "json"
     },

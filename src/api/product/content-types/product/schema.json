@@ -50,7 +50,8 @@
       "target": "api::ingredient.ingredient",
       "inversedBy": "products"
     },
-    "nutritionalInfo": {
+
+    "nutritionalInfoOld": {
       "type": "json",
       "default": {}
     },
@@ -134,6 +135,24 @@
       "type": "decimal",
       "min": 0
     },
+    "combos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::combo.combo",
+      "inversedBy": "products"
+    },
+    "coupons": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::coupon.coupon",
+      "inversedBy": "products"
+    },
+    "promotions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::promotion.promotion",
+      "inversedBy": "products"
+    },
     "favoritedBy": {
       "type": "relation",
       "relation": "manyToMany",
@@ -146,6 +165,31 @@
       "target": "api::review.review",
       "mappedBy": "product"
     },
+    "averageRating": {
+      "type": "decimal",
+      "min": 0,
+      "max": 5,
+      "default": 0
+    },
+    "totalReviews": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    },
+    "isLactoseFree": {
+      "type": "boolean",
+      "default": false
+    },
+    "servingSize": {
+      "type": "string"
+    },
+    "barcode": {
+      "type": "string"
+    },
+    "sku": {
+      "type": "string",
+      "unique": true
+    },
     "createdAt": {
       "type": "datetime",
       "private": true
@@ -153,6 +197,25 @@
     "updatedAt": {
       "type": "datetime",
       "private": true
+    },
+
+    "customizations": {
+      "type": "json",
+      "default": []
+    },
+    "addons": {
+      "type": "json",
+      "default": []
+    },
+    "sizes": {
+      "type": "json",
+      "default": []
+    },
+    "menus": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::menu.menu",
+      "inversedBy": "products"
     }
   }
 }

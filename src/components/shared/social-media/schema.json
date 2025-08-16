@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_social_media",
+  "info": {
+    "displayName": "Social Media",
+    "description": "Links de redes sociais",
+    "icon": "share"
+  },
+  "options": {},
+  "attributes": {
+    "platform": {
+      "type": "enumeration",
+      "enum": ["facebook", "instagram", "twitter", "whatsapp", "youtube", "tiktok", "linkedin"],
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "username": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

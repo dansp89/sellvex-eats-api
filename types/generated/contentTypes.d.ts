@@ -386,11 +386,14 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
   attributes: {
     children: Schema.Attribute.Relation<'oneToMany', 'api::category.category'>;
+    color: Schema.Attribute.String;
     combos: Schema.Attribute.Relation<'manyToMany', 'api::combo.combo'>;
+    coupons: Schema.Attribute.Relation<'manyToMany', 'api::coupon.coupon'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    icon: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -399,6 +402,8 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
       'api::category.category'
     > &
       Schema.Attribute.Private;
+    menus: Schema.Attribute.Relation<'manyToMany', 'api::menu.menu'>;
+    metadata: Schema.Attribute.JSON;
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
@@ -411,6 +416,10 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
       >;
     parent: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
     products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
+    promotions: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::promotion.promotion'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'name'>;
     updatedAt: Schema.Attribute.DateTime;
@@ -468,6 +477,13 @@ export interface ApiComboCombo extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::combo.combo'> &
       Schema.Attribute.Private;
+    maximumItems: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
     maxUses: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {
@@ -475,9 +491,25 @@ export interface ApiComboCombo extends Struct.CollectionTypeSchema {
         },
         number
       >;
+    minimumItems: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<2>;
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    preparationTime: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<20>;
     price: Schema.Attribute.Decimal &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
@@ -487,9 +519,14 @@ export interface ApiComboCombo extends Struct.CollectionTypeSchema {
         number
       >;
     products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
+    promotions: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::promotion.promotion'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     reviews: Schema.Attribute.Relation<'oneToMany', 'api::review.review'>;
     slug: Schema.Attribute.UID<'name'>;
+    tags: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<[]>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -520,6 +557,18 @@ export interface ApiCouponCoupon extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    customers: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::customer.customer'
+    >;
+    customerUsageLimit: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<1>;
     description: Schema.Attribute.Text;
     discountType: Schema.Attribute.Enumeration<['percentage', 'fixed_amount']> &
       Schema.Attribute.Required &
@@ -533,6 +582,7 @@ export interface ApiCouponCoupon extends Struct.CollectionTypeSchema {
         number
       >;
     endDate: Schema.Attribute.DateTime;
+    firstTimeOnly: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -578,10 +628,6 @@ export interface ApiCouponCoupon extends Struct.CollectionTypeSchema {
         },
         number
       >;
-    users: Schema.Attribute.Relation<
-      'manyToMany',
-      'plugin::users-permissions.user'
-    >;
   };
 }
 
@@ -601,6 +647,7 @@ export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
     allergies: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<[]>;
     avatar: Schema.Attribute.Media<'images'>;
     birthDate: Schema.Attribute.Date;
+    coupons: Schema.Attribute.Relation<'manyToMany', 'api::coupon.coupon'>;
     cpf: Schema.Attribute.String &
       Schema.Attribute.Unique &
       Schema.Attribute.SetMinMaxLength<{
@@ -635,6 +682,10 @@ export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
       > &
       Schema.Attribute.DefaultTo<0>;
     metadata: Schema.Attribute.JSON;
+    notifications: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::notification.notification'
+    >;
     orders: Schema.Attribute.Relation<'oneToMany', 'api::order.order'>;
     payments: Schema.Attribute.Relation<'oneToMany', 'api::payment.payment'>;
     phone: Schema.Attribute.String & Schema.Attribute.Required;
@@ -643,6 +694,10 @@ export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
       ['credit_card', 'debit_card', 'pix', 'cash', 'voucher']
     > &
       Schema.Attribute.DefaultTo<'credit_card'>;
+    promotions: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::promotion.promotion'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     referralCode: Schema.Attribute.String & Schema.Attribute.Unique;
     referrals: Schema.Attribute.Relation<'oneToMany', 'api::customer.customer'>;
@@ -689,6 +744,9 @@ export interface ApiDeliveryDriverDeliveryDriver
   };
   attributes: {
     avatar: Schema.Attribute.Media<'images'>;
+    backgroundCheckDate: Schema.Attribute.Date;
+    contractEndDate: Schema.Attribute.Date;
+    contractStartDate: Schema.Attribute.Date;
     cpf: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
@@ -700,9 +758,13 @@ export interface ApiDeliveryDriverDeliveryDriver
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     currentLocation: Schema.Attribute.JSON;
+    documentsVerified: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     email: Schema.Attribute.Email;
+    emergencyContact: Schema.Attribute.JSON;
     isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     lastOnline: Schema.Attribute.DateTime;
+    licenseNumber: Schema.Attribute.String & Schema.Attribute.Unique;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -716,6 +778,10 @@ export interface ApiDeliveryDriverDeliveryDriver
         maxLength: 100;
         minLength: 2;
       }>;
+    notifications: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::notification.notification'
+    >;
     orders: Schema.Attribute.Relation<'oneToMany', 'api::order.order'>;
     phone: Schema.Attribute.String &
       Schema.Attribute.Required &
@@ -733,6 +799,7 @@ export interface ApiDeliveryDriverDeliveryDriver
         number
       > &
       Schema.Attribute.DefaultTo<0>;
+    reviews: Schema.Attribute.Relation<'oneToMany', 'api::review.review'>;
     status: Schema.Attribute.Enumeration<
       ['available', 'busy', 'offline', 'on_break']
     > &
@@ -767,6 +834,19 @@ export interface ApiDeliveryDriverDeliveryDriver
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'motorcycle'>;
+    vehicleYear: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 2030;
+          min: 1950;
+        },
+        number
+      >;
+    workingHours: Schema.Attribute.JSON;
+    workingZones: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::delivery-zone.delivery-zone'
+    >;
   };
 }
 
@@ -796,6 +876,10 @@ export interface ApiDeliveryZoneDeliveryZone
         number
       >;
     description: Schema.Attribute.Text;
+    drivers: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::delivery-driver.delivery-driver'
+    >;
     estimatedDeliveryTimeMax: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {
@@ -820,6 +904,8 @@ export interface ApiDeliveryZoneDeliveryZone
         number
       >;
     isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    isEmergencyZone: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -835,9 +921,11 @@ export interface ApiDeliveryZoneDeliveryZone
       >;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     neighborhoods: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<[]>;
+    orders: Schema.Attribute.Relation<'oneToMany', 'api::order.order'>;
     priority: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     publishedAt: Schema.Attribute.DateTime;
     serviceHoursText: Schema.Attribute.Text;
+    specialInstructions: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -921,6 +1009,10 @@ export interface ApiMenuMenu extends Struct.CollectionTypeSchema {
       >;
     availableFrom: Schema.Attribute.Time;
     availableUntil: Schema.Attribute.Time;
+    categories: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::category.category'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -931,6 +1023,7 @@ export interface ApiMenuMenu extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::menu.menu'> &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     sectionsDescription: Schema.Attribute.Text;
     sortOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
@@ -957,7 +1050,12 @@ export interface ApiNotificationNotification
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    customer: Schema.Attribute.Relation<'manyToOne', 'api::customer.customer'>;
     data: Schema.Attribute.JSON;
+    deliveryDriver: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::delivery-driver.delivery-driver'
+    >;
     expiresAt: Schema.Attribute.DateTime;
     isRead: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -968,6 +1066,7 @@ export interface ApiNotificationNotification
       Schema.Attribute.Private;
     message: Schema.Attribute.Text & Schema.Attribute.Required;
     metadata: Schema.Attribute.JSON;
+    order: Schema.Attribute.Relation<'manyToOne', 'api::order.order'>;
     priority: Schema.Attribute.Enumeration<
       ['low', 'medium', 'high', 'urgent']
     > &
@@ -1021,7 +1120,7 @@ export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     customer: Schema.Attribute.Relation<'manyToOne', 'api::customer.customer'>;
     deliveredAt: Schema.Attribute.DateTime;
-    deliveryAddressText: Schema.Attribute.Text & Schema.Attribute.Required;
+    deliveryAddressText: Schema.Attribute.Text;
     deliveryDriver: Schema.Attribute.Relation<
       'manyToOne',
       'api::delivery-driver.delivery-driver'
@@ -1036,6 +1135,10 @@ export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
       Schema.Attribute.DefaultTo<0>;
     deliveryInstructions: Schema.Attribute.Text;
     deliveryTrackingUrl: Schema.Attribute.String;
+    deliveryZone: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::delivery-zone.delivery-zone'
+    >;
     discount: Schema.Attribute.Decimal &
       Schema.Attribute.SetMinMax<
         {
@@ -1052,12 +1155,16 @@ export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
         },
         number
       >;
+    items: Schema.Attribute.JSON & Schema.Attribute.Required;
     itemsDescription: Schema.Attribute.Text;
+    itemsOld: Schema.Attribute.JSON;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::order.order'> &
       Schema.Attribute.Private;
     metadata: Schema.Attribute.JSON;
     orderNumber: Schema.Attribute.String & Schema.Attribute.Unique;
+    orderType: Schema.Attribute.Enumeration<['delivery', 'pickup', 'dine_in']> &
+      Schema.Attribute.DefaultTo<'delivery'>;
     payment: Schema.Attribute.Relation<'oneToOne', 'api::payment.payment'>;
     paymentId: Schema.Attribute.String;
     paymentMethod: Schema.Attribute.Enumeration<
@@ -1105,6 +1212,22 @@ export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
         },
         number
       >;
+    taxAmount: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0>;
+    tips: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0>;
     total: Schema.Attribute.Decimal &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
@@ -1139,6 +1262,8 @@ export interface ApiPaymentPayment extends Struct.CollectionTypeSchema {
         },
         number
       >;
+    cardBrand: Schema.Attribute.String;
+    cardMask: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1146,6 +1271,24 @@ export interface ApiPaymentPayment extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'BRL'>;
     customer: Schema.Attribute.Relation<'manyToOne', 'api::customer.customer'>;
+    feeAmount: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0>;
+    gateway: Schema.Attribute.String;
+    gatewayTransactionId: Schema.Attribute.String;
+    installments: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<1>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1185,9 +1328,20 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    addons: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<[]>;
     allergens: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<[]>;
     availableFrom: Schema.Attribute.Time;
     availableUntil: Schema.Attribute.Time;
+    averageRating: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0>;
+    barcode: Schema.Attribute.String;
     calories: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {
@@ -1196,9 +1350,12 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
         number
       >;
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
+    combos: Schema.Attribute.Relation<'manyToMany', 'api::combo.combo'>;
+    coupons: Schema.Attribute.Relation<'manyToMany', 'api::coupon.coupon'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    customizations: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<[]>;
     description: Schema.Attribute.Text;
     discountPercentage: Schema.Attribute.Decimal &
       Schema.Attribute.SetMinMax<
@@ -1221,6 +1378,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     isFeatured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isGlutenFree: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isLactoseFree: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isSpicy: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isVegan: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isVegetarian: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -1237,6 +1395,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
         },
         number
       >;
+    menus: Schema.Attribute.Relation<'manyToMany', 'api::menu.menu'>;
     minOrderQuantity: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {
@@ -1246,7 +1405,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       > &
       Schema.Attribute.DefaultTo<1>;
     name: Schema.Attribute.String & Schema.Attribute.Required;
-    nutritionalInfo: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<{}>;
+    nutritionalInfoOld: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<{}>;
     originalPrice: Schema.Attribute.Decimal &
       Schema.Attribute.SetMinMax<
         {
@@ -1270,12 +1429,19 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
         },
         number
       >;
+    promotions: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::promotion.promotion'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     reviews: Schema.Attribute.Relation<'oneToMany', 'api::review.review'>;
+    servingSize: Schema.Attribute.String;
     shortDescription: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 150;
       }>;
+    sizes: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<[]>;
+    sku: Schema.Attribute.String & Schema.Attribute.Unique;
     slug: Schema.Attribute.UID<'name'>;
     spicyLevel: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
@@ -1294,6 +1460,14 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
         number
       >;
     tags: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<[]>;
+    totalReviews: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1420,6 +1594,10 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     customer: Schema.Attribute.Relation<'manyToOne', 'api::customer.customer'>;
+    deliveryDriver: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::delivery-driver.delivery-driver'
+    >;
     images: Schema.Attribute.Media<'images', true>;
     isAnonymous: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1446,6 +1624,10 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
       'plugin::users-permissions.user'
     >;
     responseDate: Schema.Attribute.DateTime;
+    reviewType: Schema.Attribute.Enumeration<
+      ['product', 'combo', 'delivery', 'overall']
+    > &
+      Schema.Attribute.DefaultTo<'product'>;
     status: Schema.Attribute.Enumeration<['pending', 'approved', 'rejected']> &
       Schema.Attribute.DefaultTo<'pending'>;
     updatedAt: Schema.Attribute.DateTime;
@@ -1513,8 +1695,6 @@ export interface ApiSettingSetting extends Struct.SingleTypeSchema {
     maintenanceMode: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
     metadata: Schema.Attribute.JSON;
-    metaDescription: Schema.Attribute.Text;
-    metaTitle: Schema.Attribute.String;
     minimumOrderValue: Schema.Attribute.Decimal &
       Schema.Attribute.SetMinMax<
         {
@@ -1542,7 +1722,7 @@ export interface ApiSettingSetting extends Struct.SingleTypeSchema {
       Schema.Attribute.DefaultTo<15>;
     publishedAt: Schema.Attribute.DateTime;
     socialMediaLinks: Schema.Attribute.JSON;
-    storeAddressText: Schema.Attribute.Text & Schema.Attribute.Required;
+    storeAddressText: Schema.Attribute.Text;
     storeDescription: Schema.Attribute.Text;
     storeEmail: Schema.Attribute.Email;
     storeFavicon: Schema.Attribute.Media<'images'>;

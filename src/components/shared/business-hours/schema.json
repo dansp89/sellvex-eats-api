@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_shared_business_hours",
+  "info": {
+    "displayName": "Business Hours",
+    "description": "Horários de funcionamento por dia da semana",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "dayOfWeek": {
+      "type": "enumeration",
+      "enum": ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+      "required": true
+    },
+    "openTime": {
+      "type": "time",
+      "required": true
+    },
+    "closeTime": {
+      "type": "time",
+      "required": true
+    },
+    "isOpen": {
+      "type": "boolean",
+      "default": true
+    },
+    "isHoliday": {
+      "type": "boolean",
+      "default": false
+    },
+    "breakStartTime": {
+      "type": "time"
+    },
+    "breakEndTime": {
+      "type": "time"
+    }
+  }
+}

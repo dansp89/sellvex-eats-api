@@ -57,6 +57,21 @@
       "minLength": 2,
       "maxLength": 100
     },
+    "vehicleYear": {
+      "type": "integer",
+      "min": 1950,
+      "max": 2030
+    },
+    "licenseNumber": {
+      "type": "string",
+      "unique": true
+    },
+    "workingHours": {
+      "type": "json"
+    },
+    "emergencyContact": {
+      "type": "json"
+    },
     "status": {
       "type": "enumeration",
       "enum": ["available", "busy", "offline", "on_break"],
@@ -96,6 +111,37 @@
       "relation": "oneToMany",
       "target": "api::order.order",
       "mappedBy": "deliveryDriver"
+    },
+    "notifications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::notification.notification",
+      "mappedBy": "deliveryDriver"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "deliveryDriver"
+    },
+    "workingZones": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::delivery-zone.delivery-zone",
+      "inversedBy": "drivers"
+    },
+    "documentsVerified": {
+      "type": "boolean",
+      "default": false
+    },
+    "backgroundCheckDate": {
+      "type": "date"
+    },
+    "contractStartDate": {
+      "type": "date"
+    },
+    "contractEndDate": {
+      "type": "date"
     },
     "metadata": {
       "type": "json",

@@ -1,0 +1,56 @@
+{
+  "collectionName": "components_shared_order_item",
+  "info": {
+    "displayName": "Order Item",
+    "description": "Item individual do pedido com customizações",
+    "icon": "shopping-cart"
+  },
+  "options": {},
+  "attributes": {
+    "productId": {
+      "type": "string",
+      "required": true
+    },
+    "productName": {
+      "type": "string",
+      "required": true
+    },
+    "productSku": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "unitPrice": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "totalPrice": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "customizations": {
+      "type": "json",
+      "default": {}
+    },
+    "specialInstructions": {
+      "type": "text"
+    },
+    "addons": {
+      "type": "json",
+      "default": []
+    },
+    "removedIngredients": {
+      "type": "json",
+      "default": []
+    },
+    "extraIngredients": {
+      "type": "json",
+      "default": []
+    }
+  }
+}

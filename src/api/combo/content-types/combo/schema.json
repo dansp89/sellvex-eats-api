@@ -80,6 +80,31 @@
       "relation": "oneToMany",
       "target": "api::review.review",
       "mappedBy": "combo"
-    }
+    },
+    "promotions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::promotion.promotion",
+      "mappedBy": "combos"
+    },
+    "minimumItems": {
+      "type": "integer",
+      "min": 1,
+      "default": 2
+    },
+    "maximumItems": {
+      "type": "integer",
+      "min": 1
+    },
+    "tags": {
+      "type": "json",
+      "default": []
+    },
+    "preparationTime": {
+      "type": "integer",
+      "min": 1,
+      "default": 20
+    },
+
   }
 }

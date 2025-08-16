@@ -40,9 +40,22 @@
     "sectionsDescription": {
       "type": "text"
     },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "menus"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "menus"
+    },
     "sortOrder": {
       "type": "integer",
       "default": 0
-    }
+    },
+
   }
 }

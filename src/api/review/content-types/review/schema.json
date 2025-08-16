@@ -69,6 +69,17 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
     },
+    "deliveryDriver": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::delivery-driver.delivery-driver",
+      "inversedBy": "reviews"
+    },
+    "reviewType": {
+      "type": "enumeration",
+      "enum": ["product", "combo", "delivery", "overall"],
+      "default": "product"
+    },
     "metadata": {
       "type": "json"
     }

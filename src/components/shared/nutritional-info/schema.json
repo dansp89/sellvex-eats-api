@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_shared_nutritional_info",
+  "info": {
+    "displayName": "Nutritional Info",
+    "description": "Informações nutricionais detalhadas",
+    "icon": "heart"
+  },
+  "options": {},
+  "attributes": {
+    "calories": {
+      "type": "decimal",
+      "min": 0
+    },
+    "proteins": {
+      "type": "decimal",
+      "min": 0
+    },
+    "carbohydrates": {
+      "type": "decimal",
+      "min": 0
+    },
+    "fats": {
+      "type": "decimal",
+      "min": 0
+    },
+    "fiber": {
+      "type": "decimal",
+      "min": 0
+    },
+    "sodium": {
+      "type": "decimal",
+      "min": 0
+    },
+    "sugar": {
+      "type": "decimal",
+      "min": 0
+    },
+    "servingSize": {
+      "type": "string",
+      "required": true
+    },
+    "servingUnit": {
+      "type": "enumeration",
+      "enum": ["g", "ml", "un", "porção"],
+      "default": "g"
+    }
+  }
+}
