@@ -1,0 +1,105 @@
+{
+  "kind": "collectionType",
+  "collectionName": "delivery_drivers",
+  "info": {
+    "singularName": "delivery-driver",
+    "pluralName": "delivery-drivers",
+    "displayName": "Delivery Driver",
+    "description": "Entregadores do sistema de delivery"
+  },
+  "options": {
+    "draftAndPublish": false,
+    "privateAttributes": ["user"]
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 100
+    },
+    "cpf": {
+      "type": "string",
+      "unique": true,
+      "minLength": 11,
+      "maxLength": 14,
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "minLength": 10,
+      "maxLength": 20
+    },
+    "email": {
+      "type": "email",
+      "required": false
+    },
+    "vehicleType": {
+      "type": "enumeration",
+      "enum": ["motorcycle", "bicycle", "car", "scooter", "walking"],
+      "required": true,
+      "default": "motorcycle"
+    },
+    "vehiclePlate": {
+      "type": "string",
+      "minLength": 6,
+      "maxLength": 10
+    },
+    "vehicleModel": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 100
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["available", "busy", "offline", "on_break"],
+      "default": "offline"
+    },
+    "currentLocation": {
+      "type": "json",
+      "default": null
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"],
+      "required": false
+    },
+    "rating": {
+      "type": "decimal",
+      "min": 0,
+      "max": 5,
+      "default": 0
+    },
+    "totalDeliveries": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "lastOnline": {
+      "type": "datetime",
+      "default": null
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "deliveryDriver"
+    },
+    "metadata": {
+      "type": "json",
+      "default": {}
+    }
+  }
+}

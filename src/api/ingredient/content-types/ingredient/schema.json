@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ingredients",
+  "info": {
+    "singularName": "ingredient",
+    "pluralName": "ingredients",
+    "displayName": "Ingredient",
+    "description": "Ingredientes utilizados nos produtos do cardápio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "description": {
+      "type": "text"
+    },
+    "isVegan": {
+      "type": "boolean",
+      "default": false
+    },
+    "isVegetarian": {
+      "type": "boolean",
+      "default": false
+    },
+    "isGlutenFree": {
+      "type": "boolean",
+      "default": false
+    },
+    "isLactoseFree": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasAllergens": {
+      "type": "boolean",
+      "default": false
+    },
+    "allergens": {
+      "type": "text"
+    },
+    "calories": {
+      "type": "decimal"
+    },
+    "unitOfMeasure": {
+      "type": "string",
+      "default": "g"
+    },
+    "price": {
+      "type": "decimal",
+      "min": 0
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "ingredients"
+    }
+  }
+}

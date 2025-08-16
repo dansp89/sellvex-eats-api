@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "delivery_zones",
+  "info": {
+    "singularName": "delivery-zone",
+    "pluralName": "delivery-zones",
+    "displayName": "Delivery Zone",
+    "description": "Zonas de entrega com taxas específicas"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "neighborhoods": {
+      "type": "json",
+      "default": []
+    },
+    "zipCodes": {
+      "type": "json",
+      "default": []
+    },
+    "coordinates": {
+      "type": "json",
+      "default": {}
+    },
+    "deliveryFee": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "freeDeliveryThreshold": {
+      "type": "decimal",
+      "min": 0
+    },
+    "estimatedDeliveryTimeMin": {
+      "type": "integer",
+      "min": 0,
+      "default": 30
+    },
+    "estimatedDeliveryTimeMax": {
+      "type": "integer",
+      "min": 0,
+      "default": 60
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "priority": {
+      "type": "integer",
+      "default": 0
+    },
+    "maxDistance": {
+      "type": "decimal",
+      "min": 0
+    },
+    "serviceHoursText": {
+      "type": "text"
+    }
+  }
+}

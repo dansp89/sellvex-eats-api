@@ -1,0 +1,147 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customers",
+  "info": {
+    "singularName": "customer",
+    "pluralName": "customers",
+    "displayName": "Customer",
+    "description": "Clientes do sistema de delivery"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "cpf": {
+      "type": "string",
+      "unique": true,
+      "minLength": 11,
+      "maxLength": 14
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "birthDate": {
+      "type": "date"
+    },
+    "addressesText": {
+      "type": "text"
+    },
+    "favoriteProducts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "favoritedBy"
+    },
+    "dietaryRestrictions": {
+      "type": "json",
+      "default": []
+    },
+    "allergies": {
+      "type": "json",
+      "default": []
+    },
+    "preferredPaymentMethod": {
+      "type": "enumeration",
+      "enum": ["credit_card", "debit_card", "pix", "cash", "voucher"],
+      "default": "credit_card"
+    },
+    "loyaltyPoints": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    },
+    "totalSpent": {
+      "type": "decimal",
+      "min": 0,
+      "default": 0
+    },
+    "lastOrderAt": {
+      "type": "datetime"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female",
+        "other",
+        "prefer_not_to_say"
+      ]
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "favoriteProducts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "favoritedBy"
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "customer"
+    },
+    "payments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::payment.payment",
+      "mappedBy": "customer"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "customer"
+    },
+    "referralCode": {
+      "type": "string",
+      "unique": true
+    },
+    "referredBy": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::customer.customer"
+    },
+    "referrals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::customer.customer",
+      "mappedBy": "referredBy"
+    },
+    "totalOrders": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    },
+    "totalSpent": {
+      "type": "decimal",
+      "min": 0,
+      "default": 0
+    },
+    "lastOrderAt": {
+      "type": "datetime"
+    },
+    "isPremium": {
+      "type": "boolean",
+      "default": false
+    },
+    "preferences": {
+      "type": "json"
+    },
+    "metadata": {
+      "type": "json"
+    }
+  }
+}

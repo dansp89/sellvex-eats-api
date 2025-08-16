@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notifications",
+  "info": {
+    "singularName": "notification",
+    "pluralName": "notifications",
+    "displayName": "Notification",
+    "description": "Notificações do sistema para usuários, clientes e entregadores"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "message": {
+      "type": "text",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["order_update", "promotion", "system", "payment", "delivery", "account"],
+      "required": true
+    },
+    "targetType": {
+      "type": "enumeration",
+      "enum": ["user", "customer", "delivery_driver", "admin", "all"],
+      "required": true
+    },
+    "targetId": {
+      "type": "string"
+    },
+    "relatedEntityType": {
+      "type": "string"
+    },
+    "relatedEntityId": {
+      "type": "string"
+    },
+    "isRead": {
+      "type": "boolean",
+      "default": false
+    },
+    "readAt": {
+      "type": "datetime"
+    },
+    "data": {
+      "type": "json"
+    },
+    "scheduledFor": {
+      "type": "datetime"
+    },
+    "expiresAt": {
+      "type": "datetime"
+    },
+    "priority": {
+      "type": "enumeration",
+      "enum": ["low", "medium", "high", "urgent"],
+      "default": "medium"
+    },
+    "actions": {
+      "type": "json"
+    },
+    "metadata": {
+      "type": "json"
+    }
+  }
+}

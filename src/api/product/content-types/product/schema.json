@@ -1,0 +1,158 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "price": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "description": {
+      "type": "text"
+    },
+    "shortDescription": {
+      "type": "string",
+      "maxLength": 150
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images"],
+      "required": false
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "ingredients": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ingredient.ingredient",
+      "inversedBy": "products"
+    },
+    "nutritionalInfo": {
+      "type": "json",
+      "default": {}
+    },
+    "allergens": {
+      "type": "json",
+      "default": []
+    },
+    "preparationTime": {
+      "type": "integer",
+      "min": 1,
+      "default": 15
+    },
+    "calories": {
+      "type": "integer",
+      "min": 0
+    },
+    "weight": {
+      "type": "decimal",
+      "min": 0
+    },
+    "isVegetarian": {
+      "type": "boolean",
+      "default": false
+    },
+    "isVegan": {
+      "type": "boolean",
+      "default": false
+    },
+    "isGlutenFree": {
+      "type": "boolean",
+      "default": false
+    },
+    "isSpicy": {
+      "type": "boolean",
+      "default": false
+    },
+    "spicyLevel": {
+      "type": "integer",
+      "min": 0,
+      "max": 5,
+      "default": 0
+    },
+    "availableFrom": {
+      "type": "time"
+    },
+    "availableUntil": {
+      "type": "time"
+    },
+    "stockQuantity": {
+      "type": "integer",
+      "min": 0
+    },
+    "minOrderQuantity": {
+      "type": "integer",
+      "min": 1,
+      "default": 1
+    },
+    "maxOrderQuantity": {
+      "type": "integer",
+      "min": 1
+    },
+    "tags": {
+      "type": "json",
+      "default": []
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false
+    },
+    "discountPercentage": {
+      "type": "decimal",
+      "min": 0,
+      "max": 100,
+      "default": 0
+    },
+    "originalPrice": {
+      "type": "decimal",
+      "min": 0
+    },
+    "favoritedBy": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::customer.customer",
+      "mappedBy": "favoriteProducts"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "product"
+    },
+    "createdAt": {
+      "type": "datetime",
+      "private": true
+    },
+    "updatedAt": {
+      "type": "datetime",
+      "private": true
+    }
+  }
+}
