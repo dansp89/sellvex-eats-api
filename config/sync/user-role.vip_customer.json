@@ -1,0 +1,8 @@
+{
+  "documentId": "nscpda8t07aqk3cusn8whnys",
+  "name": "VIP Customer",
+  "description": "**Descrição:** Cliente premium com benefícios especiais  \n**Responsabilidades:**\n- Acesso a promoções exclusivas\n- Atendimento prioritário\n- Programa de fidelidade\n- Produtos e serviços especiais",
+  "type": "vip_customer",
+  "locale": null,
+  "permissions": []
+}

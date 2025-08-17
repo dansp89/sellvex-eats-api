@@ -1,0 +1,8 @@
+{
+  "documentId": "vbbdw7v2boi9x17wrro5mbyf",
+  "name": "Support Agent",
+  "description": "**Descrição:** Atendente de suporte ao cliente  \n**Responsabilidades:**\n- Atendimento telefônico e por email\n- Resolução de reclamações\n- Processamento de devoluções/estornos\n- Suporte técnico básico",
+  "type": "support_agent",
+  "locale": null,
+  "permissions": []
+}

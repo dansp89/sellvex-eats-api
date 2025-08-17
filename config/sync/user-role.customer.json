@@ -1,0 +1,8 @@
+{
+  "documentId": "xrzq5jwqwnl6ov8c1yhhcddu",
+  "name": "Customer",
+  "description": "**Descrição:** Cliente final padrão  \n**Responsabilidades:**\n- Realização de pedidos\n- Avaliação de produtos e serviços\n- Atualização de dados pessoais\n- Acompanhamento de pedidos",
+  "type": "customer",
+  "locale": null,
+  "permissions": []
+}

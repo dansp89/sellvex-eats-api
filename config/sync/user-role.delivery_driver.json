@@ -1,0 +1,8 @@
+{
+  "documentId": "yagfue4h4xlsfj0rjnid9o0t",
+  "name": "Delivery Driver",
+  "description": "**Descrição:** Entregador responsável pelas entregas  \n**Responsabilidades:**\n- Entrega de pedidos aos clientes\n- Atualização de status de entrega\n- Coleta de pagamentos (se aplicável)\n- Manutenção de veículo/equipamentos",
+  "type": "delivery_driver",
+  "locale": null,
+  "permissions": []
+}

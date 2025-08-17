@@ -15,7 +15,11 @@
     "upgrade:dry": "npx @strapi/upgrade latest --dry",
     "type-check": "tsc --noEmit",
     "generate": "strapi ts:generate-types",
-    "clear": "rm -rf .cache .strapi node_modules dist"
+    "clear": "rm -rf .cache .strapi node_modules dist",
+    "populate": "bun run scripts/populate.ts",
+    "populate:clear": "bun run scripts/populate.ts --clear",
+    "populate:dev": "bun run scripts/populate.ts -u 10 -o 20 -r 15 -p 15 -n 10",
+    "populate:test": "bun run scripts/test-populate.ts"
   },
   "dependencies": {
     "@strapi/plugin-documentation": "^5.22.0",
@@ -33,7 +37,9 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "typescript": "^5"
+    "typescript": "^5",
+    "commander": "^12.0.0",
+    "axios": "^1.6.0"
   },
   "engines": {
     "node": ">=18.0.0 <=22.x.x",

@@ -1,0 +1,8 @@
+{
+  "documentId": "ifmb6mrs4q92b5dcljhmsnfx",
+  "name": "API User",
+  "description": "**Descrição:** Usuário de API externa para integrações  \n**Responsabilidades:**\n- Integração com sistemas externos\n- Consumo de APIs\n- Automação de processos\n- Sincronização de dados",
+  "type": "api_user",
+  "locale": null,
+  "permissions": []
+}

@@ -1,0 +1,8 @@
+{
+  "documentId": "xpkdsw1ps2v9vt57llv0u1sj",
+  "name": "Chat Operator",
+  "description": "**Descrição:** Operador de chat online  \n**Responsabilidades:**\n- Atendimento via chat em tempo real\n- Suporte durante o processo de compra\n- Esclarecimento de dúvidas sobre produtos\n- Direcionamento para outros setores",
+  "type": "chat_operator",
+  "locale": null,
+  "permissions": []
+}

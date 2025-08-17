@@ -1,0 +1,8 @@
+{
+  "documentId": "ybmssxo03ox96gg444sfyahx",
+  "name": "Super Admin",
+  "description": "**Descrição:** Acesso total e irrestrito ao sistema  \n**Responsabilidades:**\n- Gerenciamento completo de usuários e permissões\n- Configuração de sistema e políticas globais\n- Acesso a todos os módulos e funcionalidades\n- Backup e manutenção do sistema",
+  "type": "super_admin",
+  "locale": null,
+  "permissions": []
+}

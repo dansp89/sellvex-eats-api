@@ -1,0 +1,239 @@
+{
+  "key": "plugin_content_manager_configuration_content_types::api::setting.setting",
+  "value": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "storeName",
+      "defaultSortBy": "storeName",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "storeName": {
+        "edit": {
+          "label": "storeName",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "storeName",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "storeLogo": {
+        "edit": {
+          "label": "storeLogo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "storeLogo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "storeDescription": {
+        "edit": {
+          "label": "storeDescription",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "storeDescription",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "storeEmail": {
+        "edit": {
+          "label": "storeEmail",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "storeEmail",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "storePhone": {
+        "edit": {
+          "label": "storePhone",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "storePhone",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "deliveryFee": {
+        "edit": {
+          "label": "deliveryFee",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "deliveryFee",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "minimumOrderValue": {
+        "edit": {
+          "label": "minimumOrderValue",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "minimumOrderValue",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "createdAt": {
+        "edit": {
+          "label": "createdAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "createdAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedAt": {
+        "edit": {
+          "label": "updatedAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "updatedAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "createdBy": {
+        "edit": {
+          "label": "createdBy",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true,
+          "mainField": "firstname"
+        },
+        "list": {
+          "label": "createdBy",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedBy": {
+        "edit": {
+          "label": "updatedBy",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true,
+          "mainField": "firstname"
+        },
+        "list": {
+          "label": "updatedBy",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": [
+        "id",
+        "storeName",
+        "storeLogo"
+      ],
+      "edit": [
+        [
+          {
+            "name": "storeName",
+            "size": 6
+          },
+          {
+            "name": "storeLogo",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "storeDescription",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "storeEmail",
+            "size": 6
+          },
+          {
+            "name": "storePhone",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "deliveryFee",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "minimumOrderValue",
+            "size": 4
+          }
+        ]
+      ]
+    },
+    "uid": "api::setting.setting"
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

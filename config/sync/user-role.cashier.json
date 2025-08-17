@@ -1,0 +1,8 @@
+{
+  "documentId": "bc32uzkawsp4jos3s184dzn3",
+  "name": "Cashier",
+  "description": "**Descrição:** Operador de caixa e pagamentos  \n**Responsabilidades:**\n- Processamento de pagamentos\n- Emissão de notas fiscais\n- Fechamento de caixa\n- Atendimento no balcão",
+  "type": "cashier",
+  "locale": null,
+  "permissions": []
+}

@@ -1,0 +1,8 @@
+{
+  "documentId": "km0y3nzcot080f3i2q8vjz0v",
+  "name": "Admin",
+  "description": "**Descrição:** Administrador da loja/restaurante  \n**Responsabilidades:**\n- Gerenciamento de cardápio e produtos\n- Configuração de preços e promoções\n- Relatórios de vendas e performance\n- Gestão de funcionários da loja",
+  "type": "admin",
+  "locale": null,
+  "permissions": []
+}

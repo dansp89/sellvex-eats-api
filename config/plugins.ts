@@ -2,14 +2,14 @@ import { getCustomSwaggerPaths } from 'strapi-swagger-custom-paths';
 
 export default () => ({
   documentation: {
-    enabled: false,
+    enabled: true,
     config: {
       openapi: "3.0.0",
       info: {
         version: "1.0.0",
-        title: "Documentação",
-        description: "",
-        termsOfService: "https://sellvex.com.br",
+        title: "Sellvex Eats API",
+        description: "API REST para o sistema de delivery Sellvex Eats",
+        termsOfService: "https://sellvex.com.br/app/sellvex-eats/terms",
         contact: {
           name: "Team",
           email: "daniel.rootdir@gmail.com",

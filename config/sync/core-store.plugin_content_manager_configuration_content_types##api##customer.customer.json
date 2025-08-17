@@ -1,0 +1,266 @@
+{
+  "key": "plugin_content_manager_configuration_content_types::api::customer.customer",
+  "value": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "phone",
+      "defaultSortBy": "phone",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "user": {
+        "edit": {
+          "label": "user",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "username"
+        },
+        "list": {
+          "label": "user",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "phone": {
+        "edit": {
+          "label": "phone",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "phone",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "loyaltyPoints": {
+        "edit": {
+          "label": "loyaltyPoints",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "loyaltyPoints",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "totalSpent": {
+        "edit": {
+          "label": "totalSpent",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "totalSpent",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "orders": {
+        "edit": {
+          "label": "orders",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "documentId"
+        },
+        "list": {
+          "label": "orders",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "totalOrders": {
+        "edit": {
+          "label": "totalOrders",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "totalOrders",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "preferences": {
+        "edit": {
+          "label": "preferences",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "preferences",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "notifications": {
+        "edit": {
+          "label": "notifications",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "notifications",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "createdAt": {
+        "edit": {
+          "label": "createdAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "createdAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedAt": {
+        "edit": {
+          "label": "updatedAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "updatedAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "createdBy": {
+        "edit": {
+          "label": "createdBy",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true,
+          "mainField": "firstname"
+        },
+        "list": {
+          "label": "createdBy",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedBy": {
+        "edit": {
+          "label": "updatedBy",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true,
+          "mainField": "firstname"
+        },
+        "list": {
+          "label": "updatedBy",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": [
+        "id",
+        "user",
+        "phone"
+      ],
+      "edit": [
+        [
+          {
+            "name": "user",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "phone",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "loyaltyPoints",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "totalSpent",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "orders",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "totalOrders",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "preferences",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "notifications",
+            "size": 6
+          }
+        ]
+      ]
+    },
+    "uid": "api::customer.customer"
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

@@ -1,0 +1,350 @@
+{
+  "key": "plugin_content_manager_configuration_content_types::api::ingredient.ingredient",
+  "value": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "name",
+      "defaultSortBy": "name",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "name": {
+        "edit": {
+          "label": "name",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "name",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "slug": {
+        "edit": {
+          "label": "slug",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "slug",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "description",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "description",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "isVegan": {
+        "edit": {
+          "label": "isVegan",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "isVegan",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "isVegetarian": {
+        "edit": {
+          "label": "isVegetarian",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "isVegetarian",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "isGlutenFree": {
+        "edit": {
+          "label": "isGlutenFree",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "isGlutenFree",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "isLactoseFree": {
+        "edit": {
+          "label": "isLactoseFree",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "isLactoseFree",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "hasAllergens": {
+        "edit": {
+          "label": "hasAllergens",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "hasAllergens",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "allergens": {
+        "edit": {
+          "label": "allergens",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "allergens",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "calories": {
+        "edit": {
+          "label": "calories",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "calories",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "unitOfMeasure": {
+        "edit": {
+          "label": "unitOfMeasure",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "unitOfMeasure",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "price": {
+        "edit": {
+          "label": "price",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "price",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "isActive": {
+        "edit": {
+          "label": "isActive",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "isActive",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "createdAt": {
+        "edit": {
+          "label": "createdAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "createdAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedAt": {
+        "edit": {
+          "label": "updatedAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "updatedAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "createdBy": {
+        "edit": {
+          "label": "createdBy",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true,
+          "mainField": "firstname"
+        },
+        "list": {
+          "label": "createdBy",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedBy": {
+        "edit": {
+          "label": "updatedBy",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true,
+          "mainField": "firstname"
+        },
+        "list": {
+          "label": "updatedBy",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": [
+        "id",
+        "name",
+        "slug",
+        "description"
+      ],
+      "edit": [
+        [
+          {
+            "name": "name",
+            "size": 6
+          },
+          {
+            "name": "slug",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "description",
+            "size": 6
+          },
+          {
+            "name": "isVegan",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "isVegetarian",
+            "size": 4
+          },
+          {
+            "name": "isGlutenFree",
+            "size": 4
+          },
+          {
+            "name": "isLactoseFree",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "hasAllergens",
+            "size": 4
+          },
+          {
+            "name": "allergens",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "calories",
+            "size": 4
+          },
+          {
+            "name": "unitOfMeasure",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "price",
+            "size": 4
+          },
+          {
+            "name": "isActive",
+            "size": 4
+          }
+        ]
+      ]
+    },
+    "uid": "api::ingredient.ingredient"
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}
