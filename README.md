@@ -63,12 +63,12 @@ A versão atual foi **ULTRA-OTIMIZADA** para máxima performance e simplicidade 
 - ✅ **Customizações**: Tamanhos, sabores, adicionais, personalizações
 - ✅ **Disponibilidade**: Controle por horário, estoque, sazonalidade
 
-#### **🛒 Sistema de Combos e Promoções**
-- ✅ **Combos Dinâmicos**: Criação de combos com produtos variados
-- ✅ **Descontos Inteligentes**: Por quantidade, valor mínimo, primeira compra
-- ✅ **Cupons Avançados**: Código promocional, limite de uso, validade
-- ✅ **Promoções Automáticas**: Black Friday, happy hour, fidelidade
-- ✅ **A/B Testing**: Testes de diferentes ofertas
+#### **🛒 Sistema de Pedidos Simplificado**
+- ✅ **Produtos Essenciais**: Cardápio completo com categorias
+- ✅ **Carrinho Dinâmico**: Adicionar/remover itens facilmente
+- ✅ **Cálculos Automáticos**: Subtotal, taxa de entrega, total
+- ✅ **Status de Pedido**: Acompanhamento em tempo real
+- ✅ **Avaliações**: Sistema de reviews dos produtos
 
 #### **🛍️ Carrinho e Checkout Avançado**
 - ✅ **Carrinho Persistente**: Salva itens entre sessões
@@ -206,24 +206,24 @@ A versão atual foi **ULTRA-OTIMIZADA** para máxima performance e simplicidade 
 
 ### 📞 **Comunicação & Suporte Omnichannel**
 
-#### **💬 Chat em Tempo Real**
-- ✅ **Múltiplos Canais**: App, site, WhatsApp, Telegram
-- ✅ **Chatbot IA**: Respostas automáticas para dúvidas comuns
-- ✅ **Transferência**: Para atendente humano quando necessário
-- ✅ **Histórico**: Todas as conversas salvas
-- ✅ **Satisfação**: Avaliação do atendimento
+#### **📱 Notificações em Tempo Real**
+- ✅ **Status do Pedido**: Atualizações automáticas do status
+- ✅ **Entregador Atribuído**: Notificação quando sair para entrega
+- ✅ **Avaliações**: Convite para avaliar após entrega
+- ✅ **Sistema Simples**: Notificações diretas e objetivas
+- ✅ **Multi-usuário**: Cliente e entregador recebem updates
 
 #### **🎫 Sistema de Tickets Avançado**
 - ✅ **Categorização**: Problema, sugestão, elogio, reclamação
 - ✅ **Priorização**: Urgente, alta, média, baixa
 - ✅ **SLA**: Tempo de resposta por categoria
 - ✅ **Escalação**: Automática por tempo ou complexidade
-- ✅ **Base de Conhecimento**: FAQ dinâmico e busca inteligente
+- ✅ **Sistema Direto**: Comunicação clara e objetiva
 
 #### **📢 Sistema de Notificações**
 - ✅ **Push Notifications**: Personalizadas por perfil
 - ✅ **SMS**: Para confirmações e avisos importantes
-- ✅ **Email**: Newsletters e campanhas
+- ✅ **Sistema Essencial**: Notificações básicas e funcionais
 - ✅ **In-app**: Notificações dentro do aplicativo
 - ✅ **Agendamento**: Envio no melhor horário para cada cliente
 
@@ -246,29 +246,24 @@ A versão atual foi **ULTRA-OTIMIZADA** para máxima performance e simplicidade 
 
 ```
 src/
-├── 📁 api/                    # Content-Types principais
+├── 📁 api/                    # Content-Types (11 essenciais)
 │   ├── 🍕 category/           # Categorias de produtos
 │   ├── 🥘 product/            # Produtos do cardápio
 │   ├── 🛒 order/              # Pedidos
 │   ├── 👤 customer/           # Clientes
 │   ├── 🚚 delivery-driver/    # Entregadores
-│   ├── 💰 payment/            # Pagamentos
-│   ├── 📊 report/             # Analytics
-│   ├── 👨‍💼 employee/           # Funcionários
-│   ├── 🏪 supplier/           # Fornecedores
-│   ├── 📦 inventory/          # Estoque
-│   ├── 🎯 loyalty-program/    # Fidelidade
-│   ├── 💬 chat-message/       # Chat
-│   ├── 🎨 banner/             # Marketing
-│   └── ... (39 content-types total)
+│   ├── 💳 payment/            # Pagamentos
+│   ├── ⭐ review/             # Avaliações
+│   ├── 🔔 notification/       # Notificações
+│   ├── 🥬 ingredient/         # Ingredientes
+│   ├── 📍 delivery-zone/      # Zonas de entrega
+│   └── ⚙️ setting/            # Configurações
+
 │
-├── 📁 components/             # Components reutilizáveis
+├── 📁 components/             # Components reutilizáveis (2 essenciais)
 │   └── 📁 shared/
-│       ├── 📍 address/        # Endereços
-│       ├── 🍎 nutritional-info/ # Nutrição
-│       ├── 🕐 business-hours/ # Horários
-│       ├── 🛍️ order-item/     # Items de pedido
-│       └── 📱 social-media/   # Redes sociais
+│       ├── 📍 address/        # Endereços estruturados
+│       └── 🛒 order-item/     # Itens de pedido
 │
 ├── 📁 config/                 # Configurações
 ├── 📁 extensions/             # Extensões
@@ -399,23 +394,16 @@ bun run clear          # Limpar cache e dist
 
 ## 📱 API Endpoints
 
-### **📊 Analytics**
-```http
-GET    /api/reports                    # Listar relatórios
-POST   /api/reports                    # Criar relatório
-GET    /api/reports/:id                # Obter relatório específico
-PUT    /api/reports/:id                # Atualizar relatório
-DELETE /api/reports/:id                # Deletar relatório
-```
+
 
 ### **🍕 Produtos & Cardápio**
 ```http
 GET    /api/categories                 # Listar categorias
 GET    /api/products                   # Listar produtos
 GET    /api/products?filters[category][id][$eq]=1  # Produtos por categoria
-GET    /api/combos                     # Listar combos
+
 GET    /api/ingredients                # Listar ingredientes
-GET    /api/menus                      # Listar cardápios
+
 ```
 
 ### **👤 Clientes & Autenticação**
@@ -452,30 +440,15 @@ PUT    /api/orders/:id/assign-driver   # Atribuir entregador
 GET    /api/orders/:id/tracking        # Rastreamento
 ```
 
-### **🎯 Marketing**
+### **📞 Sistema Essencial**
 ```http
-GET    /api/banners                    # Banners ativos
-GET    /api/loyalty-programs           # Programas de fidelidade
-POST   /api/coupons/validate           # Validar cupom
-GET    /api/promotions/active          # Promoções ativas
+GET    /api/notifications              # Listar notificações  
+POST   /api/reviews                    # Criar avaliação
+GET    /api/settings                   # Configurações
+GET    /api/delivery-zones             # Zonas de entrega
 ```
 
-### **📞 Suporte**
-```http
-POST   /api/chat-conversations         # Iniciar chat
-GET    /api/chat-conversations/:id/messages  # Mensagens
-POST   /api/support-tickets            # Criar ticket
-GET    /api/faqs                       # FAQ
-```
 
-### **🏢 Gestão (Admin)**
-```http
-GET    /api/employees                  # Funcionários
-GET    /api/suppliers                  # Fornecedores
-GET    /api/inventory                  # Estoque
-POST   /api/purchase-orders            # Pedidos de compra
-GET    /api/equipment                  # Equipamentos
-```
 
 ---
 
@@ -496,19 +469,7 @@ GET    /api/equipment                  # Equipamentos
 }
 ```
 
-### **🍎 Nutritional Info Component**
-```json
-{
-  "calories": 350,
-  "proteins": 25.5,
-  "carbohydrates": 45.2,
-  "fats": 12.8,
-  "fiber": 8.1,
-  "sodium": 850,
-  "servingSize": "100",
-  "servingUnit": "g"
-}
-```
+
 
 ### **🛍️ Order Item Component**
 ```json
@@ -524,27 +485,7 @@ GET    /api/equipment                  # Equipamentos
 }
 ```
 
-### **🕐 Business Hours Component**
-```json
-{
-  "dayOfWeek": "monday",
-  "openTime": "11:00",
-  "closeTime": "23:00",
-  "isOpen": true,
-  "breakStartTime": "15:00",
-  "breakEndTime": "17:00"
-}
-```
 
-### **📱 Social Media Component**
-```json
-{
-  "platform": "instagram",
-  "url": "https://instagram.com/sellvexeats",
-  "username": "@sellvexeats",
-  "isActive": true
-}
-```
 
 ---
 
