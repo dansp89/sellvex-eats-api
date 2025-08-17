@@ -21,5 +21,6 @@ export default ({ env }) => ({
     '**/logs',
     '**/scripts',
     '**/README.md',
+    '**/config/sync'
   ]
 });
