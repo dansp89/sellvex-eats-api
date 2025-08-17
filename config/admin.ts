@@ -19,8 +19,7 @@ export default ({ env }) => ({
   },
   watchIgnoreFiles: [
     '**/logs',
-    './logs',
-    './scripts',
-    './README.md',
+    '**/scripts',
+    '**/README.md',
   ]
 });

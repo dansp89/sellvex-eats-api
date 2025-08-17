@@ -5,7 +5,7 @@
     "singularName": "notification",
     "pluralName": "notifications",
     "displayName": "Notification",
-    "description": "Notificações do sistema para usuários, clientes e entregadores"
+    "description": "Notificações do sistema"
   },
   "options": {
     "draftAndPublish": false
@@ -22,46 +22,12 @@
     },
     "type": {
       "type": "enumeration",
-      "enum": ["order_update", "promotion", "system", "payment", "delivery", "account"],
+      "enum": ["order_update", "system", "delivery"],
       "required": true
-    },
-    "targetType": {
-      "type": "enumeration",
-      "enum": ["user", "customer", "delivery_driver", "admin", "all"],
-      "required": true
-    },
-    "targetId": {
-      "type": "string"
-    },
-    "relatedEntityType": {
-      "type": "string"
-    },
-    "relatedEntityId": {
-      "type": "string"
     },
     "isRead": {
       "type": "boolean",
       "default": false
-    },
-    "readAt": {
-      "type": "datetime"
-    },
-    "data": {
-      "type": "json"
-    },
-    "scheduledFor": {
-      "type": "datetime"
-    },
-    "expiresAt": {
-      "type": "datetime"
-    },
-    "priority": {
-      "type": "enumeration",
-      "enum": ["low", "medium", "high", "urgent"],
-      "default": "medium"
-    },
-    "actions": {
-      "type": "json"
     },
     "customer": {
       "type": "relation",
@@ -74,14 +40,6 @@
       "relation": "manyToOne",
       "target": "api::delivery-driver.delivery-driver",
       "inversedBy": "notifications"
-    },
-    "order": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::order.order"
-    },
-    "metadata": {
-      "type": "json"
     }
   }
 }

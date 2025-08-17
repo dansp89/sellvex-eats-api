@@ -116,7 +116,7 @@ export default {
           "Roles.ListPage.notification.delete-all-not-allowed": "Algumas funções não puderam ser removidos por estarem associadas a alguns usuários",
           "Roles.ListPage.notification.delete-not-allowed": "A função não pode ser removida se ainda estiver associada a algum usuário",
           "Roles.RoleRow.select-all": "Selecione {name} para ações em massa",
-          "Roles.RoleRow.user-count": "{number, plural, =0 {# user} um {# user} outros {# users}}",
+          "Roles.RoleRow.user-count": "{number, plural, =0 {# usuários} one {# usuário} other {# usuários}}",
           "Roles.components.List.empty.withSearch": "Não existe uma função correspondente à busca ({search})...",
           "Settings.PageTitle": "Configurações - {name}",
           "Settings.profile.form.section.experience.interfaceLanguageHelp": "A nova linguagem selecionada só será exibida para você. Por favor, leia a {documentation} para disponibilizar outras linguagens para sua equipe.",
@@ -726,7 +726,7 @@ export default {
           "Roles.ListPage.notification.delete-all-not-allowed": "Some roles could not be deleted since they are associated with users",
           "Roles.ListPage.notification.delete-not-allowed": "A role cannot be deleted if associated with users",
           "Roles.RoleRow.select-all": "Select {name} for bulk actions",
-          "Roles.RoleRow.user-count": "{number, plural, =0 {# usuário} um {# usuário} outros {# usuários}}",
+          // "Roles.RoleRow.user-count": "{number, plural, =0 {# usuário} um {# usuário} outros {# usuários}}",
           "Roles.components.List.empty.withSearch": "There is no role corresponding to the search ({search})...",
           "Settings.PageTitle": "Settings — {name}",
           "Settings.apiTokens.ListView.headers.createdAt": "Created at",
@@ -1511,5 +1511,11 @@ export default {
   },
   bootstrap(app: StrapiApp) {
     console.log(app);
+    console.warn = () => {};
+    // const originalError = console.error;
+    // console.error = (...args) => {
+    //   if (/defaultProps/.test(args[0])) return;
+    //   originalError.call(console, ...args);
+    // };
   },
 };

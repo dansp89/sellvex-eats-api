@@ -5,80 +5,35 @@
     "singularName": "payment",
     "pluralName": "payments",
     "displayName": "Payment",
-    "description": "Payments made by customers for orders"
+    "description": "Pagamentos dos pedidos"
   },
   "options": {
     "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "order": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::order.order",
-      "inversedBy": "payment"
-    },
-    "customer": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::customer.customer",
-      "inversedBy": "payments"
-    },
     "amount": {
       "type": "decimal",
       "required": true,
       "min": 0
     },
-    "currency": {
-      "type": "string",
-      "default": "BRL",
-      "required": true
-    },
-    "paymentMethod": {
+    "method": {
       "type": "enumeration",
-      "enum": ["credit_card", "debit_card", "pix", "cash", "bank_transfer"],
+      "enum": ["credit_card", "debit_card", "pix", "cash"],
       "required": true
     },
     "status": {
       "type": "enumeration",
-      "enum": ["pending", "authorized", "paid", "refunded", "cancelled", "failed"],
-      "default": "pending",
-      "required": true
+      "enum": ["pending", "completed", "failed", "refunded"],
+      "default": "pending"
     },
     "transactionId": {
-      "type": "string",
-      "unique": true
-    },
-    "paymentDate": {
-      "type": "datetime"
-    },
-    "gateway": {
       "type": "string"
     },
-    "gatewayTransactionId": {
-      "type": "string"
-    },
-    "cardMask": {
-      "type": "string"
-    },
-    "cardBrand": {
-      "type": "string"
-    },
-    "installments": {
-      "type": "integer",
-      "min": 1,
-      "default": 1
-    },
-    "feeAmount": {
-      "type": "decimal",
-      "min": 0,
-      "default": 0
-    },
-    "metadata": {
-      "type": "json"
-    },
-    "notes": {
-      "type": "text"
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer"
     }
   }
 }

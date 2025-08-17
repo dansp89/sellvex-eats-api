@@ -62,23 +62,7 @@
       "type": "boolean",
       "default": true
     },
-    "supplier": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::supplier.supplier",
-      "inversedBy": "ingredients"
-    },
-    "inventoryItems": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::inventory.inventory",
-      "mappedBy": "ingredient"
-    },
-    "products": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::product.product",
-      "mappedBy": "ingredients"
-    }
+
+
   }
 }

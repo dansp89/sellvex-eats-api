@@ -5,36 +5,13 @@
     "singularName": "review",
     "pluralName": "reviews",
     "displayName": "Review",
-    "description": "Avaliações de clientes sobre produtos, combos ou o serviço"
+    "description": "Avaliações de produtos e pedidos"
   },
   "options": {
     "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "order": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::order.order"
-    },
-    "customer": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::customer.customer",
-      "inversedBy": "reviews"
-    },
-    "product": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::product.product",
-      "inversedBy": "reviews"
-    },
-    "combo": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::combo.combo",
-      "inversedBy": "reviews"
-    },
     "rating": {
       "type": "integer",
       "required": true,
@@ -44,44 +21,15 @@
     "comment": {
       "type": "text"
     },
-    "images": {
-      "type": "media",
-      "multiple": true,
-      "allowedTypes": ["images"]
-    },
-    "isAnonymous": {
-      "type": "boolean",
-      "default": false
-    },
-    "status": {
-      "type": "enumeration",
-      "enum": ["pending", "approved", "rejected"],
-      "default": "pending"
-    },
-    "adminResponse": {
-      "type": "text"
-    },
-    "responseDate": {
-      "type": "datetime"
-    },
-    "responseBy": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
-    },
-    "deliveryDriver": {
+    "customer": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::delivery-driver.delivery-driver",
-      "inversedBy": "reviews"
+      "target": "api::customer.customer"
     },
-    "reviewType": {
-      "type": "enumeration",
-      "enum": ["product", "combo", "delivery", "overall"],
-      "default": "product"
-    },
-    "metadata": {
-      "type": "json"
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product"
     }
   }
 }

@@ -28,10 +28,7 @@
     "description": {
       "type": "text"
     },
-    "shortDescription": {
-      "type": "string",
-      "maxLength": 150
-    },
+
     "images": {
       "type": "media",
       "multiple": true,
@@ -44,79 +41,14 @@
       "target": "api::category.category",
       "inversedBy": "products"
     },
-    "ingredients": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::ingredient.ingredient",
-      "inversedBy": "products"
-    },
 
-    "nutritionalInfoOld": {
-      "type": "json",
-      "default": {}
-    },
-    "allergens": {
-      "type": "json",
-      "default": []
-    },
     "preparationTime": {
       "type": "integer",
       "min": 1,
       "default": 15
     },
-    "calories": {
-      "type": "integer",
-      "min": 0
-    },
-    "weight": {
-      "type": "decimal",
-      "min": 0
-    },
-    "isVegetarian": {
-      "type": "boolean",
-      "default": false
-    },
-    "isVegan": {
-      "type": "boolean",
-      "default": false
-    },
-    "isGlutenFree": {
-      "type": "boolean",
-      "default": false
-    },
-    "isSpicy": {
-      "type": "boolean",
-      "default": false
-    },
-    "spicyLevel": {
-      "type": "integer",
-      "min": 0,
-      "max": 5,
-      "default": 0
-    },
-    "availableFrom": {
-      "type": "time"
-    },
-    "availableUntil": {
-      "type": "time"
-    },
-    "stockQuantity": {
-      "type": "integer",
-      "min": 0
-    },
-    "minOrderQuantity": {
-      "type": "integer",
-      "min": 1,
-      "default": 1
-    },
-    "maxOrderQuantity": {
-      "type": "integer",
-      "min": 1
-    },
-    "tags": {
-      "type": "json",
-      "default": []
-    },
+
+
     "isActive": {
       "type": "boolean",
       "default": true
@@ -125,125 +57,8 @@
       "type": "boolean",
       "default": false
     },
-    "discountPercentage": {
-      "type": "decimal",
-      "min": 0,
-      "max": 100,
-      "default": 0
-    },
-    "originalPrice": {
-      "type": "decimal",
-      "min": 0
-    },
-    "combos": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::combo.combo",
-      "inversedBy": "products"
-    },
-    "coupons": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::coupon.coupon",
-      "inversedBy": "products"
-    },
-    "promotions": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::promotion.promotion",
-      "inversedBy": "products"
-    },
-    "favoritedBy": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::customer.customer",
-      "mappedBy": "favoriteProducts"
-    },
-    "reviews": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::review.review",
-      "mappedBy": "product"
-    },
-    "averageRating": {
-      "type": "decimal",
-      "min": 0,
-      "max": 5,
-      "default": 0
-    },
-    "totalReviews": {
-      "type": "integer",
-      "min": 0,
-      "default": 0
-    },
-    "isLactoseFree": {
-      "type": "boolean",
-      "default": false
-    },
-    "servingSize": {
-      "type": "string"
-    },
-    "barcode": {
-      "type": "string"
-    },
-    "sku": {
-      "type": "string",
-      "unique": true
-    },
-    "createdAt": {
-      "type": "datetime",
-      "private": true
-    },
-    "updatedAt": {
-      "type": "datetime",
-      "private": true
-    },
 
-    "customizations": {
-      "type": "json",
-      "default": []
-    },
-    "addons": {
-      "type": "json",
-      "default": []
-    },
-    "sizes": {
-      "type": "json",
-      "default": []
-    },
-    "wishlists": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::wishlist.wishlist",
-      "inversedBy": "products"
-    },
-    "frequentlyBoughtWith": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::frequently-bought-together.frequently-bought-together",
-      "mappedBy": "mainProduct"
-    },
-    "cost": {
-      "type": "decimal",
-      "min": 0
-    },
-    "profitMargin": {
-      "type": "decimal",
-      "min": 0,
-      "max": 100
-    },
-    "supplierCost": {
-      "type": "decimal",
-      "min": 0
-    },
-    "lastRestocked": {
-      "type": "datetime"
-    },
-    "menus": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::menu.menu",
-      "inversedBy": "products"
-    }
+
+
   }
 }

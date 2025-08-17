@@ -2,7 +2,7 @@ import { getCustomSwaggerPaths } from 'strapi-swagger-custom-paths';
 
 export default () => ({
   documentation: {
-    enabled: true,
+    enabled: false,
     config: {
       openapi: "3.0.0",
       info: {

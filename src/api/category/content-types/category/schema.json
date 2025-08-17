@@ -29,12 +29,7 @@
       "multiple": false,
       "allowedTypes": ["images"]
     },
-    "icon": {
-      "type": "string"
-    },
-    "color": {
-      "type": "string"
-    },
+
     "isActive": {
       "type": "boolean",
       "default": true
@@ -43,55 +38,16 @@
       "type": "integer",
       "min": 0
     },
-    "parent": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "children"
-    },
-    "children": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category",
-      "mappedBy": "parent"
-    },
-    "combos": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::combo.combo",
-      "inversedBy": "categories"
-    },
+
+
     "products": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product.product",
       "mappedBy": "category"
     },
-    "coupons": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::coupon.coupon",
-      "inversedBy": "categories"
-    },
-    "promotions": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::promotion.promotion",
-      "inversedBy": "categories"
-    },
 
-    "menus": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::menu.menu",
-      "inversedBy": "categories"
-    },
-    "taxConfigurations": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::tax-configuration.tax-configuration",
-      "inversedBy": "applicableCategories"
-    },
+
     "metadata": {
       "type": "json"
     }

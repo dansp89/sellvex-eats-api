@@ -8,8 +8,7 @@
     "description": "Entregadores do sistema de delivery"
   },
   "options": {
-    "draftAndPublish": false,
-    "privateAttributes": ["user"]
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -20,91 +19,21 @@
     },
     "name": {
       "type": "string",
-      "required": true,
-      "minLength": 2,
-      "maxLength": 100
-    },
-    "cpf": {
-      "type": "string",
-      "unique": true,
-      "minLength": 11,
-      "maxLength": 14,
       "required": true
     },
     "phone": {
       "type": "string",
-      "required": true,
-      "minLength": 10,
-      "maxLength": 20
-    },
-    "email": {
-      "type": "email",
-      "required": false
+      "required": true
     },
     "vehicleType": {
       "type": "enumeration",
-      "enum": ["motorcycle", "bicycle", "car", "scooter", "walking"],
+      "enum": ["motorcycle", "bicycle", "car"],
       "required": true,
       "default": "motorcycle"
-    },
-    "vehiclePlate": {
-      "type": "string",
-      "minLength": 6,
-      "maxLength": 10
-    },
-    "vehicleModel": {
-      "type": "string",
-      "minLength": 2,
-      "maxLength": 100
-    },
-    "vehicleYear": {
-      "type": "integer",
-      "min": 1950,
-      "max": 2030
-    },
-    "licenseNumber": {
-      "type": "string",
-      "unique": true
-    },
-    "workingHours": {
-      "type": "json"
-    },
-    "emergencyContact": {
-      "type": "json"
-    },
-    "status": {
-      "type": "enumeration",
-      "enum": ["available", "busy", "offline", "on_break"],
-      "default": "offline"
-    },
-    "currentLocation": {
-      "type": "json",
-      "default": null
-    },
-    "avatar": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": ["images"],
-      "required": false
-    },
-    "rating": {
-      "type": "decimal",
-      "min": 0,
-      "max": 5,
-      "default": 0
-    },
-    "totalDeliveries": {
-      "type": "integer",
-      "min": 0,
-      "default": 0
     },
     "isActive": {
       "type": "boolean",
       "default": true
-    },
-    "lastOnline": {
-      "type": "datetime",
-      "default": null
     },
     "orders": {
       "type": "relation",
@@ -117,35 +46,6 @@
       "relation": "oneToMany",
       "target": "api::notification.notification",
       "mappedBy": "deliveryDriver"
-    },
-    "reviews": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::review.review",
-      "mappedBy": "deliveryDriver"
-    },
-    "workingZones": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::delivery-zone.delivery-zone",
-      "inversedBy": "drivers"
-    },
-    "documentsVerified": {
-      "type": "boolean",
-      "default": false
-    },
-    "backgroundCheckDate": {
-      "type": "date"
-    },
-    "contractStartDate": {
-      "type": "date"
-    },
-    "contractEndDate": {
-      "type": "date"
-    },
-    "metadata": {
-      "type": "json",
-      "default": {}
     }
   }
 }

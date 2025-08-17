@@ -22,11 +22,6 @@
       "multiple": false,
       "allowedTypes": ["images"]
     },
-    "storeFavicon": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": ["images"]
-    },
     "storeDescription": {
       "type": "text"
     },
@@ -36,73 +31,16 @@
     "storePhone": {
       "type": "string"
     },
-
-    "storeAddressText": {
-      "type": "text",
-      "required": false
-    },
-    "businessHoursText": {
-      "type": "text"
-    },
     "deliveryFee": {
       "type": "decimal",
       "required": true,
       "min": 0,
       "default": 5
     },
-    "freeDeliveryThreshold": {
-      "type": "decimal",
-      "min": 0
-    },
-    "deliveryTimeMin": {
-      "type": "integer",
-      "min": 0,
-      "default": 30
-    },
-    "deliveryTimeMax": {
-      "type": "integer", 
-      "min": 0,
-      "default": 60
-    },
-    "preparationTimeMin": {
-      "type": "integer",
-      "min": 0,
-      "default": 15
-    },
-    "preparationTimeMax": {
-      "type": "integer",
-      "min": 0,
-      "default": 45
-    },
-    "deliveryZones": {
-      "type": "json"
-    },
-    "paymentMethodsText": {
-      "type": "text"
-    },
     "minimumOrderValue": {
       "type": "decimal",
       "min": 0,
       "default": 0
-    },
-    "taxRate": {
-      "type": "decimal",
-      "min": 0,
-      "max": 100
-    },
-    "socialMediaLinks": {
-      "type": "json"
-    },
-
-    "maintenanceMode": {
-      "type": "boolean",
-      "default": false
-    },
-    "maintenanceMessage": {
-      "type": "text"
-    },
-    "metadata": {
-      "type": "json"
     }
   }
 }
