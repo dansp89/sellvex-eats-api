@@ -1,4 +1,5 @@
 import { factories } from '@strapi/strapi';
+import { QueryType } from '~types/app';
 
 export default factories.createCoreService('api::delivery-driver.delivery-driver', ({ strapi }) => ({
   // Método para buscar perfil do entregador autenticado usando SQL RAW
@@ -6,18 +7,16 @@ export default factories.createCoreService('api::delivery-driver.delivery-driver
     const query = `
       SELECT 
         d.id,
-        d.first_name,
-        d.last_name,
-        d.email,
+        d.document_id,
+        d.name,
         d.phone,
         d.vehicle_type,
-        d.license_plate,
-        d.is_available,
+        d.is_active,
         d.created_at,
         d.updated_at,
         d.published_at
       FROM delivery_drivers d
-      WHERE d.user_id = $1 AND d.published_at IS NOT NULL
+      WHERE d.user_id = ? AND d.published_at IS NOT NULL
     `;
 
     const result = await strapi.db.connection.raw(query, [userId]);
@@ -30,15 +29,11 @@ export default factories.createCoreService('api::delivery-driver.delivery-driver
 
     return {
       data: {
-        id: driver.id,
-        documentId: `doc_${driver.id}`,
-        firstName: driver.first_name,
-        lastName: driver.last_name,
-        email: driver.email,
+        documentId: driver.document_id || `doc_${driver.id}`,
+        name: driver.name,
         phone: driver.phone,
         vehicleType: driver.vehicle_type,
-        licensePlate: driver.license_plate,
-        isAvailable: driver.is_available,
+        isActive: driver.is_active,
         createdAt: driver.created_at,
         updatedAt: driver.updated_at,
         publishedAt: driver.published_at
@@ -56,31 +51,37 @@ export default factories.createCoreService('api::delivery-driver.delivery-driver
     const ordersQuery = `
       SELECT 
         o.id,
-        o.order_number,
+        o.document_id,
         o.status,
         o.total,
-        o.delivery_address,
+        o.subtotal,
+        o.delivery_fee,
+        o.discount,
+        o.payment_method,
+        o.payment_status,
+        o.items,
+        o.metadata,
         o.created_at,
         o.updated_at,
         o.published_at,
-        u.username as user_username,
-        u.email as user_email,
-        u.phone as user_phone
+        c.id as customer_id,
+        c.document_id as customer_document_id,
+        c.phone as customer_phone
       FROM orders o
-      LEFT JOIN up_users u ON o.user_id = u.id
-      WHERE o.status IN ('confirmed', 'preparing') 
-        AND o.delivery_driver_id IS NULL 
+      LEFT JOIN customers c ON o.customer = c.id
+      WHERE o.status IN ('confirmed', 'preparing', 'ready_for_delivery') 
+        AND o.delivery_driver IS NULL 
         AND o.published_at IS NOT NULL
       ORDER BY o.created_at ASC
-      LIMIT $1 OFFSET $2
+      LIMIT ? OFFSET ?
     `;
 
     // Query para contar total de pedidos disponíveis
     const countQuery = `
       SELECT COUNT(*) as total
       FROM orders o
-      WHERE o.status IN ('confirmed', 'preparing') 
-        AND o.delivery_driver_id IS NULL 
+      WHERE o.status IN ('confirmed', 'preparing', 'ready_for_delivery') 
+        AND o.delivery_driver IS NULL 
         AND o.published_at IS NOT NULL
     `;
 
@@ -94,20 +95,23 @@ export default factories.createCoreService('api::delivery-driver.delivery-driver
 
     // Formatando os dados conforme padrão Strapi
     const formattedOrders = orders.rows.map(order => ({
-      id: order.id,
-      documentId: `doc_${order.id}`,
-      orderNumber: order.order_number,
+      documentId: order.document_id || `doc_${order.id}`,
       status: order.status,
       total: parseFloat(order.total),
-      deliveryAddress: order.delivery_address,
+      subtotal: parseFloat(order.subtotal),
+      deliveryFee: parseFloat(order.delivery_fee || 0),
+      discount: parseFloat(order.discount || 0),
+      paymentMethod: order.payment_method,
+      paymentStatus: order.payment_status,
+      items: order.items,
+      metadata: order.metadata,
       createdAt: order.created_at,
       updatedAt: order.updated_at,
       publishedAt: order.published_at,
-      user: {
-        username: order.user_username,
-        email: order.user_email,
-        phone: order.user_phone
-      }
+      customer: order.customer_id ? {
+        documentId: order.customer_document_id,
+        phone: order.customer_phone
+      } : null
     }));
 
     return {
@@ -131,7 +135,7 @@ export default factories.createCoreService('api::delivery-driver.delivery-driver
 
     // Primeiro buscar o driver_id pelo user_id
     const driverQuery = `
-      SELECT id FROM delivery_drivers WHERE user_id = $1 AND published_at IS NOT NULL
+      SELECT id FROM delivery_drivers WHERE user_id = ? AND published_at IS NOT NULL
     `;
     const driverResult = await strapi.db.connection.raw(driverQuery, [userId]);
     
@@ -148,28 +152,34 @@ export default factories.createCoreService('api::delivery-driver.delivery-driver
     const deliveriesQuery = `
       SELECT 
         o.id,
-        o.order_number,
+        o.document_id,
         o.status,
         o.total,
-        o.delivery_address,
+        o.subtotal,
+        o.delivery_fee,
+        o.discount,
+        o.payment_method,
+        o.payment_status,
+        o.items,
+        o.metadata,
         o.created_at,
         o.updated_at,
         o.published_at,
-        u.username as user_username,
-        u.email as user_email,
-        u.phone as user_phone
+        c.id as customer_id,
+        c.document_id as customer_document_id,
+        c.phone as customer_phone
       FROM orders o
-      LEFT JOIN up_users u ON o.user_id = u.id
-      WHERE o.delivery_driver_id = $1 AND o.published_at IS NOT NULL
+      LEFT JOIN customers c ON o.customer = c.id
+      WHERE o.delivery_driver = ? AND o.published_at IS NOT NULL
       ORDER BY o.created_at DESC
-      LIMIT $2 OFFSET $3
+      LIMIT ? OFFSET ?
     `;
 
     // Query para contar total de entregas
     const countQuery = `
       SELECT COUNT(*) as total
       FROM orders o
-      WHERE o.delivery_driver_id = $1 AND o.published_at IS NOT NULL
+      WHERE o.delivery_driver = ? AND o.published_at IS NOT NULL
     `;
 
     const [deliveries, countResult] = await Promise.all([
@@ -182,24 +192,133 @@ export default factories.createCoreService('api::delivery-driver.delivery-driver
 
     // Formatando os dados conforme padrão Strapi
     const formattedDeliveries = deliveries.rows.map(delivery => ({
-      id: delivery.id,
-      documentId: `doc_${delivery.id}`,
-      orderNumber: delivery.order_number,
+      documentId: delivery.document_id || `doc_${delivery.id}`,
       status: delivery.status,
       total: parseFloat(delivery.total),
-      deliveryAddress: delivery.delivery_address,
+      subtotal: parseFloat(delivery.subtotal),
+      deliveryFee: parseFloat(delivery.delivery_fee || 0),
+      discount: parseFloat(delivery.discount || 0),
+      paymentMethod: delivery.payment_method,
+      paymentStatus: delivery.payment_status,
+      items: delivery.items,
+      metadata: delivery.metadata,
       createdAt: delivery.created_at,
       updatedAt: delivery.updated_at,
       publishedAt: delivery.published_at,
-      user: {
-        firstName: delivery.user_first_name,
-        lastName: delivery.user_last_name,
-        phone: delivery.user_phone
-      }
+      customer: delivery.customer_id ? {
+        documentId: delivery.customer_document_id,
+        phone: delivery.customer_phone
+      } : null
     }));
 
     return {
       data: formattedDeliveries,
+      meta: {
+        pagination: {
+          page,
+          pageSize,
+          pageCount,
+          total
+        }
+      }
+    };
+  },
+
+  // Método para buscar entregador público por documentId usando SQL RAW
+  async findOnePublic(documentId: string) {
+    const query = `
+      SELECT 
+        d.id,
+        d.document_id,
+        d.name,
+        d.phone,
+        d.vehicle_type,
+        d.is_active,
+        d.created_at,
+        d.updated_at,
+        d.published_at
+      FROM delivery_drivers d
+      WHERE d.document_id = ? AND d.published_at IS NOT NULL AND d.is_active = true
+    `;
+
+    const result = await strapi.db.connection.raw(query, [documentId]);
+    
+    if (!result.rows || result.rows.length === 0) {
+      return null;
+    }
+
+    const driver = result.rows[0];
+
+    return {
+      data: {
+        documentId: driver.document_id,
+        name: driver.name,
+        phone: driver.phone,
+        vehicleType: driver.vehicle_type,
+        isActive: driver.is_active,
+        createdAt: driver.created_at,
+        updatedAt: driver.updated_at,
+        publishedAt: driver.published_at
+      }
+    };
+  },
+
+  // Método para buscar entregadores públicos usando SQL RAW
+  async findPublic(query: QueryType) {
+    const page = typeof query.page === 'number' ? query.page : parseInt(query.page || '1', 10) || 1;
+    const pageSize = Math.min(
+      typeof query.pageSize === 'number' ? query.pageSize : parseInt(query.pageSize || '25', 10) || 25,
+      100
+    );
+    const offset = (page - 1) * pageSize;
+
+    // Query para buscar entregadores
+    const driversQuery = `
+      SELECT 
+        d.id,
+        d.document_id,
+        d.name,
+        d.phone,
+        d.vehicle_type,
+        d.is_active,
+        d.created_at,
+        d.updated_at,
+        d.published_at
+      FROM delivery_drivers d
+      WHERE d.published_at IS NOT NULL AND d.is_active = true
+      ORDER BY d.created_at DESC
+      LIMIT ? OFFSET ?
+    `;
+
+    // Query para contar total
+    const countQuery = `
+      SELECT COUNT(*) as total
+      FROM delivery_drivers d
+      WHERE d.published_at IS NOT NULL AND d.is_active = true
+    `;
+
+    const [drivers, countResult] = await Promise.all([
+      strapi.db.connection.raw(driversQuery, [pageSize, offset]),
+      strapi.db.connection.raw(countQuery)
+    ]);
+
+    const total = parseInt(countResult.rows[0].total);
+    const pageCount = Math.ceil(total / pageSize);
+
+    // Formatando os dados conforme padrão Strapi
+    const formattedDrivers = drivers.rows.map(driver => ({
+      documentId: driver.document_id || `doc_${driver.id}`,
+      name: driver.name,
+      phone: driver.phone,
+      vehicleType: driver.vehicle_type,
+      isActive: driver.is_active,
+      createdAt: driver.created_at,
+      updatedAt: driver.updated_at,
+      publishedAt: driver.published_at
+    }));
+
+    return {
+      data: formattedDrivers,
       meta: {
         pagination: {
           page,

@@ -21,8 +21,7 @@ export default factories.createCoreService('api::setting.setting', ({ strapi }) 
 
     // Formatando os dados conforme padrão Strapi
     const formattedSettings = result.rows.map(setting => ({
-      id: setting.id,
-      documentId: `doc_${setting.id}`,
+      documentId: setting.document_id || `doc_${setting.id}`,
       key: setting.key,
       value: setting.value,
       isPublic: setting.is_public,

@@ -1,4 +1,5 @@
 import { factories } from '@strapi/strapi';
+import { QueryType } from '~types/app';
 
 export default factories.createCoreService('api::chat.chat', ({ strapi }) => ({
   // Enviar mensagem
@@ -279,6 +280,141 @@ export default factories.createCoreService('api::chat.chat', ({ strapi }) => ({
       };
     } catch (error) {
       throw new Error(`Erro ao buscar conversas recentes: ${error.message}`);
+    }
+  },
+
+  // Método para buscar mensagem específica por documentId
+  async findOnePublic(documentId: string) {
+    try {
+      const query = `
+        SELECT 
+          c.id,
+          c.document_id,
+          c.message,
+          c.is_read,
+          c.created_at,
+          c.updated_at,
+          c.published_at,
+          json_build_object(
+            'id', u1.id,
+            'username', u1.username,
+            'email', u1.email
+          ) as sender,
+          json_build_object(
+            'id', u2.id,
+            'username', u2.username,
+            'email', u2.email
+          ) as receiver,
+          (
+            SELECT COALESCE(json_agg(
+              json_build_object(
+                'id', ca.id,
+                'name', ca.name,
+                'url', ca.url,
+                'mime', ca.mime,
+                'size', ca.size
+              )
+            ), '[]')
+            FROM chat_attachments ca 
+            WHERE ca.chat_id = c.id
+          ) as attachments
+        FROM chats c
+        JOIN up_users u1 ON c.sender_id = u1.id
+        JOIN up_users u2 ON c.receiver_id = u2.id
+        WHERE c.document_id = ? AND c.published_at IS NOT NULL
+      `;
+
+      const result = await strapi.db.connection.raw(query, [documentId]);
+      
+      if (!result.rows?.length) {
+        return null;
+      }
+
+      return {
+        data: result.rows[0]
+      };
+    } catch (error) {
+      throw new Error(`Erro ao buscar mensagem: ${error.message}`);
+    }
+  },
+
+  // Método para buscar mensagens públicas
+  async findPublic(query: QueryType) {
+    try {
+      const page = typeof query.page === 'number' ? query.page : parseInt(query.page || '1', 10) || 1;
+      const pageSize = Math.min(
+        typeof query.pageSize === 'number' ? query.pageSize : parseInt(query.pageSize || '25', 10) || 25,
+        100
+      );
+      const offset = (page - 1) * pageSize;
+
+      const messagesQuery = `
+        SELECT 
+          c.id,
+          c.document_id,
+          c.message,
+          c.is_read,
+          c.created_at,
+          c.updated_at,
+          c.published_at,
+          json_build_object(
+            'id', u1.id,
+            'username', u1.username,
+            'email', u1.email
+          ) as sender,
+          json_build_object(
+            'id', u2.id,
+            'username', u2.username,
+            'email', u2.email
+          ) as receiver,
+          (
+            SELECT COALESCE(json_agg(
+              json_build_object(
+                'id', ca.id,
+                'name', ca.name,
+                'url', ca.url,
+                'mime', ca.mime,
+                'size', ca.size
+              )
+            ), '[]')
+            FROM chat_attachments ca 
+            WHERE ca.chat_id = c.id
+          ) as attachments
+        FROM chats c
+        JOIN up_users u1 ON c.sender_id = u1.id
+        JOIN up_users u2 ON c.receiver_id = u2.id
+        WHERE c.published_at IS NOT NULL
+        ORDER BY c.created_at DESC
+        LIMIT ? OFFSET ?
+      `;
+
+      const countQuery = `
+        SELECT COUNT(*) as total
+        FROM chats c
+        WHERE c.published_at IS NOT NULL
+      `;
+
+      const [messages, countResult] = await Promise.all([
+        strapi.db.connection.raw(messagesQuery, [pageSize, offset]),
+        strapi.db.connection.raw(countQuery)
+      ]);
+
+      const total = parseInt(countResult.rows[0].total);
+      const pageCount = Math.ceil(total / pageSize);
+
+      return {
+        data: messages.rows,
+        meta: {
+          pagination: {
+            page,
+            pageSize,
+            pageCount,
+            total
+          }
+        }
+      };
+    } catch (error) {
+      throw new Error(`Erro ao buscar mensagens públicas: ${error.message}`);
     }
   }
 }));

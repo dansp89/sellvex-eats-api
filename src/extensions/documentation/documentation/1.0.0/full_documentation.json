@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-08-18T10:26:34.354Z"
+    "x-generation-date": "2025-08-18T11:21:50.071Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -1621,6 +1621,523 @@
         "operationId": "chat_getRecentConversations_get"
       }
     },
+    "/delivery-drivers/public": {
+      "get": {
+        "tags": [
+          "Delivery-driver"
+        ],
+        "description": "Buscar todos os entregadores públicos",
+        "summary": "Lista entregadores disponíveis publicamente",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Quantidade de itens por página",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de entregadores retornada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "documentId": {
+                            "type": "string",
+                            "description": "ID único do documento"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Nome do entregador"
+                          },
+                          "phone": {
+                            "type": "string",
+                            "description": "Telefone do entregador"
+                          },
+                          "vehicleType": {
+                            "type": "string",
+                            "enum": [
+                              "motorcycle",
+                              "bicycle",
+                              "car"
+                            ],
+                            "description": "Tipo de veículo"
+                          },
+                          "isActive": {
+                            "type": "boolean",
+                            "description": "Se está ativo"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "publishedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "pagination": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "integer"
+                            },
+                            "pageSize": {
+                              "type": "integer"
+                            },
+                            "pageCount": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 400
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "BadRequestError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Bad Request"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 401
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "UnauthorizedError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Unauthorized"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 403
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "ForbiddenError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Forbidden"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 404
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "NotFoundError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Not Found"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 500
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "InternalServerError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Internal Server Error"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delivery-driver_findPublic_get"
+      }
+    },
+    "/delivery-drivers/public/{documentId}": {
+      "get": {
+        "tags": [
+          "Delivery-driver"
+        ],
+        "description": "Buscar um entregador específico",
+        "summary": "Retorna detalhes de um entregador pelo Document ID",
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "description": "Document ID do entregador",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Entregador encontrado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "documentId": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "phone": {
+                          "type": "string"
+                        },
+                        "vehicleType": {
+                          "type": "string"
+                        },
+                        "isActive": {
+                          "type": "boolean"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "publishedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 400
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "BadRequestError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Bad Request"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 401
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "UnauthorizedError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Unauthorized"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 403
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "ForbiddenError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Forbidden"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entregador não encontrado"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 500
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "InternalServerError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Internal Server Error"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delivery-driver_findOnePublic_get"
+      }
+    },
     "/delivery-drivers/profile": {
       "get": {
         "tags": [
@@ -1630,7 +2147,48 @@
         "summary": "Retorna dados do perfil do entregador",
         "responses": {
           "200": {
-            "description": "Perfil do entregador retornado com sucesso"
+            "description": "Perfil do entregador retornado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "documentId": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "phone": {
+                          "type": "string"
+                        },
+                        "vehicleType": {
+                          "type": "string"
+                        },
+                        "isActive": {
+                          "type": "boolean"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "publishedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -1853,7 +2411,82 @@
         ],
         "responses": {
           "200": {
-            "description": "Lista de pedidos disponíveis retornada com sucesso"
+            "description": "Lista de pedidos disponíveis retornada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "documentId": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "total": {
+                            "type": "number"
+                          },
+                          "subtotal": {
+                            "type": "number"
+                          },
+                          "deliveryFee": {
+                            "type": "number"
+                          },
+                          "discount": {
+                            "type": "number"
+                          },
+                          "paymentMethod": {
+                            "type": "string"
+                          },
+                          "paymentStatus": {
+                            "type": "string"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "publishedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "pagination": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "integer"
+                            },
+                            "pageSize": {
+                              "type": "integer"
+                            },
+                            "pageCount": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -2076,7 +2709,82 @@
         ],
         "responses": {
           "200": {
-            "description": "Lista de entregas retornada com sucesso"
+            "description": "Lista de entregas retornada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "documentId": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "total": {
+                            "type": "number"
+                          },
+                          "subtotal": {
+                            "type": "number"
+                          },
+                          "deliveryFee": {
+                            "type": "number"
+                          },
+                          "discount": {
+                            "type": "number"
+                          },
+                          "paymentMethod": {
+                            "type": "string"
+                          },
+                          "paymentStatus": {
+                            "type": "string"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "publishedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "pagination": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "integer"
+                            },
+                            "pageSize": {
+                              "type": "integer"
+                            },
+                            "pageCount": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -2272,11 +2980,151 @@
         "tags": [
           "Delivery-zone"
         ],
-        "description": "Buscar zonas de entrega disponíveis",
-        "summary": "Lista todas as zonas de entrega ativas",
+        "description": "Buscar todas as zonas de entrega públicas",
+        "summary": "Lista zonas de entrega disponíveis publicamente",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Quantidade de itens por página",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Lista de zonas de entrega retornada com sucesso"
+            "description": "Lista de zonas de entrega retornada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "documentId": {
+                            "type": "string",
+                            "description": "ID único do documento"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Nome da zona de entrega"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "Descrição da zona"
+                          },
+                          "neighborhoods": {
+                            "type": "array",
+                            "description": "Lista de bairros"
+                          },
+                          "zipCodes": {
+                            "type": "array",
+                            "description": "Lista de CEPs"
+                          },
+                          "coordinates": {
+                            "type": "object",
+                            "description": "Coordenadas da zona"
+                          },
+                          "deliveryFee": {
+                            "type": "number",
+                            "description": "Taxa de entrega"
+                          },
+                          "freeDeliveryThreshold": {
+                            "type": "number",
+                            "nullable": true,
+                            "description": "Valor mínimo para frete grátis"
+                          },
+                          "estimatedDeliveryTimeMin": {
+                            "type": "integer",
+                            "description": "Tempo mínimo de entrega (minutos)"
+                          },
+                          "estimatedDeliveryTimeMax": {
+                            "type": "integer",
+                            "description": "Tempo máximo de entrega (minutos)"
+                          },
+                          "isActive": {
+                            "type": "boolean",
+                            "description": "Se está ativa"
+                          },
+                          "priority": {
+                            "type": "integer",
+                            "description": "Prioridade da zona"
+                          },
+                          "maxDistance": {
+                            "type": "number",
+                            "nullable": true,
+                            "description": "Distância máxima (km)"
+                          },
+                          "serviceHoursText": {
+                            "type": "string",
+                            "description": "Horário de funcionamento"
+                          },
+                          "specialInstructions": {
+                            "type": "string",
+                            "description": "Instruções especiais"
+                          },
+                          "isEmergencyZone": {
+                            "type": "boolean",
+                            "description": "Se é zona de emergência"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "publishedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "pagination": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "integer"
+                            },
+                            "pageSize": {
+                              "type": "integer"
+                            },
+                            "pageCount": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -2465,6 +3313,259 @@
           }
         },
         "operationId": "delivery-zone_findPublic_get"
+      }
+    },
+    "/delivery-zones/public/{documentId}": {
+      "get": {
+        "tags": [
+          "Delivery-zone"
+        ],
+        "description": "Buscar uma zona de entrega específica",
+        "summary": "Retorna detalhes de uma zona de entrega pelo Document ID",
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "description": "Document ID da zona de entrega",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Zona de entrega encontrada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "documentId": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "neighborhoods": {
+                          "type": "array"
+                        },
+                        "zipCodes": {
+                          "type": "array"
+                        },
+                        "coordinates": {
+                          "type": "object"
+                        },
+                        "deliveryFee": {
+                          "type": "number"
+                        },
+                        "freeDeliveryThreshold": {
+                          "type": "number",
+                          "nullable": true
+                        },
+                        "estimatedDeliveryTimeMin": {
+                          "type": "integer"
+                        },
+                        "estimatedDeliveryTimeMax": {
+                          "type": "integer"
+                        },
+                        "isActive": {
+                          "type": "boolean"
+                        },
+                        "priority": {
+                          "type": "integer"
+                        },
+                        "maxDistance": {
+                          "type": "number",
+                          "nullable": true
+                        },
+                        "serviceHoursText": {
+                          "type": "string"
+                        },
+                        "specialInstructions": {
+                          "type": "string"
+                        },
+                        "isEmergencyZone": {
+                          "type": "boolean"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "publishedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 400
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "BadRequestError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Bad Request"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 401
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "UnauthorizedError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Unauthorized"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 403
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "ForbiddenError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Forbidden"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Zona de entrega não encontrada"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 500
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "InternalServerError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Internal Server Error"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delivery-zone_findOnePublic_get"
       }
     },
     "/ingredients/public": {
@@ -2667,6 +3768,523 @@
         "operationId": "ingredient_findPublic_get"
       }
     },
+    "/notifications/public": {
+      "get": {
+        "tags": [
+          "Notification"
+        ],
+        "description": "Buscar todas as notificações públicas",
+        "summary": "Lista notificações disponíveis publicamente",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Quantidade de itens por página",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de notificações retornada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "documentId": {
+                            "type": "string",
+                            "description": "ID único do documento"
+                          },
+                          "title": {
+                            "type": "string",
+                            "description": "Título da notificação"
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Mensagem da notificação"
+                          },
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "order_update",
+                              "system",
+                              "delivery"
+                            ],
+                            "description": "Tipo da notificação"
+                          },
+                          "isRead": {
+                            "type": "boolean",
+                            "description": "Se foi lida"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "publishedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "pagination": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "integer"
+                            },
+                            "pageSize": {
+                              "type": "integer"
+                            },
+                            "pageCount": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 400
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "BadRequestError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Bad Request"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 401
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "UnauthorizedError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Unauthorized"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 403
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "ForbiddenError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Forbidden"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 404
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "NotFoundError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Not Found"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 500
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "InternalServerError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Internal Server Error"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "notification_findPublic_get"
+      }
+    },
+    "/notifications/public/{documentId}": {
+      "get": {
+        "tags": [
+          "Notification"
+        ],
+        "description": "Buscar uma notificação específica",
+        "summary": "Retorna detalhes de uma notificação pelo Document ID",
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "description": "Document ID da notificação",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notificação encontrada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "documentId": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "isRead": {
+                          "type": "boolean"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "publishedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 400
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "BadRequestError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Bad Request"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 401
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "UnauthorizedError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Unauthorized"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 403
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "ForbiddenError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Forbidden"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Notificação não encontrada"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 500
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "InternalServerError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Internal Server Error"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "notification_findOnePublic_get"
+      }
+    },
     "/notifications/user": {
       "get": {
         "tags": [
@@ -2674,9 +4292,98 @@
         ],
         "description": "Buscar notificações do usuário autenticado",
         "summary": "Lista todas as notificações do usuário",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Quantidade de itens por página",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Lista de notificações retornada com sucesso"
+            "description": "Lista de notificações do usuário retornada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "documentId": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "message": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "isRead": {
+                            "type": "boolean"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "publishedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "pagination": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "integer"
+                            },
+                            "pageSize": {
+                              "type": "integer"
+                            },
+                            "pageCount": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -2867,7 +4574,7 @@
         "operationId": "notification_findUserNotifications_get"
       }
     },
-    "/notifications/user/{id}/read": {
+    "/notifications/{documentId}/read": {
       "put": {
         "tags": [
           "Notification"
@@ -2876,220 +4583,9 @@
         "summary": "Marca uma notificação específica como lida",
         "parameters": [
           {
-            "name": "id",
+            "name": "documentId",
             "in": "path",
-            "description": "ID da notificação",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Notificação marcada como lida com sucesso"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "string",
-                      "nullable": true,
-                      "example": null
-                    },
-                    "error": {
-                      "type": "object",
-                      "properties": {
-                        "status": {
-                          "type": "number",
-                          "example": 400
-                        },
-                        "name": {
-                          "type": "string",
-                          "example": "BadRequestError"
-                        },
-                        "message": {
-                          "type": "string",
-                          "example": "Bad Request"
-                        },
-                        "details": {
-                          "type": "object"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "string",
-                      "nullable": true,
-                      "example": null
-                    },
-                    "error": {
-                      "type": "object",
-                      "properties": {
-                        "status": {
-                          "type": "number",
-                          "example": 401
-                        },
-                        "name": {
-                          "type": "string",
-                          "example": "UnauthorizedError"
-                        },
-                        "message": {
-                          "type": "string",
-                          "example": "Unauthorized"
-                        },
-                        "details": {
-                          "type": "object"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "string",
-                      "nullable": true,
-                      "example": null
-                    },
-                    "error": {
-                      "type": "object",
-                      "properties": {
-                        "status": {
-                          "type": "number",
-                          "example": 403
-                        },
-                        "name": {
-                          "type": "string",
-                          "example": "ForbiddenError"
-                        },
-                        "message": {
-                          "type": "string",
-                          "example": "Forbidden"
-                        },
-                        "details": {
-                          "type": "object"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "string",
-                      "nullable": true,
-                      "example": null
-                    },
-                    "error": {
-                      "type": "object",
-                      "properties": {
-                        "status": {
-                          "type": "number",
-                          "example": 404
-                        },
-                        "name": {
-                          "type": "string",
-                          "example": "NotFoundError"
-                        },
-                        "message": {
-                          "type": "string",
-                          "example": "Not Found"
-                        },
-                        "details": {
-                          "type": "object"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "string",
-                      "nullable": true,
-                      "example": null
-                    },
-                    "error": {
-                      "type": "object",
-                      "properties": {
-                        "status": {
-                          "type": "number",
-                          "example": 500
-                        },
-                        "name": {
-                          "type": "string",
-                          "example": "InternalServerError"
-                        },
-                        "message": {
-                          "type": "string",
-                          "example": "Internal Server Error"
-                        },
-                        "details": {
-                          "type": "object"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "notification_markAsRead_put"
-      }
-    },
-    "/orders/public/tracking/{trackingNumber}": {
-      "get": {
-        "tags": [
-          "Order"
-        ],
-        "description": "Rastrear um pedido pelo número de rastreamento",
-        "summary": "Retorna o status e detalhes de um pedido",
-        "parameters": [
-          {
-            "name": "trackingNumber",
-            "in": "path",
-            "description": "Número de rastreamento do pedido",
+            "description": "Document ID da notificação",
             "required": true,
             "schema": {
               "type": "string"
@@ -3098,7 +4594,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Detalhes do pedido retornados com sucesso",
+            "description": "Notificação marcada como lida com sucesso",
             "content": {
               "application/json": {
                 "schema": {
@@ -3107,65 +4603,21 @@
                     "data": {
                       "type": "object",
                       "properties": {
-                        "id": {
-                          "type": "integer"
-                        },
-                        "orderNumber": {
+                        "documentId": {
                           "type": "string"
                         },
-                        "status": {
-                          "type": "string",
-                          "enum": [
-                            "pending",
-                            "confirmed",
-                            "preparing",
-                            "ready",
-                            "out_for_delivery",
-                            "delivered",
-                            "cancelled"
-                          ]
-                        },
-                        "total": {
-                          "type": "number"
-                        },
-                        "deliveryAddress": {
+                        "title": {
                           "type": "string"
                         },
-                        "user": {
-                          "type": "object",
-                          "properties": {
-                            "firstName": {
-                              "type": "string"
-                            },
-                            "lastName": {
-                              "type": "string"
-                            },
-                            "phone": {
-                              "type": "string"
-                            }
-                          }
+                        "message": {
+                          "type": "string"
                         },
-                        "deliveryDriver": {
-                          "type": "object",
-                          "nullable": true,
-                          "properties": {
-                            "firstName": {
-                              "type": "string"
-                            },
-                            "lastName": {
-                              "type": "string"
-                            },
-                            "phone": {
-                              "type": "string"
-                            },
-                            "vehicleType": {
-                              "type": "string"
-                            }
-                          }
+                        "type": {
+                          "type": "string"
                         },
-                        "createdAt": {
-                          "type": "string",
-                          "format": "date-time"
+                        "isRead": {
+                          "type": "boolean",
+                          "example": true
                         },
                         "updatedAt": {
                           "type": "string",
@@ -3290,6 +4742,617 @@
             }
           },
           "404": {
+            "description": "Notificação não encontrada"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 500
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "InternalServerError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Internal Server Error"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "notification_markAsReadByDocumentId_put"
+      }
+    },
+    "/orders/public/tracking/{trackingNumber}": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "description": "Rastrear um pedido pelo número de rastreamento",
+        "summary": "Retorna o status e detalhes de um pedido",
+        "parameters": [
+          {
+            "name": "trackingNumber",
+            "in": "path",
+            "description": "Número de rastreamento do pedido (documentId)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Detalhes do pedido retornados com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "documentId": {
+                          "type": "string",
+                          "description": "ID único do documento"
+                        },
+                        "status": {
+                          "type": "string",
+                          "enum": [
+                            "pending",
+                            "confirmed",
+                            "preparing",
+                            "ready_for_delivery",
+                            "out_for_delivery",
+                            "delivered",
+                            "cancelled",
+                            "refunded"
+                          ],
+                          "description": "Status atual do pedido"
+                        },
+                        "total": {
+                          "type": "number",
+                          "description": "Valor total do pedido"
+                        },
+                        "subtotal": {
+                          "type": "number",
+                          "description": "Subtotal do pedido"
+                        },
+                        "deliveryFee": {
+                          "type": "number",
+                          "description": "Taxa de entrega"
+                        },
+                        "discount": {
+                          "type": "number",
+                          "description": "Desconto aplicado"
+                        },
+                        "paymentMethod": {
+                          "type": "string",
+                          "enum": [
+                            "credit_card",
+                            "debit_card",
+                            "pix",
+                            "cash",
+                            "online_payment"
+                          ],
+                          "description": "Método de pagamento"
+                        },
+                        "paymentStatus": {
+                          "type": "string",
+                          "enum": [
+                            "pending",
+                            "authorized",
+                            "paid",
+                            "refunded",
+                            "voided",
+                            "error"
+                          ],
+                          "description": "Status do pagamento"
+                        },
+                        "items": {
+                          "type": "object",
+                          "description": "Itens do pedido"
+                        },
+                        "metadata": {
+                          "type": "object",
+                          "description": "Metadados adicionais"
+                        },
+                        "customer": {
+                          "type": "object",
+                          "nullable": true,
+                          "properties": {
+                            "documentId": {
+                              "type": "string",
+                              "description": "ID do cliente"
+                            },
+                            "phone": {
+                              "type": "string",
+                              "description": "Telefone do cliente"
+                            }
+                          }
+                        },
+                        "deliveryDriver": {
+                          "type": "object",
+                          "nullable": true,
+                          "properties": {
+                            "documentId": {
+                              "type": "string",
+                              "description": "ID do entregador"
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "Nome do entregador"
+                            },
+                            "phone": {
+                              "type": "string",
+                              "description": "Telefone do entregador"
+                            },
+                            "vehicleType": {
+                              "type": "string",
+                              "description": "Tipo de veículo"
+                            }
+                          }
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Data de criação"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Data de atualização"
+                        },
+                        "publishedAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Data de publicação"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 400
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "BadRequestError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Bad Request"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 401
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "UnauthorizedError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Unauthorized"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 403
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "ForbiddenError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Forbidden"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Pedido não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "null"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "integer",
+                          "example": 404
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "NotFoundError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Pedido não encontrado"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 500
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "InternalServerError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Internal Server Error"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "order_trackOrder_get"
+      }
+    },
+    "/orders/public": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "description": "Buscar todos os pedidos públicos",
+        "summary": "Lista pedidos disponíveis publicamente",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Quantidade de itens por página",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de pedidos retornada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "documentId": {
+                            "type": "string",
+                            "description": "ID único do documento"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "pending",
+                              "confirmed",
+                              "preparing",
+                              "ready_for_delivery",
+                              "out_for_delivery",
+                              "delivered",
+                              "cancelled",
+                              "refunded"
+                            ]
+                          },
+                          "total": {
+                            "type": "number"
+                          },
+                          "subtotal": {
+                            "type": "number"
+                          },
+                          "deliveryFee": {
+                            "type": "number"
+                          },
+                          "discount": {
+                            "type": "number"
+                          },
+                          "paymentMethod": {
+                            "type": "string"
+                          },
+                          "paymentStatus": {
+                            "type": "string"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "publishedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "pagination": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "integer"
+                            },
+                            "pageSize": {
+                              "type": "integer"
+                            },
+                            "pageCount": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 400
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "BadRequestError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Bad Request"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 401
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "UnauthorizedError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Unauthorized"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 403
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "ForbiddenError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Forbidden"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
             "description": "Not Found",
             "content": {
               "application/json": {
@@ -3364,7 +5427,270 @@
             }
           }
         },
-        "operationId": "order_trackOrder_get"
+        "operationId": "order_findPublic_get"
+      }
+    },
+    "/orders/public/{documentId}": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "description": "Buscar um pedido específico",
+        "summary": "Retorna detalhes de um pedido pelo Document ID",
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "description": "Document ID do pedido",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pedido encontrado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "documentId": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "total": {
+                          "type": "number"
+                        },
+                        "subtotal": {
+                          "type": "number"
+                        },
+                        "deliveryFee": {
+                          "type": "number"
+                        },
+                        "discount": {
+                          "type": "number"
+                        },
+                        "paymentMethod": {
+                          "type": "string"
+                        },
+                        "paymentStatus": {
+                          "type": "string"
+                        },
+                        "items": {
+                          "type": "object"
+                        },
+                        "metadata": {
+                          "type": "object"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "publishedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "customer": {
+                          "type": "object",
+                          "nullable": true,
+                          "properties": {
+                            "documentId": {
+                              "type": "string"
+                            },
+                            "phone": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "deliveryDriver": {
+                          "type": "object",
+                          "nullable": true,
+                          "properties": {
+                            "documentId": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "phone": {
+                              "type": "string"
+                            },
+                            "vehicleType": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 400
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "BadRequestError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Bad Request"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 401
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "UnauthorizedError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Unauthorized"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 403
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "ForbiddenError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Forbidden"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Pedido não encontrado"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 500
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "InternalServerError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Internal Server Error"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "order_findOnePublic_get"
       }
     },
     "/orders/user/{id}": {
@@ -4235,13 +6561,13 @@
         "operationId": "order_acceptOrder_post"
       }
     },
-    "/payments/user": {
+    "/payments/public": {
       "get": {
         "tags": [
           "Payment"
         ],
-        "description": "Buscar histórico de pagamentos do cliente",
-        "summary": "Lista todos os pagamentos realizados pelo cliente autenticado",
+        "description": "Buscar todos os pagamentos públicos",
+        "summary": "Lista pagamentos disponíveis publicamente",
         "parameters": [
           {
             "name": "page",
@@ -4267,7 +6593,621 @@
         ],
         "responses": {
           "200": {
-            "description": "Histórico de pagamentos retornado com sucesso"
+            "description": "Lista de pagamentos retornada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "documentId": {
+                            "type": "string",
+                            "description": "ID único do documento"
+                          },
+                          "amount": {
+                            "type": "number",
+                            "description": "Valor do pagamento"
+                          },
+                          "method": {
+                            "type": "string",
+                            "enum": [
+                              "credit_card",
+                              "debit_card",
+                              "pix",
+                              "cash"
+                            ],
+                            "description": "Método de pagamento"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "pending",
+                              "completed",
+                              "failed",
+                              "refunded"
+                            ],
+                            "description": "Status do pagamento"
+                          },
+                          "transactionId": {
+                            "type": "string",
+                            "description": "ID da transação"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "publishedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "customer": {
+                            "type": "object",
+                            "nullable": true,
+                            "properties": {
+                              "documentId": {
+                                "type": "string"
+                              },
+                              "phone": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "pagination": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "integer"
+                            },
+                            "pageSize": {
+                              "type": "integer"
+                            },
+                            "pageCount": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 400
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "BadRequestError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Bad Request"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 401
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "UnauthorizedError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Unauthorized"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 403
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "ForbiddenError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Forbidden"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 404
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "NotFoundError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Not Found"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 500
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "InternalServerError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Internal Server Error"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "payment_findPublic_get"
+      }
+    },
+    "/payments/public/{documentId}": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "description": "Buscar um pagamento específico",
+        "summary": "Retorna detalhes de um pagamento pelo Document ID",
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "description": "Document ID do pagamento",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pagamento encontrado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "documentId": {
+                          "type": "string"
+                        },
+                        "amount": {
+                          "type": "number"
+                        },
+                        "method": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "publishedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "customer": {
+                          "type": "object",
+                          "nullable": true,
+                          "properties": {
+                            "documentId": {
+                              "type": "string"
+                            },
+                            "phone": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 400
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "BadRequestError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Bad Request"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 401
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "UnauthorizedError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Unauthorized"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 403
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "ForbiddenError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Forbidden"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Pagamento não encontrado"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 500
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "InternalServerError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Internal Server Error"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "payment_findOnePublic_get"
+      }
+    },
+    "/payments/user": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "description": "Buscar pagamentos do usuário autenticado",
+        "summary": "Lista todos os pagamentos do usuário",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Quantidade de itens por página",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de pagamentos do usuário retornada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "documentId": {
+                            "type": "string"
+                          },
+                          "amount": {
+                            "type": "number"
+                          },
+                          "method": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "transactionId": {
+                            "type": "string"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "publishedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "pagination": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "integer"
+                            },
+                            "pageSize": {
+                              "type": "integer"
+                            },
+                            "pageCount": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",

@@ -1,6 +1,32 @@
 import { factories } from '@strapi/strapi';
 
 export default factories.createCoreController('api::delivery-driver.delivery-driver', ({ strapi }) => ({
+  // Handler para buscar todos os entregadores públicos
+  async findPublic(ctx) {
+    try {
+      const result = await strapi.service('api::delivery-driver.delivery-driver').findPublic(ctx.query);
+      return ctx.send(result);
+    } catch (error) {
+      return ctx.badRequest('Erro ao buscar entregadores', { error: error.message });
+    }
+  },
+
+  // Handler para buscar um entregador específico
+  async findOnePublic(ctx) {
+    try {
+      const { documentId } = ctx.params;
+      const result = await strapi.service('api::delivery-driver.delivery-driver').findOnePublic(documentId);
+      
+      if (!result) {
+        return ctx.notFound('Entregador não encontrado');
+      }
+      
+      return ctx.send(result);
+    } catch (error) {
+      return ctx.badRequest('Erro ao buscar entregador', { error: error.message });
+    }
+  },
+
   // Handler para buscar perfil do entregador autenticado
   async findProfile(ctx) {
     try {

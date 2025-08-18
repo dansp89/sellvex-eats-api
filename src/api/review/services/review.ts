@@ -19,7 +19,7 @@ export default factories.createCoreService('api::review.review', ({ strapi }) =>
       FROM reviews r
       WHERE r.published_at IS NOT NULL
       ORDER BY r.created_at DESC
-      LIMIT $1 OFFSET $2
+      LIMIT ? OFFSET ?
     `;
 
     // Query para contar total
@@ -39,8 +39,7 @@ export default factories.createCoreService('api::review.review', ({ strapi }) =>
 
     // Formatando os dados conforme padrão Strapi
     const formattedReviews = reviews.rows.map(review => ({
-      id: review.id,
-      documentId: `doc_${review.id}`,
+      documentId: review.document_id || `doc_${review.id}`,
       rating: parseInt(review.rating),
       comment: review.comment,
       createdAt: review.created_at,

@@ -1,6 +1,32 @@
 import { factories } from '@strapi/strapi';
 
 export default factories.createCoreController('api::order.order', ({ strapi }) => ({
+  // Handler para buscar todos os pedidos públicos
+  async findPublic(ctx) {
+    try {
+      const result = await strapi.service('api::order.order').findPublic(ctx.query);
+      return ctx.send(result);
+    } catch (error) {
+      return ctx.badRequest('Erro ao buscar pedidos', { error: error.message });
+    }
+  },
+
+  // Handler para buscar um pedido específico
+  async findOnePublic(ctx) {
+    try {
+      const { documentId } = ctx.params;
+      const result = await strapi.service('api::order.order').findOnePublic(documentId);
+      
+      if (!result) {
+        return ctx.notFound('Pedido não encontrado');
+      }
+      
+      return ctx.send(result);
+    } catch (error) {
+      return ctx.badRequest('Erro ao buscar pedido', { error: error.message });
+    }
+  },
+
   // Handler para buscar detalhes do pedido para cliente
   async findOrderForUser(ctx) {
     try {

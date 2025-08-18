@@ -20,7 +20,7 @@ export default factories.createCoreService('api::ingredient.ingredient', ({ stra
       FROM ingredients i
       WHERE i.published_at IS NOT NULL
       ORDER BY i.name ASC
-      LIMIT $1 OFFSET $2
+      LIMIT ? OFFSET ?
     `;
 
     // Query para contar total
@@ -40,8 +40,7 @@ export default factories.createCoreService('api::ingredient.ingredient', ({ stra
 
     // Formatando os dados conforme padrão Strapi
     const formattedIngredients = ingredients.rows.map(ingredient => ({
-      id: ingredient.id,
-      documentId: `doc_${ingredient.id}`,
+      documentId: ingredient.document_id || `doc_${ingredient.id}`,
       name: ingredient.name,
       description: ingredient.description,
       allergenInfo: ingredient.allergen_info,
