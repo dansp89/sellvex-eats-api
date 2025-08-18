@@ -146,6 +146,36 @@
           "sortable": true
         }
       },
+      "ingredients": {
+        "edit": {
+          "label": "ingredients",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "ingredients",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "reviews": {
+        "edit": {
+          "label": "reviews",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "documentId"
+        },
+        "list": {
+          "label": "reviews",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -267,6 +297,16 @@
           {
             "name": "isFeatured",
             "size": 4
+          }
+        ],
+        [
+          {
+            "name": "ingredients",
+            "size": 6
+          },
+          {
+            "name": "reviews",
+            "size": 6
           }
         ]
       ]

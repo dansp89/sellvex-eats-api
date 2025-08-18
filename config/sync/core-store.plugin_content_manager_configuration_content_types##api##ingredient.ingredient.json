@@ -201,6 +201,21 @@
           "sortable": true
         }
       },
+      "products": {
+        "edit": {
+          "label": "products",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "products",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -338,6 +353,12 @@
           {
             "name": "isActive",
             "size": 4
+          }
+        ],
+        [
+          {
+            "name": "products",
+            "size": 6
           }
         ]
       ]

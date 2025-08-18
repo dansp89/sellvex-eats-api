@@ -47,17 +47,17 @@
           "sortable": true
         }
       },
-      "customer": {
+      "user": {
         "edit": {
-          "label": "customer",
+          "label": "user",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true,
-          "mainField": "phone"
+          "mainField": "username"
         },
         "list": {
-          "label": "customer",
+          "label": "user",
           "searchable": true,
           "sortable": true
         }
@@ -73,6 +73,21 @@
         },
         "list": {
           "label": "product",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "order": {
+        "edit": {
+          "label": "order",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "documentId"
+        },
+        "list": {
+          "label": "order",
           "searchable": true,
           "sortable": true
         }
@@ -147,16 +162,11 @@
     "layouts": {
       "list": [
         "id",
-        "customer",
-        "product"
+        "product",
+        "user",
+        "order"
       ],
       "edit": [
-        [
-          {
-            "name": "customer",
-            "size": 6
-          }
-        ],
         [
           {
             "name": "product",
@@ -170,6 +180,16 @@
           },
           {
             "name": "comment",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "user",
+            "size": 6
+          },
+          {
+            "name": "order",
             "size": 6
           }
         ]

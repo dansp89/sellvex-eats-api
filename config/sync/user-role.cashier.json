@@ -1,8 +1,74 @@
 {
-  "documentId": "bc32uzkawsp4jos3s184dzn3",
+  "documentId": "cashier_id",
   "name": "Cashier",
-  "description": "**Descrição:** Operador de caixa e pagamentos  \n**Responsabilidades:**\n- Processamento de pagamentos\n- Emissão de notas fiscais\n- Fechamento de caixa\n- Atendimento no balcão",
+  "description": "**Descrição:** Funcionário do caixa  \n**Responsabilidades:**\n- Processamento de pagamentos\n- Atendimento ao cliente\n- Controle de vendas",
   "type": "cashier",
   "locale": null,
-  "permissions": []
+  "permissions": [
+    {
+      "documentId": "cashier_product_find",
+      "action": "api::product.product.find",
+      "locale": null
+    },
+    {
+      "documentId": "cashier_category_find",
+      "action": "api::category.category.find",
+      "locale": null
+    },
+    {
+      "documentId": "cashier_order_find",
+      "action": "api::order.order.find",
+      "locale": null
+    },
+    {
+      "documentId": "cashier_order_find_one",
+      "action": "api::order.order.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "cashier_order_update",
+      "action": "api::order.order.update",
+      "locale": null
+    },
+    {
+      "documentId": "cashier_payment_find",
+      "action": "api::payment.payment.find",
+      "locale": null
+    },
+    {
+      "documentId": "cashier_payment_find_one",
+      "action": "api::payment.payment.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "cashier_payment_create",
+      "action": "api::payment.payment.create",
+      "locale": null
+    },
+    {
+      "documentId": "cashier_payment_update",
+      "action": "api::payment.payment.update",
+      "locale": null
+    },
+    {
+      "documentId": "cashier_notification_find_user_notifications",
+      "action": "api::notification.notification.findUserNotifications",
+      "locale": null
+    },
+    {
+      "documentId": "cashier_setting_find_public",
+      "action": "api::setting.setting.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "cashier_user_me",
+      "action": "plugin::users-permissions.user.me",
+      "locale": null
+    },
+    {
+      "documentId": "cashier_user_update",
+      "action": "plugin::users-permissions.user.update",
+      "locale": null
+    }
+  ]
 }

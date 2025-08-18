@@ -84,85 +84,79 @@
       "locale": null
     },
     {
-      "documentId": "c0dk67qiqm0g2ds2dm9jdkqn",
+      "documentId": "jiabixgqle3pwmw2aspm3tnc",
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
-      "subject": "api::customer.customer",
+      "subject": "api::chat.chat",
       "properties": {
         "fields": [
-          "user",
-          "phone",
-          "loyaltyPoints",
-          "totalSpent",
-          "orders",
-          "totalOrders",
-          "preferences",
-          "notifications"
+          "message",
+          "sender",
+          "receiver",
+          "order",
+          "isRead",
+          "attachments"
         ]
       },
       "conditions": [],
       "locale": null
     },
     {
-      "documentId": "gd2rns2iuj4gie5csighsie8",
+      "documentId": "kgia82ubn604og7ze0btfk13",
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
-      "subject": "api::customer.customer",
+      "subject": "api::chat.chat",
       "properties": {},
       "conditions": [],
       "locale": null
     },
     {
-      "documentId": "fa3nlancrxhz5isnbcgc1o9x",
+      "documentId": "nzauop5fanw1re77m1dt97hd",
       "action": "plugin::content-manager.explorer.publish",
       "actionParameters": {},
-      "subject": "api::customer.customer",
+      "subject": "api::chat.chat",
       "properties": {},
       "conditions": [],
       "locale": null
     },
     {
-      "documentId": "nqmbqyjg49uba9jfqlyjtzqj",
+      "documentId": "eu9rymzxtp2a4t6h158tovti",
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
-      "subject": "api::customer.customer",
+      "subject": "api::chat.chat",
       "properties": {
         "fields": [
-          "user",
-          "phone",
-          "loyaltyPoints",
-          "totalSpent",
-          "orders",
-          "totalOrders",
-          "preferences",
-          "notifications"
+          "message",
+          "sender",
+          "receiver",
+          "order",
+          "isRead",
+          "attachments"
         ]
       },
       "conditions": [],
       "locale": null
     },
     {
-      "documentId": "u8wtn8l12f12cb6xi0um3ntk",
+      "documentId": "s38346dj16mb0j6jizmvr9pp",
       "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
-      "subject": "api::customer.customer",
+      "subject": "api::chat.chat",
       "properties": {
         "fields": [
-          "user",
-          "phone",
-          "loyaltyPoints",
-          "totalSpent",
-          "orders",
-          "totalOrders",
-          "preferences",
-          "notifications"
+          "message",
+          "sender",
+          "receiver",
+          "order",
+          "isRead",
+          "attachments"
         ]
       },
       "conditions": [],
       "locale": null
     },
     {
-      "documentId": "ksp2rsqrs0ebcgd1lxb33f5y",
+      "documentId": "kgtzshyjxu24qrm1hj73vrnf",
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
       "subject": "api::delivery-driver.delivery-driver",
@@ -174,7 +168,8 @@
           "vehicleType",
           "isActive",
           "orders",
-          "notifications"
+          "notifications",
+          "workingZones"
         ]
       },
       "conditions": [],
@@ -199,7 +194,7 @@
       "locale": null
     },
     {
-      "documentId": "gl7oifsvw2leo29vju89bfwx",
+      "documentId": "iu8nm8xib9qucpcyftqaffke",
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::delivery-driver.delivery-driver",
@@ -211,14 +206,15 @@
           "vehicleType",
           "isActive",
           "orders",
-          "notifications"
+          "notifications",
+          "workingZones"
         ]
       },
       "conditions": [],
       "locale": null
     },
     {
-      "documentId": "o9hjoulhip24rrcl2f89vxvi",
+      "documentId": "jqa92c1quhwssff14x8tlz5v",
       "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
       "subject": "api::delivery-driver.delivery-driver",
@@ -230,7 +226,8 @@
           "vehicleType",
           "isActive",
           "orders",
-          "notifications"
+          "notifications",
+          "workingZones"
         ]
       },
       "conditions": [],
@@ -342,7 +339,7 @@
       "locale": null
     },
     {
-      "documentId": "dgromlomne21tjjdftb5gswg",
+      "documentId": "e1ncyhgalm29paa7mgvkw5jr",
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
       "subject": "api::ingredient.ingredient",
@@ -360,7 +357,8 @@
           "calories",
           "unitOfMeasure",
           "price",
-          "isActive"
+          "isActive",
+          "products"
         ]
       },
       "conditions": [],
@@ -385,7 +383,7 @@
       "locale": null
     },
     {
-      "documentId": "k8nmjhrg8jtihttuz74un0rb",
+      "documentId": "cup690hhzdoqnh605gihxevj",
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::ingredient.ingredient",
@@ -403,14 +401,15 @@
           "calories",
           "unitOfMeasure",
           "price",
-          "isActive"
+          "isActive",
+          "products"
         ]
       },
       "conditions": [],
       "locale": null
     },
     {
-      "documentId": "xyve8ajbd1cqlnlov36zjrav",
+      "documentId": "yhr6g6ctjnt5lcmqpjgbj3an",
       "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
       "subject": "api::ingredient.ingredient",
@@ -428,14 +427,15 @@
           "calories",
           "unitOfMeasure",
           "price",
-          "isActive"
+          "isActive",
+          "products"
         ]
       },
       "conditions": [],
       "locale": null
     },
     {
-      "documentId": "ypnlbk6by0sf1dhbnrlx7vhj",
+      "documentId": "fawl8c86hz91ulm8j01ndeaz",
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
       "subject": "api::notification.notification",
@@ -445,7 +445,7 @@
           "message",
           "type",
           "isRead",
-          "customer",
+          "user",
           "deliveryDriver"
         ]
       },
@@ -471,7 +471,7 @@
       "locale": null
     },
     {
-      "documentId": "o125jc3hvpk68wghbntx2rzg",
+      "documentId": "x72o610l6guvpk9qk5vrsvgm",
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::notification.notification",
@@ -481,7 +481,7 @@
           "message",
           "type",
           "isRead",
-          "customer",
+          "user",
           "deliveryDriver"
         ]
       },
@@ -489,7 +489,7 @@
       "locale": null
     },
     {
-      "documentId": "fix0k7559gb8vke5ur8ygovi",
+      "documentId": "bckebupw7bkzvflv0yrjlfip",
       "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
       "subject": "api::notification.notification",
@@ -499,7 +499,7 @@
           "message",
           "type",
           "isRead",
-          "customer",
+          "user",
           "deliveryDriver"
         ]
       },
@@ -507,13 +507,13 @@
       "locale": null
     },
     {
-      "documentId": "d4q1ldrfkk7wopko64nxpzyg",
+      "documentId": "vxt7ybi4qr7lrdx10g9v303j",
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
       "subject": "api::order.order",
       "properties": {
         "fields": [
-          "customer",
+          "user",
           "items",
           "subtotal",
           "deliveryFee",
@@ -523,6 +523,8 @@
           "paymentMethod",
           "paymentStatus",
           "deliveryDriver",
+          "deliveryZone",
+          "deliveryAddress",
           "metadata"
         ]
       },
@@ -548,13 +550,13 @@
       "locale": null
     },
     {
-      "documentId": "vtrh143v3wggluhfd13zj0tx",
+      "documentId": "kd2uef39zxhnyirmtd67b3ep",
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::order.order",
       "properties": {
         "fields": [
-          "customer",
+          "user",
           "items",
           "subtotal",
           "deliveryFee",
@@ -564,6 +566,8 @@
           "paymentMethod",
           "paymentStatus",
           "deliveryDriver",
+          "deliveryZone",
+          "deliveryAddress",
           "metadata"
         ]
       },
@@ -571,13 +575,13 @@
       "locale": null
     },
     {
-      "documentId": "icserjgt9rrrdb18rdt2kaog",
+      "documentId": "doxth7mg9r1cx4x4q8b5yk9d",
       "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
       "subject": "api::order.order",
       "properties": {
         "fields": [
-          "customer",
+          "user",
           "items",
           "subtotal",
           "deliveryFee",
@@ -587,6 +591,8 @@
           "paymentMethod",
           "paymentStatus",
           "deliveryDriver",
+          "deliveryZone",
+          "deliveryAddress",
           "metadata"
         ]
       },
@@ -594,7 +600,7 @@
       "locale": null
     },
     {
-      "documentId": "zhkce4gqs699mpudgiwsc6g3",
+      "documentId": "yd8ebfv574a90ddfn8rklin3",
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
       "subject": "api::payment.payment",
@@ -604,7 +610,7 @@
           "method",
           "status",
           "transactionId",
-          "customer"
+          "user"
         ]
       },
       "conditions": [],
@@ -629,7 +635,7 @@
       "locale": null
     },
     {
-      "documentId": "x7wqb8l79zi42x0nrwb3aisp",
+      "documentId": "uv5ikqirjv4ymtd2mlumqdze",
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::payment.payment",
@@ -639,14 +645,14 @@
           "method",
           "status",
           "transactionId",
-          "customer"
+          "user"
         ]
       },
       "conditions": [],
       "locale": null
     },
     {
-      "documentId": "e1loypf30f1oju6v4bzj74w3",
+      "documentId": "vm0r3ph52zpzqx41awq8xogg",
       "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
       "subject": "api::payment.payment",
@@ -656,14 +662,14 @@
           "method",
           "status",
           "transactionId",
-          "customer"
+          "user"
         ]
       },
       "conditions": [],
       "locale": null
     },
     {
-      "documentId": "cugda2ff52thtqbl0gzfrwdt",
+      "documentId": "wzj6zukk5fz2jurvu78b9lpv",
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
       "subject": "api::product.product",
@@ -677,7 +683,9 @@
           "category",
           "preparationTime",
           "isActive",
-          "isFeatured"
+          "isFeatured",
+          "ingredients",
+          "reviews"
         ]
       },
       "conditions": [],
@@ -702,7 +710,7 @@
       "locale": null
     },
     {
-      "documentId": "c8dyl4hxif382jluhgotgh2s",
+      "documentId": "qdq2uwa8s1gbzr308hyag2ha",
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::product.product",
@@ -716,14 +724,16 @@
           "category",
           "preparationTime",
           "isActive",
-          "isFeatured"
+          "isFeatured",
+          "ingredients",
+          "reviews"
         ]
       },
       "conditions": [],
       "locale": null
     },
     {
-      "documentId": "olzd63e0d2dmvzh0192bli8f",
+      "documentId": "kmhps0wez3thtlkybg6bbsnb",
       "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
       "subject": "api::product.product",
@@ -737,14 +747,16 @@
           "category",
           "preparationTime",
           "isActive",
-          "isFeatured"
+          "isFeatured",
+          "ingredients",
+          "reviews"
         ]
       },
       "conditions": [],
       "locale": null
     },
     {
-      "documentId": "mop5aeesddhz0r8a581lpciw",
+      "documentId": "h7phyhp1qtjouxapneytpz6l",
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
       "subject": "api::review.review",
@@ -752,8 +764,9 @@
         "fields": [
           "rating",
           "comment",
-          "customer",
-          "product"
+          "user",
+          "product",
+          "order"
         ]
       },
       "conditions": [],
@@ -778,7 +791,7 @@
       "locale": null
     },
     {
-      "documentId": "u28tvynq7593e695mr4cb83t",
+      "documentId": "cvxgzjl1iavfoytxadwl8dqw",
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::review.review",
@@ -786,15 +799,16 @@
         "fields": [
           "rating",
           "comment",
-          "customer",
-          "product"
+          "user",
+          "product",
+          "order"
         ]
       },
       "conditions": [],
       "locale": null
     },
     {
-      "documentId": "rzo3862dr13oicp67s0kawhx",
+      "documentId": "b5fmt79j6m6dyihb4n32mhpa",
       "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
       "subject": "api::review.review",
@@ -802,8 +816,9 @@
         "fields": [
           "rating",
           "comment",
-          "customer",
-          "product"
+          "user",
+          "product",
+          "order"
         ]
       },
       "conditions": [],
@@ -1164,7 +1179,7 @@
       "locale": null
     },
     {
-      "documentId": "iq8xiobmf78ovh7issrdjche",
+      "documentId": "tuhwutzbgv2gm6lly7q0dcpy",
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
       "subject": "plugin::users-permissions.user",
@@ -1178,7 +1193,18 @@
           "confirmationToken",
           "confirmed",
           "blocked",
-          "role"
+          "role",
+          "birth",
+          "phone",
+          "loyaltyPoints",
+          "totalSpent",
+          "totalOrders",
+          "preferences",
+          "orders",
+          "notifications",
+          "reviews",
+          "chatsSent",
+          "chatsReceived"
         ]
       },
       "conditions": [],
@@ -1203,7 +1229,7 @@
       "locale": null
     },
     {
-      "documentId": "p0jpt698d52e1npbzevdq9vi",
+      "documentId": "wiyqppbz2kyeilq0b085mgmz",
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "plugin::users-permissions.user",
@@ -1217,14 +1243,25 @@
           "confirmationToken",
           "confirmed",
           "blocked",
-          "role"
+          "role",
+          "birth",
+          "phone",
+          "loyaltyPoints",
+          "totalSpent",
+          "totalOrders",
+          "preferences",
+          "orders",
+          "notifications",
+          "reviews",
+          "chatsSent",
+          "chatsReceived"
         ]
       },
       "conditions": [],
       "locale": null
     },
     {
-      "documentId": "obryakztv3ik3lka59y16r26",
+      "documentId": "pyeo78s8lx92lpr7pm9twrsi",
       "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
       "subject": "plugin::users-permissions.user",
@@ -1238,7 +1275,18 @@
           "confirmationToken",
           "confirmed",
           "blocked",
-          "role"
+          "role",
+          "birth",
+          "phone",
+          "loyaltyPoints",
+          "totalSpent",
+          "totalOrders",
+          "preferences",
+          "orders",
+          "notifications",
+          "reviews",
+          "chatsSent",
+          "chatsReceived"
         ]
       },
       "conditions": [],

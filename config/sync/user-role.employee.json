@@ -1,8 +1,69 @@
 {
-  "documentId": "wyt6bsslvetx1bbmz20p7508",
+  "documentId": "employee_base_id",
   "name": "Employee",
-  "description": "**Descrição:** Funcionário geral da loja  \n**Responsabilidades:**\n- Atendimento presencial\n- Preparação de pedidos\n- Manutenção do ambiente\n- Suporte às operações gerais",
+  "description": "**Descrição:** Funcionário básico da empresa  \n**Responsabilidades:**\n- Acesso interno ao sistema\n- Consulta de informações operacionais básicas",
   "type": "employee",
   "locale": null,
-  "permissions": []
+  "permissions": [
+    {
+      "documentId": "emp_category_find",
+      "action": "api::category.category.find",
+      "locale": null
+    },
+    {
+      "documentId": "emp_category_find_public",
+      "action": "api::category.category.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "emp_product_find",
+      "action": "api::product.product.find",
+      "locale": null
+    },
+    {
+      "documentId": "emp_product_find_public",
+      "action": "api::product.product.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "emp_product_find_one",
+      "action": "api::product.product.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "emp_order_find",
+      "action": "api::order.order.find",
+      "locale": null
+    },
+    {
+      "documentId": "emp_order_find_one",
+      "action": "api::order.order.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "emp_delivery_zone_find",
+      "action": "api::delivery-zone.delivery-zone.find",
+      "locale": null
+    },
+    {
+      "documentId": "emp_setting_find_public",
+      "action": "api::setting.setting.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "emp_user_me",
+      "action": "plugin::users-permissions.user.me",
+      "locale": null
+    },
+    {
+      "documentId": "emp_user_update",
+      "action": "plugin::users-permissions.user.update",
+      "locale": null
+    },
+    {
+      "documentId": "emp_user_change_password",
+      "action": "plugin::users-permissions.auth.changePassword",
+      "locale": null
+    }
+  ]
 }

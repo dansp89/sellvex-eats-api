@@ -1,13 +1,13 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::customer.customer",
+  "key": "plugin_content_manager_configuration_content_types::api::chat.chat",
   "value": {
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "phone",
-      "defaultSortBy": "phone",
+      "mainField": "documentId",
+      "defaultSortBy": "documentId",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -19,9 +19,23 @@
           "sortable": true
         }
       },
-      "user": {
+      "message": {
         "edit": {
-          "label": "user",
+          "label": "message",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "message",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "sender": {
+        "edit": {
+          "label": "sender",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -29,56 +43,29 @@
           "mainField": "username"
         },
         "list": {
-          "label": "user",
+          "label": "sender",
           "searchable": true,
           "sortable": true
         }
       },
-      "phone": {
+      "receiver": {
         "edit": {
-          "label": "phone",
+          "label": "receiver",
           "description": "",
           "placeholder": "",
           "visible": true,
-          "editable": true
+          "editable": true,
+          "mainField": "username"
         },
         "list": {
-          "label": "phone",
+          "label": "receiver",
           "searchable": true,
           "sortable": true
         }
       },
-      "loyaltyPoints": {
+      "order": {
         "edit": {
-          "label": "loyaltyPoints",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "loyaltyPoints",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "totalSpent": {
-        "edit": {
-          "label": "totalSpent",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "totalSpent",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "orders": {
-        "edit": {
-          "label": "orders",
+          "label": "order",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -86,50 +73,35 @@
           "mainField": "documentId"
         },
         "list": {
-          "label": "orders",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "totalOrders": {
-        "edit": {
-          "label": "totalOrders",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "totalOrders",
+          "label": "order",
           "searchable": true,
           "sortable": true
         }
       },
-      "preferences": {
+      "isRead": {
         "edit": {
-          "label": "preferences",
+          "label": "isRead",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "preferences",
-          "searchable": false,
-          "sortable": false
+          "label": "isRead",
+          "searchable": true,
+          "sortable": true
         }
       },
-      "notifications": {
+      "attachments": {
         "edit": {
-          "label": "notifications",
+          "label": "attachments",
           "description": "",
           "placeholder": "",
           "visible": true,
-          "editable": true,
-          "mainField": "title"
+          "editable": true
         },
         "list": {
-          "label": "notifications",
+          "label": "attachments",
           "searchable": false,
           "sortable": false
         }
@@ -204,61 +176,44 @@
     "layouts": {
       "list": [
         "id",
-        "user",
-        "phone"
+        "message",
+        "sender",
+        "receiver"
       ],
       "edit": [
         [
           {
-            "name": "user",
+            "name": "message",
+            "size": 6
+          },
+          {
+            "name": "sender",
             "size": 6
           }
         ],
         [
           {
-            "name": "phone",
+            "name": "receiver",
+            "size": 6
+          },
+          {
+            "name": "order",
             "size": 6
           }
         ],
         [
           {
-            "name": "loyaltyPoints",
+            "name": "isRead",
             "size": 4
-          }
-        ],
-        [
+          },
           {
-            "name": "totalSpent",
-            "size": 4
-          }
-        ],
-        [
-          {
-            "name": "orders",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "totalOrders",
-            "size": 4
-          }
-        ],
-        [
-          {
-            "name": "preferences",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "notifications",
+            "name": "attachments",
             "size": 6
           }
         ]
       ]
     },
-    "uid": "api::customer.customer"
+    "uid": "api::chat.chat"
   },
   "type": "object",
   "environment": null,

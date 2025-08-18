@@ -6,6 +6,51 @@
   "locale": null,
   "permissions": [
     {
+      "documentId": "biwq4p95xtxu6vt148s3fqd4",
+      "action": "api::category.category.findBySlug",
+      "locale": null
+    },
+    {
+      "documentId": "t1eylsun5c6mcjtmxlfboalq",
+      "action": "api::category.category.findOnePublic",
+      "locale": null
+    },
+    {
+      "documentId": "w1bki6yrh2irzc2fhaocn6ew",
+      "action": "api::category.category.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "w7e1up8cepxsjxpk1dazhyv3",
+      "action": "api::delivery-zone.delivery-zone.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "n65v95q4nq71t4kiqpehec79",
+      "action": "api::ingredient.ingredient.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "fugeny7syw53nz5kad2fcfqc",
+      "action": "api::product.product.findOnePublic",
+      "locale": null
+    },
+    {
+      "documentId": "ol002wyb874cghf8nd7v76fw",
+      "action": "api::product.product.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "yhfa2ycnd4bjq46q77kgvyrb",
+      "action": "api::review.review.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "roboxp5g5lnxbbisgaksc5jo",
+      "action": "api::setting.setting.findPublic",
+      "locale": null
+    },
+    {
       "documentId": "xxita17p1yzhg152ie4kjb1h",
       "action": "api::upload.upload.findOnePublic",
       "locale": null

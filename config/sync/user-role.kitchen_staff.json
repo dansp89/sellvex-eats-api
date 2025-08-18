@@ -1,8 +1,89 @@
 {
-  "documentId": "n3nyw1g42c8usrc4ktd7zmc2",
+  "documentId": "kitchen_staff_id",
   "name": "Kitchen Staff",
-  "description": "**Descrição:** Pessoal especializado da cozinha  \n**Responsabilidades:**\n- Preparação e preparo de alimentos\n- Controle de qualidade dos pratos\n- Gestão de ingredientes e receitas\n- Cumprimento de prazos de entrega",
+  "description": "**Descrição:** Funcionário da cozinha  \n**Responsabilidades:**\n- Preparo de pedidos\n- Controle de estoque de ingredientes\n- Atualização de status de preparo",
   "type": "kitchen_staff",
   "locale": null,
-  "permissions": []
+  "permissions": [
+    {
+      "documentId": "kitchen_category_find",
+      "action": "api::category.category.find",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_product_find",
+      "action": "api::product.product.find",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_product_find_one",
+      "action": "api::product.product.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_product_update",
+      "action": "api::product.product.update",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_ingredient_find",
+      "action": "api::ingredient.ingredient.find",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_ingredient_find_one",
+      "action": "api::ingredient.ingredient.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_ingredient_update",
+      "action": "api::ingredient.ingredient.update",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_order_find",
+      "action": "api::order.order.find",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_order_find_one",
+      "action": "api::order.order.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_order_update",
+      "action": "api::order.order.update",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_notification_create",
+      "action": "api::notification.notification.create",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_notification_find_user_notifications",
+      "action": "api::notification.notification.findUserNotifications",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_setting_find_public",
+      "action": "api::setting.setting.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_user_me",
+      "action": "plugin::users-permissions.user.me",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_user_update",
+      "action": "plugin::users-permissions.user.update",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_user_change_password",
+      "action": "plugin::users-permissions.auth.changePassword",
+      "locale": null
+    }
+  ]
 }

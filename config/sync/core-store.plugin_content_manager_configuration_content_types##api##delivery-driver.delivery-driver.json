@@ -120,6 +120,21 @@
           "sortable": false
         }
       },
+      "workingZones": {
+        "edit": {
+          "label": "workingZones",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "workingZones",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -191,7 +206,8 @@
       "list": [
         "id",
         "user",
-        "name"
+        "name",
+        "workingZones"
       ],
       "edit": [
         [
@@ -231,6 +247,10 @@
         [
           {
             "name": "notifications",
+            "size": 6
+          },
+          {
+            "name": "workingZones",
             "size": 6
           }
         ]

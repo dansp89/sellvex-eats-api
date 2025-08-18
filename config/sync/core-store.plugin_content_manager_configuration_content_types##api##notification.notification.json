@@ -75,17 +75,17 @@
           "sortable": true
         }
       },
-      "customer": {
+      "user": {
         "edit": {
-          "label": "customer",
+          "label": "user",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true,
-          "mainField": "phone"
+          "mainField": "username"
         },
         "list": {
-          "label": "customer",
+          "label": "user",
           "searchable": true,
           "sortable": true
         }
@@ -204,11 +204,11 @@
         ],
         [
           {
-            "name": "customer",
+            "name": "deliveryDriver",
             "size": 6
           },
           {
-            "name": "deliveryDriver",
+            "name": "user",
             "size": 6
           }
         ]

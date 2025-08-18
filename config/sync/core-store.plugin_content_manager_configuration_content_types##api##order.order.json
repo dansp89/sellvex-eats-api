@@ -19,17 +19,17 @@
           "sortable": true
         }
       },
-      "customer": {
+      "user": {
         "edit": {
-          "label": "customer",
+          "label": "user",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true,
-          "mainField": "phone"
+          "mainField": "username"
         },
         "list": {
-          "label": "customer",
+          "label": "user",
           "searchable": true,
           "sortable": true
         }
@@ -161,6 +161,35 @@
           "sortable": true
         }
       },
+      "deliveryZone": {
+        "edit": {
+          "label": "deliveryZone",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "deliveryZone",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "deliveryAddress": {
+        "edit": {
+          "label": "deliveryAddress",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "deliveryAddress",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "metadata": {
         "edit": {
           "label": "metadata",
@@ -245,15 +274,10 @@
     "layouts": {
       "list": [
         "id",
-        "customer"
+        "user",
+        "deliveryZone"
       ],
       "edit": [
-        [
-          {
-            "name": "customer",
-            "size": 6
-          }
-        ],
         [
           {
             "name": "items",
@@ -305,6 +329,22 @@
         [
           {
             "name": "metadata",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "user",
+            "size": 6
+          },
+          {
+            "name": "deliveryZone",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "deliveryAddress",
             "size": 12
           }
         ]

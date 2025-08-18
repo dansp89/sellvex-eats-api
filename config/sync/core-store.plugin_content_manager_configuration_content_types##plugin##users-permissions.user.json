@@ -146,6 +146,165 @@
           "sortable": true
         }
       },
+      "birth": {
+        "edit": {
+          "label": "birth",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "birth",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "phone": {
+        "edit": {
+          "label": "phone",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "phone",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "loyaltyPoints": {
+        "edit": {
+          "label": "loyaltyPoints",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "loyaltyPoints",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "totalSpent": {
+        "edit": {
+          "label": "totalSpent",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "totalSpent",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "totalOrders": {
+        "edit": {
+          "label": "totalOrders",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "totalOrders",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "preferences": {
+        "edit": {
+          "label": "preferences",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "preferences",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "orders": {
+        "edit": {
+          "label": "orders",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "documentId"
+        },
+        "list": {
+          "label": "orders",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "notifications": {
+        "edit": {
+          "label": "notifications",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "notifications",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "reviews": {
+        "edit": {
+          "label": "reviews",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "documentId"
+        },
+        "list": {
+          "label": "reviews",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "chatsSent": {
+        "edit": {
+          "label": "chatsSent",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "documentId"
+        },
+        "list": {
+          "label": "chatsSent",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "chatsReceived": {
+        "edit": {
+          "label": "chatsReceived",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "documentId"
+        },
+        "list": {
+          "label": "chatsReceived",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -248,6 +407,62 @@
           },
           {
             "name": "role",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "birth",
+            "size": 4
+          },
+          {
+            "name": "phone",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "loyaltyPoints",
+            "size": 4
+          },
+          {
+            "name": "totalSpent",
+            "size": 4
+          },
+          {
+            "name": "totalOrders",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "preferences",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "orders",
+            "size": 6
+          },
+          {
+            "name": "notifications",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "reviews",
+            "size": 6
+          },
+          {
+            "name": "chatsSent",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "chatsReceived",
             "size": 6
           }
         ]

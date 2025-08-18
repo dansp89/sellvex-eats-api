@@ -1,8 +1,104 @@
 {
   "documentId": "jk6p2wkw363g1gvqdhta4roz",
   "name": "Accountant",
-  "description": "**Descrição:** Analista de dados e performance  \n**Responsabilidades:**\n- Análise de dados de vendas\n- Relatórios de performance\n- Identificação de tendências\n- Suporte à tomada de decisões",
+  "description": "**Descrição:** Contador e analista financeiro  \n**Responsabilidades:**\n- Análise financeira e contábil\n- Controle de receitas e despesas\n- Relatórios financeiros\n- Gestão de pagamentos e cobranças",
   "type": "accountant",
   "locale": null,
-  "permissions": []
+  "permissions": [
+    {
+      "documentId": "acc_order_find",
+      "action": "api::order.order.find",
+      "locale": null
+    },
+    {
+      "documentId": "acc_order_find_one",
+      "action": "api::order.order.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "acc_payment_find",
+      "action": "api::payment.payment.find",
+      "locale": null
+    },
+    {
+      "documentId": "acc_payment_find_one",
+      "action": "api::payment.payment.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "acc_payment_create",
+      "action": "api::payment.payment.create",
+      "locale": null
+    },
+    {
+      "documentId": "acc_payment_update",
+      "action": "api::payment.payment.update",
+      "locale": null
+    },
+    {
+      "documentId": "acc_payment_find_user_payments",
+      "action": "api::payment.payment.findUserPayments",
+      "locale": null
+    },
+    {
+      "documentId": "acc_product_find",
+      "action": "api::product.product.find",
+      "locale": null
+    },
+    {
+      "documentId": "acc_product_find_one",
+      "action": "api::product.product.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "acc_category_find",
+      "action": "api::category.category.find",
+      "locale": null
+    },
+    {
+      "documentId": "acc_delivery_driver_find",
+      "action": "api::delivery-driver.delivery-driver.find",
+      "locale": null
+    },
+    {
+      "documentId": "acc_delivery_driver_find_one",
+      "action": "api::delivery-driver.delivery-driver.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "acc_review_find",
+      "action": "api::review.review.find",
+      "locale": null
+    },
+    {
+      "documentId": "acc_notification_create",
+      "action": "api::notification.notification.create",
+      "locale": null
+    },
+    {
+      "documentId": "acc_notification_find",
+      "action": "api::notification.notification.find",
+      "locale": null
+    },
+    {
+      "documentId": "acc_setting_find_public",
+      "action": "api::setting.setting.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "acc_user_find",
+      "action": "plugin::users-permissions.user.find",
+      "locale": null
+    },
+    {
+      "documentId": "acc_user_me",
+      "action": "plugin::users-permissions.user.me",
+      "locale": null
+    },
+    {
+      "documentId": "acc_user_update",
+      "action": "plugin::users-permissions.user.update",
+      "locale": null
+    }
+  ]
 }

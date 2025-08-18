@@ -1,8 +1,104 @@
 {
-  "documentId": "xpkdsw1ps2v9vt57llv0u1sj",
+  "documentId": "chat_operator_id",
   "name": "Chat Operator",
-  "description": "**Descrição:** Operador de chat online  \n**Responsabilidades:**\n- Atendimento via chat em tempo real\n- Suporte durante o processo de compra\n- Esclarecimento de dúvidas sobre produtos\n- Direcionamento para outros setores",
+  "description": "**Descrição:** Operador de chat e suporte  \n**Responsabilidades:**\n- Atendimento ao cliente via chat\n- Resolução de problemas básicos\n- Escalação para níveis superiores",
   "type": "chat_operator",
   "locale": null,
-  "permissions": []
+  "permissions": [
+    {
+      "documentId": "chat_op_category_find",
+      "action": "api::category.category.find",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_product_find",
+      "action": "api::product.product.find",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_product_find_one",
+      "action": "api::product.product.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_order_find",
+      "action": "api::order.order.find",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_order_find_one",
+      "action": "api::order.order.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_chat_find",
+      "action": "api::chat.chat.find",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_chat_create",
+      "action": "api::chat.chat.create",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_chat_update",
+      "action": "api::chat.chat.update",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_chat_get_conversation",
+      "action": "api::chat.chat.getConversation",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_chat_get_recent_conversations",
+      "action": "api::chat.chat.getRecentConversations",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_chat_send_message",
+      "action": "api::chat.chat.sendMessage",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_chat_mark_as_read",
+      "action": "api::chat.chat.markAsRead",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_notification_create",
+      "action": "api::notification.notification.create",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_notification_find",
+      "action": "api::notification.notification.find",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_notification_find_user_notifications",
+      "action": "api::notification.notification.findUserNotifications",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_setting_find_public",
+      "action": "api::setting.setting.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_user_me",
+      "action": "plugin::users-permissions.user.me",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_user_update",
+      "action": "plugin::users-permissions.user.update",
+      "locale": null
+    },
+    {
+      "documentId": "chat_op_user_change_password",
+      "action": "plugin::users-permissions.auth.changePassword",
+      "locale": null
+    }
+  ]
 }

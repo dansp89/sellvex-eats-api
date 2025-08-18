@@ -75,17 +75,17 @@
           "sortable": true
         }
       },
-      "customer": {
+      "user": {
         "edit": {
-          "label": "customer",
+          "label": "user",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true,
-          "mainField": "phone"
+          "mainField": "username"
         },
         "list": {
-          "label": "customer",
+          "label": "user",
           "searchable": true,
           "sortable": true
         }
@@ -160,17 +160,11 @@
     "layouts": {
       "list": [
         "id",
-        "customer",
         "amount",
-        "method"
+        "method",
+        "user"
       ],
       "edit": [
-        [
-          {
-            "name": "customer",
-            "size": 6
-          }
-        ],
         [
           {
             "name": "amount",
@@ -190,6 +184,12 @@
           },
           {
             "name": "method",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "user",
             "size": 6
           }
         ]

@@ -84,84 +84,6 @@
       "locale": null
     },
     {
-      "documentId": "c7g0l1pvw6x994zmaz4ym6t4",
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": {},
-      "subject": "api::customer.customer",
-      "properties": {
-        "fields": [
-          "user",
-          "phone",
-          "loyaltyPoints",
-          "totalSpent",
-          "orders",
-          "totalOrders",
-          "preferences",
-          "notifications"
-        ]
-      },
-      "conditions": [],
-      "locale": null
-    },
-    {
-      "documentId": "mxa4lo0rq70thuobdmlc56sf",
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": {},
-      "subject": "api::customer.customer",
-      "properties": {},
-      "conditions": [],
-      "locale": null
-    },
-    {
-      "documentId": "ppn0yx882aklvhijc5yklt9a",
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": {},
-      "subject": "api::customer.customer",
-      "properties": {},
-      "conditions": [],
-      "locale": null
-    },
-    {
-      "documentId": "oilyh0cv5um302srthjcfebc",
-      "action": "plugin::content-manager.explorer.read",
-      "actionParameters": {},
-      "subject": "api::customer.customer",
-      "properties": {
-        "fields": [
-          "user",
-          "phone",
-          "loyaltyPoints",
-          "totalSpent",
-          "orders",
-          "totalOrders",
-          "preferences",
-          "notifications"
-        ]
-      },
-      "conditions": [],
-      "locale": null
-    },
-    {
-      "documentId": "xua7xoaaje1atn7sq0bh4st2",
-      "action": "plugin::content-manager.explorer.update",
-      "actionParameters": {},
-      "subject": "api::customer.customer",
-      "properties": {
-        "fields": [
-          "user",
-          "phone",
-          "loyaltyPoints",
-          "totalSpent",
-          "orders",
-          "totalOrders",
-          "preferences",
-          "notifications"
-        ]
-      },
-      "conditions": [],
-      "locale": null
-    },
-    {
       "documentId": "gbqjhcp538l5pzmpuai5j51l",
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
@@ -445,7 +367,6 @@
           "message",
           "type",
           "isRead",
-          "customer",
           "deliveryDriver"
         ]
       },
@@ -481,7 +402,6 @@
           "message",
           "type",
           "isRead",
-          "customer",
           "deliveryDriver"
         ]
       },
@@ -499,7 +419,6 @@
           "message",
           "type",
           "isRead",
-          "customer",
           "deliveryDriver"
         ]
       },
@@ -513,7 +432,6 @@
       "subject": "api::order.order",
       "properties": {
         "fields": [
-          "customer",
           "items",
           "subtotal",
           "deliveryFee",
@@ -554,7 +472,6 @@
       "subject": "api::order.order",
       "properties": {
         "fields": [
-          "customer",
           "items",
           "subtotal",
           "deliveryFee",
@@ -577,7 +494,6 @@
       "subject": "api::order.order",
       "properties": {
         "fields": [
-          "customer",
           "items",
           "subtotal",
           "deliveryFee",
@@ -602,8 +518,7 @@
         "fields": [
           "amount",
           "status",
-          "transactionId",
-          "customer"
+          "transactionId"
         ]
       },
       "conditions": [],
@@ -636,8 +551,7 @@
         "fields": [
           "amount",
           "status",
-          "transactionId",
-          "customer"
+          "transactionId"
         ]
       },
       "conditions": [],
@@ -652,8 +566,7 @@
         "fields": [
           "amount",
           "status",
-          "transactionId",
-          "customer"
+          "transactionId"
         ]
       },
       "conditions": [],
@@ -749,7 +662,6 @@
         "fields": [
           "rating",
           "comment",
-          "customer",
           "product"
         ]
       },
@@ -783,7 +695,6 @@
         "fields": [
           "rating",
           "comment",
-          "customer",
           "product"
         ]
       },
@@ -799,7 +710,6 @@
         "fields": [
           "rating",
           "comment",
-          "customer",
           "product"
         ]
       },

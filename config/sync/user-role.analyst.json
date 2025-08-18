@@ -4,5 +4,116 @@
   "description": "**Descrição:** Analista de dados e performance  \n**Responsabilidades:**\n- Análise de dados de vendas\n- Relatórios de performance\n- Identificação de tendências\n- Suporte à tomada de decisões",
   "type": "analyst",
   "locale": null,
-  "permissions": []
+  "permissions": [
+    {
+      "documentId": "analyst_category_find",
+      "action": "api::category.category.find",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_category_find_one",
+      "action": "api::category.category.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_product_find",
+      "action": "api::product.product.find",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_product_find_one",
+      "action": "api::product.product.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_product_find_by_category",
+      "action": "api::product.product.findByCategory",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_order_find",
+      "action": "api::order.order.find",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_order_find_one",
+      "action": "api::order.order.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_payment_find",
+      "action": "api::payment.payment.find",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_payment_find_one",
+      "action": "api::payment.payment.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_delivery_driver_find",
+      "action": "api::delivery-driver.delivery-driver.find",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_delivery_zone_find",
+      "action": "api::delivery-zone.delivery-zone.find",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_review_find",
+      "action": "api::review.review.find",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_review_find_one",
+      "action": "api::review.review.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_review_find_public",
+      "action": "api::review.review.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_ingredient_find",
+      "action": "api::ingredient.ingredient.find",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_notification_find",
+      "action": "api::notification.notification.find",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_chat_find",
+      "action": "api::chat.chat.find",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_setting_find_public",
+      "action": "api::setting.setting.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_user_find",
+      "action": "plugin::users-permissions.user.find",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_user_count",
+      "action": "plugin::users-permissions.user.count",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_user_me",
+      "action": "plugin::users-permissions.user.me",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_user_update",
+      "action": "plugin::users-permissions.user.update",
+      "locale": null
+    }
+  ]
 }

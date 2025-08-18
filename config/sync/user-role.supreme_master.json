@@ -1,542 +1,542 @@
 {
-  "documentId": "super_admin_id",
-  "name": "Super Admin",
-  "description": "**Descrição:** Super administrador do sistema  \n**Responsabilidades:**\n- Administração completa do sistema\n- Gestão de todos os usuários\n- Configurações críticas do sistema",
-  "type": "super_admin",
+  "documentId": "i50tsdsjrj90ywqi5j5e520d",
+  "name": "Supreme Master",
+  "description": "Mestre supremo, eu não sigo sistema, sou o próprio sistema! Eu sou o tudo!",
+  "type": "supreme_master",
   "locale": null,
   "permissions": [
     {
-      "documentId": "super_category_create",
+      "documentId": "p5p52l57gkbwkejqb3tb6t4b",
       "action": "api::category.category.create",
       "locale": null
     },
     {
-      "documentId": "super_category_delete",
+      "documentId": "s657qrnw8f67p7xpl7ffiyks",
       "action": "api::category.category.delete",
       "locale": null
     },
     {
-      "documentId": "super_category_find",
+      "documentId": "n592eh0wruw8oe8fd8uyedsn",
       "action": "api::category.category.find",
       "locale": null
     },
     {
-      "documentId": "super_category_find_by_slug",
+      "documentId": "aiyniksg5nmybge3d36wwws6",
       "action": "api::category.category.findBySlug",
       "locale": null
     },
     {
-      "documentId": "super_category_find_one",
+      "documentId": "br302gothlbc3m3tk6kw5sff",
       "action": "api::category.category.findOne",
       "locale": null
     },
     {
-      "documentId": "super_category_find_one_public",
+      "documentId": "ulnvm2bie8u0tr1ygehcuofy",
       "action": "api::category.category.findOnePublic",
       "locale": null
     },
     {
-      "documentId": "super_category_find_public",
+      "documentId": "m0vxygn4pykd38ghgjymko5g",
       "action": "api::category.category.findPublic",
       "locale": null
     },
     {
-      "documentId": "super_category_update",
+      "documentId": "ihjx65n9gwp0gwfupirirups",
       "action": "api::category.category.update",
       "locale": null
     },
     {
-      "documentId": "super_chat_create",
+      "documentId": "n9ebyplrcc2y5iio8kaa30j0",
       "action": "api::chat.chat.create",
       "locale": null
     },
     {
-      "documentId": "super_chat_delete",
+      "documentId": "gw6d5jyf5us7tdop2il07oec",
       "action": "api::chat.chat.delete",
       "locale": null
     },
     {
-      "documentId": "super_chat_find",
+      "documentId": "c80mujw336i3yrr12yrq3wnk",
       "action": "api::chat.chat.find",
       "locale": null
     },
     {
-      "documentId": "super_chat_find_one",
+      "documentId": "pwv8zif9u1dyrakfsevwm41k",
       "action": "api::chat.chat.findOne",
       "locale": null
     },
     {
-      "documentId": "super_chat_get_conversation",
+      "documentId": "i026xgtny1txrj81uepa91ka",
       "action": "api::chat.chat.getConversation",
       "locale": null
     },
     {
-      "documentId": "super_chat_get_recent_conversations",
+      "documentId": "sro6uchtnanbtoukkkwl5e7r",
       "action": "api::chat.chat.getRecentConversations",
       "locale": null
     },
     {
-      "documentId": "super_chat_mark_as_read",
+      "documentId": "mv5p05j5w3s094gstooh0bbv",
       "action": "api::chat.chat.markAsRead",
       "locale": null
     },
     {
-      "documentId": "super_chat_send_message",
+      "documentId": "t1a404o97jeu3jngp840ibto",
       "action": "api::chat.chat.sendMessage",
       "locale": null
     },
     {
-      "documentId": "super_chat_update",
+      "documentId": "zh7u381hdfh7rzr4600rqrtl",
       "action": "api::chat.chat.update",
       "locale": null
     },
     {
-      "documentId": "super_delivery_driver_create",
+      "documentId": "szwj8r50hcwoniiawr9fc235",
       "action": "api::delivery-driver.delivery-driver.create",
       "locale": null
     },
     {
-      "documentId": "super_delivery_driver_delete",
+      "documentId": "qj6ya9c693yp4ou5cdk7qctm",
       "action": "api::delivery-driver.delivery-driver.delete",
       "locale": null
     },
     {
-      "documentId": "super_delivery_driver_find",
+      "documentId": "kuzik9gkx67o4zwkaifm5awt",
       "action": "api::delivery-driver.delivery-driver.find",
       "locale": null
     },
     {
-      "documentId": "super_delivery_driver_find_available_orders",
+      "documentId": "d8wuxqddukfamcgp0xt1hg08",
       "action": "api::delivery-driver.delivery-driver.findAvailableOrders",
       "locale": null
     },
     {
-      "documentId": "super_delivery_driver_find_my_deliveries",
+      "documentId": "jvl8ilc503hp4h11n4a0s92w",
       "action": "api::delivery-driver.delivery-driver.findMyDeliveries",
       "locale": null
     },
     {
-      "documentId": "super_delivery_driver_find_one",
+      "documentId": "mgl1d0y3hl0uctf7gml99q6k",
       "action": "api::delivery-driver.delivery-driver.findOne",
       "locale": null
     },
     {
-      "documentId": "super_delivery_driver_find_profile",
+      "documentId": "it77wq82gmjrmdnuubkvxosv",
       "action": "api::delivery-driver.delivery-driver.findProfile",
       "locale": null
     },
     {
-      "documentId": "super_delivery_driver_update",
+      "documentId": "b8yam0z5hys4cl1n7qx7f6ik",
       "action": "api::delivery-driver.delivery-driver.update",
       "locale": null
     },
     {
-      "documentId": "super_delivery_zone_create",
+      "documentId": "covjcp8os8i51jj6jmoutr3v",
       "action": "api::delivery-zone.delivery-zone.create",
       "locale": null
     },
     {
-      "documentId": "super_delivery_zone_delete",
+      "documentId": "xf3rzoi96c3xo55crx56wj8j",
       "action": "api::delivery-zone.delivery-zone.delete",
       "locale": null
     },
     {
-      "documentId": "super_delivery_zone_find",
+      "documentId": "ymq8784pmfv3ix1gny8e6xd0",
       "action": "api::delivery-zone.delivery-zone.find",
       "locale": null
     },
     {
-      "documentId": "super_delivery_zone_find_one",
+      "documentId": "uzg6hnoypcptgrwa9lrbf424",
       "action": "api::delivery-zone.delivery-zone.findOne",
       "locale": null
     },
     {
-      "documentId": "super_delivery_zone_find_public",
+      "documentId": "s14audjlmhqqwp2pfelqos4s",
       "action": "api::delivery-zone.delivery-zone.findPublic",
       "locale": null
     },
     {
-      "documentId": "super_delivery_zone_update",
+      "documentId": "wa857h8n26kqjh9sfado6xfv",
       "action": "api::delivery-zone.delivery-zone.update",
       "locale": null
     },
     {
-      "documentId": "super_ingredient_create",
+      "documentId": "dd91kezdzdu9lpvnfqw2es8j",
       "action": "api::ingredient.ingredient.create",
       "locale": null
     },
     {
-      "documentId": "super_ingredient_delete",
+      "documentId": "ndwvdylu7vkh6cbo63kxl58v",
       "action": "api::ingredient.ingredient.delete",
       "locale": null
     },
     {
-      "documentId": "super_ingredient_find",
+      "documentId": "eo1k7x1p16vqfxfs5497ziz8",
       "action": "api::ingredient.ingredient.find",
       "locale": null
     },
     {
-      "documentId": "super_ingredient_find_one",
+      "documentId": "p6mlbn87ngiajc14rgol4dx1",
       "action": "api::ingredient.ingredient.findOne",
       "locale": null
     },
     {
-      "documentId": "super_ingredient_find_public",
+      "documentId": "rinhec88s1s9b7dh9zi7bv1y",
       "action": "api::ingredient.ingredient.findPublic",
       "locale": null
     },
     {
-      "documentId": "super_ingredient_update",
+      "documentId": "ef6n5u9c7465k6li7f97y1f5",
       "action": "api::ingredient.ingredient.update",
       "locale": null
     },
     {
-      "documentId": "super_notification_create",
+      "documentId": "kj82t2v4nf1a13tfdlcaetbf",
       "action": "api::notification.notification.create",
       "locale": null
     },
     {
-      "documentId": "super_notification_delete",
+      "documentId": "urhgmf7wd9u6lme5usv2p995",
       "action": "api::notification.notification.delete",
       "locale": null
     },
     {
-      "documentId": "super_notification_find",
+      "documentId": "bptclo2b2y4st9eq4cx29dgq",
       "action": "api::notification.notification.find",
       "locale": null
     },
     {
-      "documentId": "super_notification_find_one",
+      "documentId": "myp2xgfj5agmjeot8g34p941",
       "action": "api::notification.notification.findOne",
       "locale": null
     },
     {
-      "documentId": "super_notification_find_user_notifications",
+      "documentId": "wt1sqy62s71crhrl3ach4d7n",
       "action": "api::notification.notification.findUserNotifications",
       "locale": null
     },
     {
-      "documentId": "super_notification_mark_as_read",
+      "documentId": "bu0pk27wqz3aoypemvk4sliw",
       "action": "api::notification.notification.markAsRead",
       "locale": null
     },
     {
-      "documentId": "super_notification_update",
+      "documentId": "lb8c4s9j4c3rzrb6uhg1hoai",
       "action": "api::notification.notification.update",
       "locale": null
     },
     {
-      "documentId": "super_order_accept_order",
+      "documentId": "yjigvsainb5ywdxbuhubt26o",
       "action": "api::order.order.acceptOrder",
       "locale": null
     },
     {
-      "documentId": "super_order_create",
+      "documentId": "z0xobkf4f1876lkc09m5whtl",
       "action": "api::order.order.create",
       "locale": null
     },
     {
-      "documentId": "super_order_delete",
+      "documentId": "e7fccr74mh0op0be8zq81uv6",
       "action": "api::order.order.delete",
       "locale": null
     },
     {
-      "documentId": "super_order_find",
+      "documentId": "r7filrmluui2mjmls2d1vpas",
       "action": "api::order.order.find",
       "locale": null
     },
     {
-      "documentId": "super_order_find_one",
+      "documentId": "dve8c1qgkd79zj3msenmdao2",
       "action": "api::order.order.findOne",
       "locale": null
     },
     {
-      "documentId": "super_order_find_order_for_driver",
+      "documentId": "uck5u7tz69qwi47eycchij6q",
       "action": "api::order.order.findOrderForDriver",
       "locale": null
     },
     {
-      "documentId": "super_order_find_order_for_user",
+      "documentId": "h1o2cyta718599583a7rjfl1",
       "action": "api::order.order.findOrderForUser",
       "locale": null
     },
     {
-      "documentId": "super_order_track_order",
+      "documentId": "vyacoj9ezlahdbd5orxcgvlf",
       "action": "api::order.order.trackOrder",
       "locale": null
     },
     {
-      "documentId": "super_order_update",
+      "documentId": "wt3tojk3vdwhuddyivoxvolw",
       "action": "api::order.order.update",
       "locale": null
     },
     {
-      "documentId": "super_order_update_order_status",
+      "documentId": "davcb0aeesgtwybbgy2i38mw",
       "action": "api::order.order.updateOrderStatus",
       "locale": null
     },
     {
-      "documentId": "super_payment_create",
+      "documentId": "a2dzgw67po89grfff64kg6tg",
       "action": "api::payment.payment.create",
       "locale": null
     },
     {
-      "documentId": "super_payment_delete",
+      "documentId": "y4umyuerbl85tu9nrnzvqieu",
       "action": "api::payment.payment.delete",
       "locale": null
     },
     {
-      "documentId": "super_payment_find",
+      "documentId": "lhga7x02lyjji63j1rt7gqhn",
       "action": "api::payment.payment.find",
       "locale": null
     },
     {
-      "documentId": "super_payment_find_one",
+      "documentId": "vzemgeslbewhj9tidx6ozmlf",
       "action": "api::payment.payment.findOne",
       "locale": null
     },
     {
-      "documentId": "super_payment_find_user_payments",
+      "documentId": "kcsdu133vozqa9rqvp1w7mrl",
       "action": "api::payment.payment.findUserPayments",
       "locale": null
     },
     {
-      "documentId": "super_payment_update",
+      "documentId": "wfe9romu05kdz1hq0gij7pos",
       "action": "api::payment.payment.update",
       "locale": null
     },
     {
-      "documentId": "super_product_create",
+      "documentId": "foqva51dhrfg845bgbbj78pt",
       "action": "api::product.product.create",
       "locale": null
     },
     {
-      "documentId": "super_product_delete",
+      "documentId": "cnta0zwfwm6tylvtwkorfgey",
       "action": "api::product.product.delete",
       "locale": null
     },
     {
-      "documentId": "super_product_find",
+      "documentId": "zwi9dodbol8jjc7vt6ii4oxx",
       "action": "api::product.product.find",
       "locale": null
     },
     {
-      "documentId": "super_product_find_by_category",
+      "documentId": "tv8go2wv42oabi3vyrapnijj",
       "action": "api::product.product.findByCategory",
       "locale": null
     },
     {
-      "documentId": "super_product_find_one",
+      "documentId": "arvymrgk7hxugtgw2xi5ccfj",
       "action": "api::product.product.findOne",
       "locale": null
     },
     {
-      "documentId": "super_product_find_one_public",
+      "documentId": "uw370r9ooep13n0qig5it51i",
       "action": "api::product.product.findOnePublic",
       "locale": null
     },
     {
-      "documentId": "super_product_find_public",
+      "documentId": "r4levk7xiprprpvfktj70lrm",
       "action": "api::product.product.findPublic",
       "locale": null
     },
     {
-      "documentId": "super_product_update",
+      "documentId": "zjogt2dgxx9t81eub5w1l3hl",
       "action": "api::product.product.update",
       "locale": null
     },
     {
-      "documentId": "super_review_create",
+      "documentId": "tcsmc3xwatby8yem45uccym9",
       "action": "api::review.review.create",
       "locale": null
     },
     {
-      "documentId": "super_review_delete",
+      "documentId": "fyg6895vk6r1aneu09u0nrfe",
       "action": "api::review.review.delete",
       "locale": null
     },
     {
-      "documentId": "super_review_find",
+      "documentId": "nf6uumn9h5pm7m8oalks5b55",
       "action": "api::review.review.find",
       "locale": null
     },
     {
-      "documentId": "super_review_find_one",
+      "documentId": "ltpo0kydorhph4zv81goowul",
       "action": "api::review.review.findOne",
       "locale": null
     },
     {
-      "documentId": "super_review_find_public",
+      "documentId": "an428aefhm84f1u8q4d6quvm",
       "action": "api::review.review.findPublic",
       "locale": null
     },
     {
-      "documentId": "super_review_update",
+      "documentId": "qjd7zn3x4hfnmubbnjikh8i3",
       "action": "api::review.review.update",
       "locale": null
     },
     {
-      "documentId": "super_upload_find_one_public",
+      "documentId": "lna8jraom56medft1l8x5o0h",
       "action": "api::upload.upload.findOnePublic",
       "locale": null
     },
     {
-      "documentId": "super_upload_openapi",
+      "documentId": "kqkfms4gqbdsef6tz8j2uoa9",
       "action": "api::upload.upload.openapi",
       "locale": null
     },
     {
-      "documentId": "super_content_type_builder_components_get_component",
+      "documentId": "grrhuyb68i2sd7ahcivbwhcg",
       "action": "plugin::content-type-builder.components.getComponent",
       "locale": null
     },
     {
-      "documentId": "super_content_type_builder_components_get_components",
+      "documentId": "af58b36u5zo1g9pb6jis3lqt",
       "action": "plugin::content-type-builder.components.getComponents",
       "locale": null
     },
     {
-      "documentId": "super_content_type_builder_content_types_get_content_type",
+      "documentId": "k3aztpmvwhuinglcikfcnm4p",
       "action": "plugin::content-type-builder.content-types.getContentType",
       "locale": null
     },
     {
-      "documentId": "super_content_type_builder_content_types_get_content_types",
+      "documentId": "c3bwgix035wtf1no62v3cduv",
       "action": "plugin::content-type-builder.content-types.getContentTypes",
       "locale": null
     },
     {
-      "documentId": "super_email_send",
+      "documentId": "mik54lpa955z62efjp3upvqq",
       "action": "plugin::email.email.send",
       "locale": null
     },
     {
-      "documentId": "super_i18n_list_locales",
+      "documentId": "efvamrfy3zu0v9hr49qin3dh",
       "action": "plugin::i18n.locales.listLocales",
       "locale": null
     },
     {
-      "documentId": "super_upload_destroy",
+      "documentId": "y6tysk62zul856gizjrl6bx1",
       "action": "plugin::upload.content-api.destroy",
       "locale": null
     },
     {
-      "documentId": "super_upload_find",
+      "documentId": "bit4eqeucgtb4hhmku6xgf64",
       "action": "plugin::upload.content-api.find",
       "locale": null
     },
     {
-      "documentId": "super_upload_find_one",
+      "documentId": "orzjmscgy1llj3i92xxw6ffo",
       "action": "plugin::upload.content-api.findOne",
       "locale": null
     },
     {
-      "documentId": "super_upload_upload",
+      "documentId": "ck9ddc8uqgezf6ckv6s6uu4q",
       "action": "plugin::upload.content-api.upload",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_auth_callback",
+      "documentId": "cjydxhj4gvzqdlwat6riac1j",
       "action": "plugin::users-permissions.auth.callback",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_auth_change_password",
+      "documentId": "txjljk6pkfb8he8xt6ba9uuw",
       "action": "plugin::users-permissions.auth.changePassword",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_auth_connect",
+      "documentId": "umt541e86dww8qhc2n846mmg",
       "action": "plugin::users-permissions.auth.connect",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_auth_email_confirmation",
+      "documentId": "a4l9gkmdzvot531vrss90inv",
       "action": "plugin::users-permissions.auth.emailConfirmation",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_auth_forgot_password",
+      "documentId": "fi0vnuzdoovxazicyzt61a1p",
       "action": "plugin::users-permissions.auth.forgotPassword",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_auth_register",
+      "documentId": "wpmltnx9cemrh64v2nstjzp8",
       "action": "plugin::users-permissions.auth.register",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_auth_reset_password",
+      "documentId": "z8advnjn3j4t91cqjsepzbve",
       "action": "plugin::users-permissions.auth.resetPassword",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_auth_send_email_confirmation",
+      "documentId": "vh1n5ev6560i0xxxhcrnxzwl",
       "action": "plugin::users-permissions.auth.sendEmailConfirmation",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_permissions_get_permissions",
+      "documentId": "w2xv2nj2db4bgzyl1261tpvq",
       "action": "plugin::users-permissions.permissions.getPermissions",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_role_create_role",
+      "documentId": "qasre5cvmxuvcyvlga683hgp",
       "action": "plugin::users-permissions.role.createRole",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_role_delete_role",
+      "documentId": "vqli7zg0l1umqudynlx4tr9h",
       "action": "plugin::users-permissions.role.deleteRole",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_role_find",
+      "documentId": "ethhc7ai9aw0b99r898v6lyi",
       "action": "plugin::users-permissions.role.find",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_role_find_one",
+      "documentId": "omjcx75xt4j73u343oi597g3",
       "action": "plugin::users-permissions.role.findOne",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_role_update_role",
+      "documentId": "rfeghi018e4p8s8jsz82rpsf",
       "action": "plugin::users-permissions.role.updateRole",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_user_count",
+      "documentId": "or5ezcuqouxnvx1m34f80g1b",
       "action": "plugin::users-permissions.user.count",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_user_create",
+      "documentId": "rkrqlk25895yuizb7fvfv5uz",
       "action": "plugin::users-permissions.user.create",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_user_destroy",
+      "documentId": "qhv3uftezarvwd7s9p0dmuey",
       "action": "plugin::users-permissions.user.destroy",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_user_find",
+      "documentId": "d4lb24lhog3mo88v71mqkfvi",
       "action": "plugin::users-permissions.user.find",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_user_find_one",
+      "documentId": "rtqckps680k4e3wzvna8qbyk",
       "action": "plugin::users-permissions.user.findOne",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_user_me",
+      "documentId": "lonkwycszxx2t2hderu40tgt",
       "action": "plugin::users-permissions.user.me",
       "locale": null
     },
     {
-      "documentId": "super_users_permissions_user_update",
+      "documentId": "nam30nikhugcqeywd5p9f076",
       "action": "plugin::users-permissions.user.update",
       "locale": null
     }

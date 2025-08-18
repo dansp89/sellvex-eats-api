@@ -1,8 +1,99 @@
 {
-  "documentId": "bh6vxc7xfmbpw14laidxif2o",
+  "documentId": "delivery_mgr_id",
   "name": "Delivery Manager",
-  "description": "**Descrição:** Coordenador e supervisor de entregas  \n**Responsabilidades:**\n- Coordenação de rotas de entrega\n- Gestão da equipe de entregadores\n- Otimização de tempo e recursos\n- Resolução de problemas logísticos",
+  "description": "**Descrição:** Gerente de entrega  \n**Responsabilidades:**\n- Coordenação de entregas\n- Gestão de entregadores\n- Otimização de rotas",
   "type": "delivery_manager",
   "locale": null,
-  "permissions": []
+  "permissions": [
+    {
+      "documentId": "del_mgr_order_find",
+      "action": "api::order.order.find",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_order_find_one",
+      "action": "api::order.order.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_order_update",
+      "action": "api::order.order.update",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_delivery_driver_find",
+      "action": "api::delivery-driver.delivery-driver.find",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_delivery_driver_find_one",
+      "action": "api::delivery-driver.delivery-driver.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_delivery_driver_update",
+      "action": "api::delivery-driver.delivery-driver.update",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_delivery_driver_create",
+      "action": "api::delivery-driver.delivery-driver.create",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_delivery_zone_find",
+      "action": "api::delivery-zone.delivery-zone.find",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_delivery_zone_find_one",
+      "action": "api::delivery-zone.delivery-zone.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_delivery_zone_update",
+      "action": "api::delivery-zone.delivery-zone.update",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_delivery_zone_create",
+      "action": "api::delivery-zone.delivery-zone.create",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_notification_create",
+      "action": "api::notification.notification.create",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_notification_find",
+      "action": "api::notification.notification.find",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_chat_find",
+      "action": "api::chat.chat.find",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_chat_create",
+      "action": "api::chat.chat.create",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_user_find",
+      "action": "plugin::users-permissions.user.find",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_user_me",
+      "action": "plugin::users-permissions.user.me",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_user_update",
+      "action": "plugin::users-permissions.user.update",
+      "locale": null
+    }
+  ]
 }
