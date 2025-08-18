@@ -2,14 +2,14 @@ import { factories } from '@strapi/strapi';
 
 export default factories.createCoreController('api::order.order', ({ strapi }) => ({
   // Handler para buscar detalhes do pedido para cliente
-  async findOrderForCustomer(ctx) {
+  async findOrderForUser(ctx) {
     try {
       if (!ctx.state.user) {
         return ctx.unauthorized('Token de autenticação necessário');
       }
 
       const { id } = ctx.params;
-      const result = await strapi.service('api::order.order').findOrderForCustomer(parseInt(id), ctx.state.user.id);
+      const result = await strapi.service('api::order.order').findOrderForUser(parseInt(id), ctx.state.user.id);
       
       if (!result) {
         return ctx.notFound('Pedido não encontrado ou você não tem acesso a ele');

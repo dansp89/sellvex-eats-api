@@ -38,7 +38,7 @@ export default {
                           },
                           total: { type: 'number' },
                           deliveryAddress: { type: 'string' },
-                          customer: {
+                          user: {
                             type: 'object',
                             properties: {
                               firstName: { type: 'string' },
@@ -71,8 +71,8 @@ export default {
     },
     {
       method: 'GET',
-      path: '/orders/customer/:id',
-      handler: 'order.findOrderForCustomer',
+      path: '/orders/user/:id',
+      handler: 'order.findOrderForUser',
       config: {
         auth: {},
         swagger: {

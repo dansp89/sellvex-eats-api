@@ -4,8 +4,11 @@ import path from 'path';
 
 export default factories.createCoreController('plugin::upload.file', {
     async openapi(ctx) {
+        let { version } = ctx.params;
+        version = version || '1.0.0';
+        
         try {
-            const filePath = path.join(__dirname, '../../../../src/extensions/documentation/documentation/1.0.0/full_documentation.json');
+            const filePath = path.join(__dirname, `../../../../src/extensions/documentation/documentation/${version}/full_documentation.json`);
             console.log('Lendo arquivo:', filePath);
             
             // Ler o arquivo JSON

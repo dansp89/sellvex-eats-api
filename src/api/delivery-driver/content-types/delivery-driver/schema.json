@@ -46,6 +46,12 @@
       "relation": "oneToMany",
       "target": "api::notification.notification",
       "mappedBy": "deliveryDriver"
+    },
+    "workingZones": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::delivery-zone.delivery-zone",
+      "inversedBy": "drivers"
     }
   }
 }

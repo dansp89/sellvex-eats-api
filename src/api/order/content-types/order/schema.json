@@ -13,10 +13,10 @@
   "pluginOptions": {},
   "attributes": {
 
-    "customer": {
+    "user": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::customer.customer",
+      "target": "plugin::users-permissions.user",
       "inversedBy": "orders"
     },
     "items": {
@@ -92,11 +92,23 @@
       "target": "api::delivery-driver.delivery-driver",
       "inversedBy": "orders"
     },
-
-
-
+    "deliveryZone": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::delivery-zone.delivery-zone",
+      "inversedBy": "orders"
+    },
+    "deliveryAddress": {
+      "type": "json"
+    },
     "metadata": {
       "type": "json"
+    },
+    "payment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::payment.payment",
+      "mappedBy": "order"
     }
   }
 }

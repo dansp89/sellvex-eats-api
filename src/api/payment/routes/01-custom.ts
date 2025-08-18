@@ -2,8 +2,8 @@ export default {
   routes: [
     {
       method: 'GET',
-      path: '/payments/customer',
-      handler: 'payment.findCustomerPayments',
+      path: '/payments/user',
+      handler: 'payment.findUserPayments',
       config: {
         auth: {},
         swagger: {

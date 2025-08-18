@@ -21,15 +21,22 @@
     "comment": {
       "type": "text"
     },
-    "customer": {
+    "user": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::customer.customer"
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "reviews"
     },
     "product": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::product.product"
+      "target": "api::product.product",
+      "inversedBy": "reviews"
+    },
+    "order": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::order.order"
     }
   }
 }

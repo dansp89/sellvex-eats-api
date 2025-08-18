@@ -5,11 +5,11 @@ export default factories.createCoreController('api::product.product', ({ strapi 
   async findPublic(ctx) {
     try {
       const { query } = ctx;
-      const service = strapi.service('api::product.product');
-      const result = await service.findPublic(query);
+      const products = await strapi.service('api::product.product').findPublic(query);
       
-      return ctx.send(result);
+      return ctx.send(products);
     } catch (error) {
+      console.error('product::findPublic',error);
       return ctx.badRequest('Erro ao buscar produtos', { error: error.message });
     }
   },
@@ -19,14 +19,13 @@ export default factories.createCoreController('api::product.product', ({ strapi 
     try {
       const { id } = ctx.params;
       const { query } = ctx;
-      const service = strapi.service('api::product.product');
-      const result = await service.findOnePublic(id, query);
+      const product = await strapi.service('api::product.product').findOnePublic(id, query);
       
-      if (!result) {
+      if (!product) {
         return ctx.notFound('Produto não encontrado');
       }
       
-      return ctx.send(result);
+      return ctx.send(product);
     } catch (error) {
       return ctx.badRequest('Erro ao buscar produto', { error: error.message });
     }
@@ -37,10 +36,9 @@ export default factories.createCoreController('api::product.product', ({ strapi 
     try {
       const { categoryId } = ctx.params;
       const { query } = ctx;
-      const service = strapi.service('api::product.product');
-      const result = await service.findByCategory(categoryId, query);
+      const products = await strapi.service('api::product.product').findByCategory(categoryId, query);
       
-      return ctx.send(result);
+      return ctx.send(products);
     } catch (error) {
       return ctx.badRequest('Erro ao buscar produtos da categoria', { error: error.message });
     }

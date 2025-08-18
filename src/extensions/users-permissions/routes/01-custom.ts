@@ -2,17 +2,17 @@ export default {
   routes: [
     {
       method: 'GET',
-      path: '/customers/profile',
-      handler: 'customer.findProfile',
+      path: '/users/profile',
+      handler: 'user.findProfile',
       config: {
         auth: {},
         swagger: {
-          tags: ['Customer'],
-          description: 'Buscar perfil do cliente autenticado',
-          summary: 'Retorna dados do perfil do cliente',
+          tags: ['User'],
+          description: 'Buscar perfil do usuário autenticado',
+          summary: 'Retorna dados do perfil do usuário',
           responses: {
             200: {
-              description: 'Perfil do cliente retornado com sucesso'
+              description: 'Perfil do usuário retornado com sucesso'
             }
           }
         }
@@ -20,14 +20,14 @@ export default {
     },
     {
       method: 'GET',
-      path: '/customers/orders',
-      handler: 'customer.findOrders',
+      path: '/users/orders',
+      handler: 'user.findOrders',
       config: {
         auth: {},
         swagger: {
-          tags: ['Customer'],
-          description: 'Buscar pedidos do cliente autenticado',
-          summary: 'Lista todos os pedidos do cliente',
+          tags: ['User'],
+          description: 'Buscar pedidos do usuário autenticado',
+          summary: 'Lista todos os pedidos do usuário',
           parameters: [
             {
               name: 'page',

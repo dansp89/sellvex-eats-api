@@ -62,7 +62,11 @@
       "type": "boolean",
       "default": true
     },
-
-
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "ingredients"
+    }
   }
 }

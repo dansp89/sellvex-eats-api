@@ -2,25 +2,13 @@ import { factories } from '@strapi/strapi';
 
 export default factories.createCoreService('api::payment.payment', ({ strapi }) => ({
   // Método para buscar pagamentos do cliente usando SQL RAW
-  async findCustomerPayments(userId: number, params: any = {}) {
+  async findUserPayments(userId: number, params: any = {}) {
     const page = parseInt(params.page) || 1;
     const pageSize = Math.min(parseInt(params.pageSize) || 25, 100);
     const offset = (page - 1) * pageSize;
 
-    // Primeiro buscar o customer_id pelo user_id
-    const customerQuery = `
-      SELECT id FROM customers WHERE user_id = $1 AND published_at IS NOT NULL
-    `;
-    const customerResult = await strapi.db.connection.raw(customerQuery, [userId]);
-    
-    if (!customerResult.rows || customerResult.rows.length === 0) {
-      return {
-        data: [],
-        meta: { pagination: { page, pageSize, pageCount: 0, total: 0 } }
-      };
-    }
-
-    const customerId = customerResult.rows[0].id;
+    // Agora o user_id é usado diretamente
+    const userIdForQuery = userId;
 
     // Query para buscar pagamentos
     const paymentsQuery = `
@@ -34,7 +22,7 @@ export default factories.createCoreService('api::payment.payment', ({ strapi }) 
         p.updated_at,
         p.published_at
       FROM payments p
-      WHERE p.customer_id = $1 AND p.published_at IS NOT NULL
+      WHERE p.user_id = $1 AND p.published_at IS NOT NULL
       ORDER BY p.created_at DESC
       LIMIT $2 OFFSET $3
     `;
@@ -43,12 +31,12 @@ export default factories.createCoreService('api::payment.payment', ({ strapi }) 
     const countQuery = `
       SELECT COUNT(*) as total
       FROM payments p
-      WHERE p.customer_id = $1 AND p.published_at IS NOT NULL
+      WHERE p.user_id = $1 AND p.published_at IS NOT NULL
     `;
 
     const [payments, countResult] = await Promise.all([
-      strapi.db.connection.raw(paymentsQuery, [customerId, pageSize, offset]),
-      strapi.db.connection.raw(countQuery, [customerId])
+      strapi.db.connection.raw(paymentsQuery, [userIdForQuery, pageSize, offset]),
+      strapi.db.connection.raw(countQuery, [userIdForQuery])
     ]);
 
     const total = parseInt(countResult.rows[0].total);

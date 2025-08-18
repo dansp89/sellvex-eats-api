@@ -2,7 +2,7 @@ export default {
   routes: [
     {
       method: 'GET',
-      path: '/openapi',
+      path: '/openapi/:version?',
       handler: 'upload.openapi',
     },
     {

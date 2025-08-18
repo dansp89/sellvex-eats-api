@@ -63,11 +63,11 @@ export default factories.createCoreService('api::delivery-driver.delivery-driver
         o.created_at,
         o.updated_at,
         o.published_at,
-        c.first_name as customer_first_name,
-        c.last_name as customer_last_name,
-        c.phone as customer_phone
+        u.username as user_username,
+        u.email as user_email,
+        u.phone as user_phone
       FROM orders o
-      LEFT JOIN customers c ON o.customer_id = c.id
+      LEFT JOIN up_users u ON o.user_id = u.id
       WHERE o.status IN ('confirmed', 'preparing') 
         AND o.delivery_driver_id IS NULL 
         AND o.published_at IS NOT NULL
@@ -103,10 +103,10 @@ export default factories.createCoreService('api::delivery-driver.delivery-driver
       createdAt: order.created_at,
       updatedAt: order.updated_at,
       publishedAt: order.published_at,
-      customer: {
-        firstName: order.customer_first_name,
-        lastName: order.customer_last_name,
-        phone: order.customer_phone
+      user: {
+        username: order.user_username,
+        email: order.user_email,
+        phone: order.user_phone
       }
     }));
 
@@ -155,11 +155,11 @@ export default factories.createCoreService('api::delivery-driver.delivery-driver
         o.created_at,
         o.updated_at,
         o.published_at,
-        c.first_name as customer_first_name,
-        c.last_name as customer_last_name,
-        c.phone as customer_phone
+        u.username as user_username,
+        u.email as user_email,
+        u.phone as user_phone
       FROM orders o
-      LEFT JOIN customers c ON o.customer_id = c.id
+      LEFT JOIN up_users u ON o.user_id = u.id
       WHERE o.delivery_driver_id = $1 AND o.published_at IS NOT NULL
       ORDER BY o.created_at DESC
       LIMIT $2 OFFSET $3
@@ -191,10 +191,10 @@ export default factories.createCoreService('api::delivery-driver.delivery-driver
       createdAt: delivery.created_at,
       updatedAt: delivery.updated_at,
       publishedAt: delivery.published_at,
-      customer: {
-        firstName: delivery.customer_first_name,
-        lastName: delivery.customer_last_name,
-        phone: delivery.customer_phone
+      user: {
+        firstName: delivery.user_first_name,
+        lastName: delivery.user_last_name,
+        phone: delivery.user_phone
       }
     }));
 

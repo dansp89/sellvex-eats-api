@@ -2,13 +2,12 @@ import { factories } from '@strapi/strapi';
 
 export default factories.createCoreService('api::order.order', ({ strapi }) => ({
   // Método para buscar detalhes do pedido para cliente usando SQL RAW
-  async findOrderForCustomer(orderId: number, userId: number) {
+  async findOrderForUser(orderId: number, userId: number) {
     // Primeiro verificar se o cliente tem acesso ao pedido
     const accessQuery = `
       SELECT o.id
       FROM orders o
-      JOIN customers c ON o.customer_id = c.id
-      WHERE o.id = $1 AND c.user_id = $2 AND o.published_at IS NOT NULL
+      WHERE o.id = $1 AND o.user_id = $2 AND o.published_at IS NOT NULL
     `;
     
     const accessResult = await strapi.db.connection.raw(accessQuery, [orderId, userId]);
@@ -99,11 +98,11 @@ export default factories.createCoreService('api::order.order', ({ strapi }) => (
         o.created_at,
         o.updated_at,
         o.published_at,
-        c.first_name as customer_first_name,
-        c.last_name as customer_last_name,
-        c.phone as customer_phone
+        u.username as user_username,
+        u.email as user_email,
+        u.phone as user_phone
       FROM orders o
-      LEFT JOIN customers c ON o.customer_id = c.id
+      LEFT JOIN up_users u ON o.user_id = u.id
       WHERE o.id = $1 AND o.published_at IS NOT NULL
     `;
 
@@ -128,10 +127,10 @@ export default factories.createCoreService('api::order.order', ({ strapi }) => (
         createdAt: order.created_at,
         updatedAt: order.updated_at,
         publishedAt: order.published_at,
-        customer: {
-          firstName: order.customer_first_name,
-          lastName: order.customer_last_name,
-          phone: order.customer_phone
+        user: {
+          username: order.user_username,
+          email: order.user_email,
+          phone: order.user_phone
         }
       }
     };
@@ -248,15 +247,15 @@ export default factories.createCoreService('api::order.order', ({ strapi }) => (
         o.created_at,
         o.updated_at,
         o.published_at,
-        c.first_name as customer_first_name,
-        c.last_name as customer_last_name,
-        c.phone as customer_phone,
+        u.username as user_username,
+        u.email as user_email,
+        u.phone as user_phone,
         dd.first_name as driver_first_name,
         dd.last_name as driver_last_name,
         dd.phone as driver_phone,
         dd.vehicle_type as driver_vehicle_type
       FROM orders o
-      LEFT JOIN customers c ON o.customer_id = c.id
+      LEFT JOIN up_users u ON o.user_id = u.id
       LEFT JOIN delivery_drivers dd ON o.delivery_driver_id = dd.id
       WHERE o.order_number = $1 AND o.published_at IS NOT NULL
     `;
@@ -281,10 +280,10 @@ export default factories.createCoreService('api::order.order', ({ strapi }) => (
         createdAt: order.created_at,
         updatedAt: order.updated_at,
         publishedAt: order.published_at,
-        customer: {
-          firstName: order.customer_first_name,
-          lastName: order.customer_last_name,
-          phone: order.customer_phone
+        user: {
+          username: order.user_username,
+          email: order.user_email,
+          phone: order.user_phone
         },
         deliveryDriver: order.driver_first_name ? {
           firstName: order.driver_first_name,
