@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-08-18T09:46:35.874Z"
+    "x-generation-date": "2025-08-18T10:26:34.354Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -4497,12 +4497,12 @@
             }
           },
           {
-            "name": "filters[category][id]",
+            "name": "filters[category][documentId]",
             "in": "query",
-            "description": "Filtrar por ID da categoria",
+            "description": "Filtrar por Document ID da categoria",
             "required": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
@@ -4528,53 +4528,102 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "id": {
-                            "type": "integer"
+                          "documentId": {
+                            "type": "string",
+                            "description": "ID único do documento"
                           },
                           "name": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Nome do produto"
                           },
                           "description": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Descrição do produto"
                           },
                           "price": {
-                            "type": "number"
-                          },
-                          "isAvailable": {
-                            "type": "boolean"
+                            "type": "number",
+                            "description": "Preço do produto"
                           },
                           "slug": {
-                            "type": "string"
-                          },
-                          "createdAt": {
                             "type": "string",
-                            "format": "date-time"
+                            "description": "Slug para URL amigável"
                           },
-                          "image": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "integer"
-                              },
-                              "url": {
-                                "type": "string"
-                              },
-                              "alternativeText": {
-                                "type": "string"
+                          "isAvailable": {
+                            "type": "boolean",
+                            "description": "Se o produto está disponível"
+                          },
+                          "isFeatured": {
+                            "type": "boolean",
+                            "description": "Se o produto está em destaque"
+                          },
+                          "preparationTime": {
+                            "type": "integer",
+                            "description": "Tempo de preparo em minutos"
+                          },
+                          "images": {
+                            "type": "array",
+                            "description": "Lista de imagens do produto",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "documentId": {
+                                  "type": "string",
+                                  "description": "ID do documento da imagem"
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "description": "URL da imagem"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "description": "Nome do arquivo"
+                                },
+                                "ext": {
+                                  "type": "string",
+                                  "description": "Extensão do arquivo"
+                                },
+                                "mime": {
+                                  "type": "string",
+                                  "description": "Tipo MIME do arquivo"
+                                },
+                                "size": {
+                                  "type": "number",
+                                  "description": "Tamanho do arquivo em bytes"
+                                }
                               }
                             }
                           },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Data de criação"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Data de atualização"
+                          },
+                          "publishedAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Data de publicação"
+                          },
                           "category": {
                             "type": "object",
+                            "nullable": true,
+                            "description": "Categoria do produto",
                             "properties": {
-                              "id": {
-                                "type": "integer"
+                              "documentId": {
+                                "type": "string",
+                                "description": "ID do documento da categoria"
                               },
                               "name": {
-                                "type": "string"
+                                "type": "string",
+                                "description": "Nome da categoria"
                               },
                               "slug": {
-                                "type": "string"
+                                "type": "string",
+                                "description": "Slug da categoria"
                               }
                             }
                           }
@@ -4588,16 +4637,20 @@
                           "type": "object",
                           "properties": {
                             "page": {
-                              "type": "integer"
+                              "type": "integer",
+                              "description": "Página atual"
                             },
                             "pageSize": {
-                              "type": "integer"
+                              "type": "integer",
+                              "description": "Itens por página"
                             },
                             "pageCount": {
-                              "type": "integer"
+                              "type": "integer",
+                              "description": "Total de páginas"
                             },
                             "total": {
-                              "type": "integer"
+                              "type": "integer",
+                              "description": "Total de itens"
                             }
                           }
                         }
@@ -4797,21 +4850,21 @@
         "operationId": "product_findPublic_get"
       }
     },
-    "/products/public/{id}": {
+    "/products/public/{documentId}": {
       "get": {
         "tags": [
           "Product"
         ],
         "description": "Buscar um produto específico",
-        "summary": "Retorna detalhes de um produto pelo ID",
+        "summary": "Retorna detalhes de um produto pelo Document ID",
         "parameters": [
           {
-            "name": "id",
+            "name": "documentId",
             "in": "path",
-            "description": "ID do produto",
+            "description": "Document ID do produto",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           }
         ],
@@ -4826,70 +4879,102 @@
                     "data": {
                       "type": "object",
                       "properties": {
-                        "id": {
-                          "type": "integer"
+                        "documentId": {
+                          "type": "string",
+                          "description": "ID único do documento"
                         },
                         "name": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Nome do produto"
                         },
                         "description": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Descrição do produto"
                         },
                         "price": {
-                          "type": "number"
-                        },
-                        "isAvailable": {
-                          "type": "boolean"
+                          "type": "number",
+                          "description": "Preço do produto"
                         },
                         "slug": {
-                          "type": "string"
-                        },
-                        "createdAt": {
                           "type": "string",
-                          "format": "date-time"
+                          "description": "Slug para URL amigável"
                         },
-                        "updatedAt": {
-                          "type": "string",
-                          "format": "date-time"
+                        "isAvailable": {
+                          "type": "boolean",
+                          "description": "Se o produto está disponível"
                         },
-                        "publishedAt": {
-                          "type": "string",
-                          "format": "date-time"
+                        "isFeatured": {
+                          "type": "boolean",
+                          "description": "Se o produto está em destaque"
                         },
-                        "image": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "integer"
-                            },
-                            "url": {
-                              "type": "string"
-                            },
-                            "alternativeText": {
-                              "type": "string"
-                            },
-                            "caption": {
-                              "type": "string"
-                            },
-                            "width": {
-                              "type": "integer"
-                            },
-                            "height": {
-                              "type": "integer"
+                        "preparationTime": {
+                          "type": "integer",
+                          "description": "Tempo de preparo em minutos"
+                        },
+                        "images": {
+                          "type": "array",
+                          "description": "Lista de imagens do produto",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "documentId": {
+                                "type": "string",
+                                "description": "ID do documento da imagem"
+                              },
+                              "url": {
+                                "type": "string",
+                                "description": "URL da imagem"
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "Nome do arquivo"
+                              },
+                              "ext": {
+                                "type": "string",
+                                "description": "Extensão do arquivo"
+                              },
+                              "mime": {
+                                "type": "string",
+                                "description": "Tipo MIME do arquivo"
+                              },
+                              "size": {
+                                "type": "number",
+                                "description": "Tamanho do arquivo em bytes"
+                              }
                             }
                           }
                         },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Data de criação"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Data de atualização"
+                        },
+                        "publishedAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Data de publicação"
+                        },
                         "category": {
                           "type": "object",
+                          "nullable": true,
+                          "description": "Categoria do produto",
                           "properties": {
-                            "id": {
-                              "type": "integer"
+                            "documentId": {
+                              "type": "string",
+                              "description": "ID do documento da categoria"
                             },
                             "name": {
-                              "type": "string"
+                              "type": "string",
+                              "description": "Nome da categoria"
                             },
                             "slug": {
-                              "type": "string"
+                              "type": "string",
+                              "description": "Slug da categoria"
                             }
                           }
                         }
@@ -5012,22 +5097,20 @@
             }
           },
           "404": {
-            "description": "Not Found",
+            "description": "Produto não encontrado",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
                     "data": {
-                      "type": "string",
-                      "nullable": true,
-                      "example": null
+                      "type": "null"
                     },
                     "error": {
                       "type": "object",
                       "properties": {
                         "status": {
-                          "type": "number",
+                          "type": "integer",
                           "example": 404
                         },
                         "name": {
@@ -5036,10 +5119,7 @@
                         },
                         "message": {
                           "type": "string",
-                          "example": "Not Found"
-                        },
-                        "details": {
-                          "type": "object"
+                          "example": "Produto não encontrado"
                         }
                       }
                     }
@@ -5089,7 +5169,7 @@
         "operationId": "product_findOnePublic_get"
       }
     },
-    "/products/public/categories/{categoryId}": {
+    "/products/public/categories/{documentId}": {
       "get": {
         "tags": [
           "Product"
@@ -5098,12 +5178,12 @@
         "summary": "Lista produtos de uma categoria específica",
         "parameters": [
           {
-            "name": "categoryId",
+            "name": "documentId",
             "in": "path",
-            "description": "ID da categoria",
+            "description": "Document ID da categoria",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
@@ -5150,53 +5230,101 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "id": {
-                            "type": "integer"
+                          "documentId": {
+                            "type": "string",
+                            "description": "ID único do documento"
                           },
                           "name": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Nome do produto"
                           },
                           "description": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Descrição do produto"
                           },
                           "price": {
-                            "type": "number"
-                          },
-                          "isAvailable": {
-                            "type": "boolean"
+                            "type": "number",
+                            "description": "Preço do produto"
                           },
                           "slug": {
-                            "type": "string"
-                          },
-                          "createdAt": {
                             "type": "string",
-                            "format": "date-time"
+                            "description": "Slug para URL amigável"
                           },
-                          "image": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "integer"
-                              },
-                              "url": {
-                                "type": "string"
-                              },
-                              "alternativeText": {
-                                "type": "string"
+                          "isAvailable": {
+                            "type": "boolean",
+                            "description": "Se o produto está disponível"
+                          },
+                          "isFeatured": {
+                            "type": "boolean",
+                            "description": "Se o produto está em destaque"
+                          },
+                          "preparationTime": {
+                            "type": "integer",
+                            "description": "Tempo de preparo em minutos"
+                          },
+                          "images": {
+                            "type": "array",
+                            "description": "Lista de imagens do produto",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "documentId": {
+                                  "type": "string",
+                                  "description": "ID do documento da imagem"
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "description": "URL da imagem"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "description": "Nome do arquivo"
+                                },
+                                "ext": {
+                                  "type": "string",
+                                  "description": "Extensão do arquivo"
+                                },
+                                "mime": {
+                                  "type": "string",
+                                  "description": "Tipo MIME do arquivo"
+                                },
+                                "size": {
+                                  "type": "number",
+                                  "description": "Tamanho do arquivo em bytes"
+                                }
                               }
                             }
                           },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Data de criação"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Data de atualização"
+                          },
+                          "publishedAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Data de publicação"
+                          },
                           "category": {
                             "type": "object",
+                            "description": "Categoria do produto",
                             "properties": {
-                              "id": {
-                                "type": "integer"
+                              "documentId": {
+                                "type": "string",
+                                "description": "ID do documento da categoria"
                               },
                               "name": {
-                                "type": "string"
+                                "type": "string",
+                                "description": "Nome da categoria"
                               },
                               "slug": {
-                                "type": "string"
+                                "type": "string",
+                                "description": "Slug da categoria"
                               }
                             }
                           }
@@ -5210,16 +5338,20 @@
                           "type": "object",
                           "properties": {
                             "page": {
-                              "type": "integer"
+                              "type": "integer",
+                              "description": "Página atual"
                             },
                             "pageSize": {
-                              "type": "integer"
+                              "type": "integer",
+                              "description": "Itens por página"
                             },
                             "pageCount": {
-                              "type": "integer"
+                              "type": "integer",
+                              "description": "Total de páginas"
                             },
                             "total": {
-                              "type": "integer"
+                              "type": "integer",
+                              "description": "Total de itens"
                             }
                           }
                         }
@@ -5342,34 +5474,36 @@
             }
           },
           "404": {
-            "description": "Not Found",
+            "description": "Categoria não encontrada ou sem produtos",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
                     "data": {
-                      "type": "string",
-                      "nullable": true,
-                      "example": null
+                      "type": "array",
+                      "items": {}
                     },
-                    "error": {
+                    "meta": {
                       "type": "object",
                       "properties": {
-                        "status": {
-                          "type": "number",
-                          "example": 404
-                        },
-                        "name": {
-                          "type": "string",
-                          "example": "NotFoundError"
-                        },
-                        "message": {
-                          "type": "string",
-                          "example": "Not Found"
-                        },
-                        "details": {
-                          "type": "object"
+                        "pagination": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "integer"
+                            },
+                            "pageSize": {
+                              "type": "integer"
+                            },
+                            "pageCount": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer",
+                              "example": 0
+                            }
+                          }
                         }
                       }
                     }

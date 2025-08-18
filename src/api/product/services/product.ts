@@ -1,4 +1,5 @@
 import { factories } from '@strapi/strapi';
+import { QueryType } from '~types/app';
 
 // Tipos para os filtros de produtos
 interface CategoryFilter {
@@ -47,7 +48,7 @@ export default factories.createCoreService('api::product.product', ({ strapi }) 
     
     // Filtro por disponibilidade
     if (typeof filters.isAvailable !== 'undefined') {
-      whereConditions.push('p.is_available = ?');
+      whereConditions.push('p.is_active = ?');
       queryParams.push(filters.isAvailable);
     }
     
@@ -67,7 +68,7 @@ export default factories.createCoreService('api::product.product', ({ strapi }) 
         p.description,
         p.price,
         p.slug,
-        p.is_available,
+        p.is_active,
         p.is_featured,
         p.preparation_time,
         p.created_at,
@@ -98,7 +99,8 @@ export default factories.createCoreService('api::product.product', ({ strapi }) 
           '[]'::json
         ) as images
       FROM products p
-      LEFT JOIN categories c ON p.category = c.id
+      LEFT JOIN products_category_lnk pcl ON p.id = pcl.product_id
+      LEFT JOIN categories c ON pcl.category_id = c.id
       ${whereClause}
       ORDER BY p.created_at DESC
       LIMIT ? OFFSET ?
@@ -108,13 +110,12 @@ export default factories.createCoreService('api::product.product', ({ strapi }) 
      * Query para contar total
      */
     const countQuery = `
-      SELECT COUNT(*) as total
+      SELECT COUNT(DISTINCT p.id) as total
       FROM products p
+      LEFT JOIN products_category_lnk pcl ON p.id = pcl.product_id
+      LEFT JOIN categories c ON pcl.category_id = c.id
       ${whereClause}
     `;
-
-    console.log("productsQuery", productsQuery);
-    console.log("countQuery", countQuery);
 
     // Executar as queries com os parâmetros
     const [products, countResult] = await Promise.all([
@@ -127,13 +128,12 @@ export default factories.createCoreService('api::product.product', ({ strapi }) 
 
     // Formatando os dados conforme padrão Strapi
     const formattedProducts = products.rows.map(product => ({
-      id: product.id,
       documentId: product.document_id || `doc_${product.id}`,
       name: product.name,
       description: product.description,
       price: parseFloat(product.price),
       slug: product.slug,
-      isAvailable: product.is_available,
+      isAvailable: product.is_active,
       isFeatured: product.is_featured,
       preparationTime: product.preparation_time,
       images: product.images || [],
@@ -141,7 +141,6 @@ export default factories.createCoreService('api::product.product', ({ strapi }) 
       updatedAt: product.updated_at,
       publishedAt: product.published_at,
       category: product.category_id ? {
-        id: product.category_id,
         documentId: product.category_document_id,
         name: product.category_name,
         slug: product.category_slug
@@ -162,7 +161,7 @@ export default factories.createCoreService('api::product.product', ({ strapi }) 
   },
 
   // Método otimizado para buscar um produto público específico
-  async findOnePublic(id: number) {
+  async findOnePublic(documentId: string) {
     // Query otimizada buscando todos os campos necessários
     const query = `
       SELECT 
@@ -172,7 +171,7 @@ export default factories.createCoreService('api::product.product', ({ strapi }) 
         p.description,
         p.price,
         p.slug,
-        p.is_available,
+        p.is_active,
         p.is_featured,
         p.preparation_time,
         p.created_at,
@@ -203,39 +202,41 @@ export default factories.createCoreService('api::product.product', ({ strapi }) 
           '[]'::json
         ) as images
       FROM products p
-      LEFT JOIN categories c ON p.category = c.id
-      WHERE p.id = ? AND p.published_at IS NOT NULL
+      LEFT JOIN products_category_lnk pcl ON p.id = pcl.product_id
+      LEFT JOIN categories c ON pcl.category_id = c.id
+      WHERE p.document_id = ? AND p.published_at IS NOT NULL
       GROUP BY p.id, c.id, c.name, c.slug, c.document_id
       LIMIT 1
     `;
 
     try {
-      const result = await strapi.db.connection.raw(query, [id]);
-      
-      if (!result.rows?.length) {
-        return null;
-      }
-
+      const result = await strapi.db.connection.raw(query, [documentId]);
+      if (!result.rows?.length) return null;
       const product = result.rows[0];
       
       // Formatação otimizada do resultado
       return {
         data: {
-          id: product.id,
           documentId: product.document_id || `doc_${product.id}`,
           name: product.name,
           description: product.description,
           price: parseFloat(product.price),
           slug: product.slug,
-          isAvailable: product.is_available,
+          isAvailable: product.is_active,
           isFeatured: product.is_featured,
           preparationTime: product.preparation_time,
-          images: product.images || [],
+          images: product?.images?.map((image) => ({
+            documentId: image.documentId,
+            url: image.url,
+            name: image.name,
+            ext: image.ext,
+            mime: image.mime,
+            size: image.size
+          })),
           createdAt: product.created_at,
           updatedAt: product.updated_at,
           publishedAt: product.published_at,
           category: product.category_id ? {
-            id: product.category_id,
             documentId: product.category_document_id,
             name: product.category_name,
             slug: product.category_slug
@@ -249,9 +250,12 @@ export default factories.createCoreService('api::product.product', ({ strapi }) 
   },
 
   // Método para buscar produtos por categoria usando SQL RAW
-  async findByCategory(categoryId: number, params: any = {}) {
-    const page = parseInt(params.page) || 1;
-    const pageSize = Math.min(parseInt(params.pageSize) || 25, 100);
+  async findByCategory(documentId: string, query: QueryType) {
+    const page = typeof query.page === 'number' ? query.page : parseInt(query.page || '1', 10) || 1;
+    const pageSize = Math.min(
+      typeof query.pageSize === 'number' ? query.pageSize : parseInt(query.pageSize || '25', 10) || 25,
+      100
+    );
     const offset = (page - 1) * pageSize;
 
     // Query para buscar produtos da categoria com imagens
@@ -263,7 +267,7 @@ export default factories.createCoreService('api::product.product', ({ strapi }) 
         p.description,
         p.price,
         p.slug,
-        p.is_available,
+        p.is_active,
         p.is_featured,
         p.preparation_time,
         p.created_at,
@@ -294,8 +298,9 @@ export default factories.createCoreService('api::product.product', ({ strapi }) 
           '[]'::json
         ) as images
       FROM products p
-      LEFT JOIN categories c ON p.category = c.id
-      WHERE p.category = ? AND p.published_at IS NOT NULL
+      LEFT JOIN products_category_lnk pcl ON p.id = pcl.product_id
+      LEFT JOIN categories c ON pcl.category_id = c.id
+      WHERE c.document_id = ? AND p.published_at IS NOT NULL
       GROUP BY p.id, c.id, c.name, c.slug, c.document_id
       ORDER BY p.created_at DESC
       LIMIT ? OFFSET ?
@@ -303,14 +308,16 @@ export default factories.createCoreService('api::product.product', ({ strapi }) 
 
     // Query para contar total da categoria
     const countQuery = `
-      SELECT COUNT(p.id) as total
+      SELECT COUNT(DISTINCT p.id) as total
       FROM products p
-      WHERE p.category = ? AND p.published_at IS NOT NULL
+      LEFT JOIN products_category_lnk pcl ON p.id = pcl.product_id
+      LEFT JOIN categories c ON pcl.category_id = c.id
+      WHERE c.document_id = ? AND p.published_at IS NOT NULL
     `;
 
     const [products, countResult] = await Promise.all([
-      strapi.db.connection.raw(productsQuery, [categoryId, pageSize, offset]),
-      strapi.db.connection.raw(countQuery, [categoryId])
+      strapi.db.connection.raw(productsQuery, [documentId, pageSize, offset]),
+      strapi.db.connection.raw(countQuery, [documentId])
     ]);
 
     const total = parseInt(countResult.rows[0].total);
@@ -318,13 +325,12 @@ export default factories.createCoreService('api::product.product', ({ strapi }) 
 
     // Formatar os resultados
     const formattedProducts = products.rows.map(product => ({
-      id: product.id,
       documentId: product.document_id || `doc_${product.id}`,
       name: product.name,
       description: product.description,
       price: parseFloat(product.price),
       slug: product.slug,
-      isAvailable: product.is_available,
+      isAvailable: product.is_active,
       isFeatured: product.is_featured,
       preparationTime: product.preparation_time,
       images: product.images || [],
@@ -332,8 +338,7 @@ export default factories.createCoreService('api::product.product', ({ strapi }) 
       updatedAt: product.updated_at,
       publishedAt: product.published_at,
       category: {
-        id: product.category_id,
-        documentId: product.category_document_id || `doc_${product.category_id}`,
+        documentId: product.category_document_id,
         name: product.category_name,
         slug: product.category_slug
       }

@@ -33,11 +33,11 @@ export default {
               schema: { type: 'string' }
             },
             {
-              name: 'filters[category][id]',
+              name: 'filters[category][documentId]',
               in: 'query',
-              description: 'Filtrar por ID da categoria',
+              description: 'Filtrar por Document ID da categoria',
               required: false,
-              schema: { type: 'integer' }
+              schema: { type: 'string' }
             },
             {
               name: 'filters[isAvailable]',
@@ -60,27 +60,40 @@ export default {
                         items: {
                           type: 'object',
                           properties: {
-                            id: { type: 'integer' },
-                            name: { type: 'string' },
-                            description: { type: 'string' },
-                            price: { type: 'number' },
-                            isAvailable: { type: 'boolean' },
-                            slug: { type: 'string' },
-                            createdAt: { type: 'string', format: 'date-time' },
-                            image: {
-                              type: 'object',
-                              properties: {
-                                id: { type: 'integer' },
-                                url: { type: 'string' },
-                                alternativeText: { type: 'string' }
+                            documentId: { type: 'string', description: 'ID único do documento' },
+                            name: { type: 'string', description: 'Nome do produto' },
+                            description: { type: 'string', description: 'Descrição do produto' },
+                            price: { type: 'number', description: 'Preço do produto' },
+                            slug: { type: 'string', description: 'Slug para URL amigável' },
+                            isAvailable: { type: 'boolean', description: 'Se o produto está disponível' },
+                            isFeatured: { type: 'boolean', description: 'Se o produto está em destaque' },
+                            preparationTime: { type: 'integer', description: 'Tempo de preparo em minutos' },
+                            images: {
+                              type: 'array',
+                              description: 'Lista de imagens do produto',
+                              items: {
+                                type: 'object',
+                                properties: {
+                                  documentId: { type: 'string', description: 'ID do documento da imagem' },
+                                  url: { type: 'string', description: 'URL da imagem' },
+                                  name: { type: 'string', description: 'Nome do arquivo' },
+                                  ext: { type: 'string', description: 'Extensão do arquivo' },
+                                  mime: { type: 'string', description: 'Tipo MIME do arquivo' },
+                                  size: { type: 'number', description: 'Tamanho do arquivo em bytes' }
+                                }
                               }
                             },
+                            createdAt: { type: 'string', format: 'date-time', description: 'Data de criação' },
+                            updatedAt: { type: 'string', format: 'date-time', description: 'Data de atualização' },
+                            publishedAt: { type: 'string', format: 'date-time', description: 'Data de publicação' },
                             category: {
                               type: 'object',
+                              nullable: true,
+                              description: 'Categoria do produto',
                               properties: {
-                                id: { type: 'integer' },
-                                name: { type: 'string' },
-                                slug: { type: 'string' }
+                                documentId: { type: 'string', description: 'ID do documento da categoria' },
+                                name: { type: 'string', description: 'Nome da categoria' },
+                                slug: { type: 'string', description: 'Slug da categoria' }
                               }
                             }
                           }
@@ -92,10 +105,10 @@ export default {
                           pagination: {
                             type: 'object',
                             properties: {
-                              page: { type: 'integer' },
-                              pageSize: { type: 'integer' },
-                              pageCount: { type: 'integer' },
-                              total: { type: 'integer' }
+                              page: { type: 'integer', description: 'Página atual' },
+                              pageSize: { type: 'integer', description: 'Itens por página' },
+                              pageCount: { type: 'integer', description: 'Total de páginas' },
+                              total: { type: 'integer', description: 'Total de itens' }
                             }
                           }
                         }
@@ -104,28 +117,28 @@ export default {
                   }
                 }
               }
-            },
+            }
           }
         }
       }
     },
     {
       method: 'GET',
-      path: '/products/public/:id',
+      path: '/products/public/:documentId',
       handler: 'product.findOnePublic',
       config: {
         auth: false,
         swagger: {
           tags: ['Product'],
           description: 'Buscar um produto específico',
-          summary: 'Retorna detalhes de um produto pelo ID',
+          summary: 'Retorna detalhes de um produto pelo Document ID',
           parameters: [
             {
-              name: 'id',
+              name: 'documentId',
               in: 'path',
-              description: 'ID do produto',
+              description: 'Document ID do produto',
               required: true,
-              schema: { type: 'integer' }
+              schema: { type: 'string' }
             }
           ],
           responses: {
@@ -139,32 +152,40 @@ export default {
                       data: {
                         type: 'object',
                         properties: {
-                          id: { type: 'integer' },
-                          name: { type: 'string' },
-                          description: { type: 'string' },
-                          price: { type: 'number' },
-                          isAvailable: { type: 'boolean' },
-                          slug: { type: 'string' },
-                          createdAt: { type: 'string', format: 'date-time' },
-                          updatedAt: { type: 'string', format: 'date-time' },
-                          publishedAt: { type: 'string', format: 'date-time' },
-                          image: {
-                            type: 'object',
-                            properties: {
-                              id: { type: 'integer' },
-                              url: { type: 'string' },
-                              alternativeText: { type: 'string' },
-                              caption: { type: 'string' },
-                              width: { type: 'integer' },
-                              height: { type: 'integer' }
+                          documentId: { type: 'string', description: 'ID único do documento' },
+                          name: { type: 'string', description: 'Nome do produto' },
+                          description: { type: 'string', description: 'Descrição do produto' },
+                          price: { type: 'number', description: 'Preço do produto' },
+                          slug: { type: 'string', description: 'Slug para URL amigável' },
+                          isAvailable: { type: 'boolean', description: 'Se o produto está disponível' },
+                          isFeatured: { type: 'boolean', description: 'Se o produto está em destaque' },
+                          preparationTime: { type: 'integer', description: 'Tempo de preparo em minutos' },
+                          images: {
+                            type: 'array',
+                            description: 'Lista de imagens do produto',
+                            items: {
+                              type: 'object',
+                              properties: {
+                                documentId: { type: 'string', description: 'ID do documento da imagem' },
+                                url: { type: 'string', description: 'URL da imagem' },
+                                name: { type: 'string', description: 'Nome do arquivo' },
+                                ext: { type: 'string', description: 'Extensão do arquivo' },
+                                mime: { type: 'string', description: 'Tipo MIME do arquivo' },
+                                size: { type: 'number', description: 'Tamanho do arquivo em bytes' }
+                              }
                             }
                           },
+                          createdAt: { type: 'string', format: 'date-time', description: 'Data de criação' },
+                          updatedAt: { type: 'string', format: 'date-time', description: 'Data de atualização' },
+                          publishedAt: { type: 'string', format: 'date-time', description: 'Data de publicação' },
                           category: {
                             type: 'object',
+                            nullable: true,
+                            description: 'Categoria do produto',
                             properties: {
-                              id: { type: 'integer' },
-                              name: { type: 'string' },
-                              slug: { type: 'string' }
+                              documentId: { type: 'string', description: 'ID do documento da categoria' },
+                              name: { type: 'string', description: 'Nome da categoria' },
+                              slug: { type: 'string', description: 'Slug da categoria' }
                             }
                           }
                         }
@@ -174,13 +195,34 @@ export default {
                 }
               }
             },
+            404: {
+              description: 'Produto não encontrado',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      data: { type: 'null' },
+                      error: {
+                        type: 'object',
+                        properties: {
+                          status: { type: 'integer', example: 404 },
+                          name: { type: 'string', example: 'NotFoundError' },
+                          message: { type: 'string', example: 'Produto não encontrado' }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
     },
     {
       method: 'GET',
-      path: '/products/public/categories/:categoryId',
+      path: '/products/public/categories/:documentId',
       handler: 'product.findByCategory',
       config: {
         auth: false,
@@ -190,11 +232,11 @@ export default {
           summary: 'Lista produtos de uma categoria específica',
           parameters: [
             {
-              name: 'categoryId',
+              name: 'documentId',
               in: 'path',
-              description: 'ID da categoria',
+              description: 'Document ID da categoria',
               required: true,
-              schema: { type: 'integer' }
+              schema: { type: 'string' }
             },
             {
               name: 'page',
@@ -231,27 +273,39 @@ export default {
                         items: {
                           type: 'object',
                           properties: {
-                            id: { type: 'integer' },
-                            name: { type: 'string' },
-                            description: { type: 'string' },
-                            price: { type: 'number' },
-                            isAvailable: { type: 'boolean' },
-                            slug: { type: 'string' },
-                            createdAt: { type: 'string', format: 'date-time' },
-                            image: {
-                              type: 'object',
-                              properties: {
-                                id: { type: 'integer' },
-                                url: { type: 'string' },
-                                alternativeText: { type: 'string' }
+                            documentId: { type: 'string', description: 'ID único do documento' },
+                            name: { type: 'string', description: 'Nome do produto' },
+                            description: { type: 'string', description: 'Descrição do produto' },
+                            price: { type: 'number', description: 'Preço do produto' },
+                            slug: { type: 'string', description: 'Slug para URL amigável' },
+                            isAvailable: { type: 'boolean', description: 'Se o produto está disponível' },
+                            isFeatured: { type: 'boolean', description: 'Se o produto está em destaque' },
+                            preparationTime: { type: 'integer', description: 'Tempo de preparo em minutos' },
+                            images: {
+                              type: 'array',
+                              description: 'Lista de imagens do produto',
+                              items: {
+                                type: 'object',
+                                properties: {
+                                  documentId: { type: 'string', description: 'ID do documento da imagem' },
+                                  url: { type: 'string', description: 'URL da imagem' },
+                                  name: { type: 'string', description: 'Nome do arquivo' },
+                                  ext: { type: 'string', description: 'Extensão do arquivo' },
+                                  mime: { type: 'string', description: 'Tipo MIME do arquivo' },
+                                  size: { type: 'number', description: 'Tamanho do arquivo em bytes' }
+                                }
                               }
                             },
+                            createdAt: { type: 'string', format: 'date-time', description: 'Data de criação' },
+                            updatedAt: { type: 'string', format: 'date-time', description: 'Data de atualização' },
+                            publishedAt: { type: 'string', format: 'date-time', description: 'Data de publicação' },
                             category: {
                               type: 'object',
+                              description: 'Categoria do produto',
                               properties: {
-                                id: { type: 'integer' },
-                                name: { type: 'string' },
-                                slug: { type: 'string' }
+                                documentId: { type: 'string', description: 'ID do documento da categoria' },
+                                name: { type: 'string', description: 'Nome da categoria' },
+                                slug: { type: 'string', description: 'Slug da categoria' }
                               }
                             }
                           }
@@ -263,10 +317,10 @@ export default {
                           pagination: {
                             type: 'object',
                             properties: {
-                              page: { type: 'integer' },
-                              pageSize: { type: 'integer' },
-                              pageCount: { type: 'integer' },
-                              total: { type: 'integer' }
+                              page: { type: 'integer', description: 'Página atual' },
+                              pageSize: { type: 'integer', description: 'Itens por página' },
+                              pageCount: { type: 'integer', description: 'Total de páginas' },
+                              total: { type: 'integer', description: 'Total de itens' }
                             }
                           }
                         }
@@ -276,6 +330,33 @@ export default {
                 }
               }
             },
+            404: {
+              description: 'Categoria não encontrada ou sem produtos',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      data: { type: 'array', items: {} },
+                      meta: {
+                        type: 'object',
+                        properties: {
+                          pagination: {
+                            type: 'object',
+                            properties: {
+                              page: { type: 'integer' },
+                              pageSize: { type: 'integer' },
+                              pageCount: { type: 'integer' },
+                              total: { type: 'integer', example: 0 }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
