@@ -28,7 +28,57 @@ export default {
           ],
           responses: {
             200: {
-              description: 'Lista de categorias retornada com sucesso'
+              description: 'Lista todas as categorias públicas',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      data: {
+                        type: 'array',
+                        items: {
+                          type: 'object',
+                          properties: {
+                            documentId: { type: 'string' },
+                            name: { type: 'string' },
+                            slug: { type: 'string' },
+                            description: { type: 'string' },
+                            createdAt: { type: 'string' },
+                            updatedAt: { type: 'string' },
+                            publishedAt: { type: 'string' },
+                            productCount: { type: 'integer' },
+                            image: {
+                              type: 'object',
+                              properties: {
+                                documentId: { type: 'string' },
+                                url: { type: 'string' },
+                                name: { type: 'string' },
+                                ext: { type: 'string' },
+                                mime: { type: 'string' },
+                                size: { type: 'integer' }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      meta: {
+                        type: 'object',
+                        properties: {
+                          pagination: {
+                            type: 'object',
+                            properties: {
+                              page: { type: 'integer' },
+                              pageSize: { type: 'integer' },
+                              pageCount: { type: 'integer' },
+                              total: { type: 'integer' }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -36,26 +86,59 @@ export default {
     },
     {
       method: 'GET',
-      path: '/categories/public/:id',
+      path: '/categories/public/:documentId',
       handler: 'category.findOnePublic',
       config: {
         auth: false,
         swagger: {
           tags: ['Category'],
           description: 'Buscar uma categoria específica',
-          summary: 'Retorna detalhes de uma categoria pelo ID',
+          summary: 'Retorna detalhes de uma categoria pelo Document ID',
           parameters: [
             {
-              name: 'id',
+              name: 'documentId',
               in: 'path',
-              description: 'ID da categoria',
+              description: 'Document ID da categoria',
               required: true,
-              schema: { type: 'integer' }
+              schema: { type: 'string' }
             }
           ],
           responses: {
             200: {
-              description: 'Categoria encontrada com sucesso'
+              description: 'Retorna detalhes de uma categoria pelo Document ID',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      data: {
+                        type: 'object',
+                        properties: {
+                          documentId: { type: 'string' },
+                          name: { type: 'string' },
+                          slug: { type: 'string' },
+                          description: { type: 'string' },
+                          createdAt: { type: 'string' },
+                          updatedAt: { type: 'string' },
+                          publishedAt: { type: 'string' },
+                          productCount: { type: 'integer' },
+                          image: {
+                            type: 'object',
+                            properties: {
+                              documentId: { type: 'string' },
+                              url: { type: 'string' },
+                              name: { type: 'string' },
+                              ext: { type: 'string' },
+                              mime: { type: 'string' },
+                              size: { type: 'integer' }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -82,7 +165,40 @@ export default {
           ],
           responses: {
             200: {
-              description: 'Categoria encontrada com sucesso'
+              description: 'Retorna detalhes de uma categoria pelo slug',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      data: {
+                        type: 'object',
+                        properties: {
+                          documentId: { type: 'string' },
+                          name: { type: 'string' },
+                          slug: { type: 'string' },
+                          description: { type: 'string' },
+                          createdAt: { type: 'string' },
+                          updatedAt: { type: 'string' },
+                          publishedAt: { type: 'string' },
+                          productCount: { type: 'integer' },
+                          image: {
+                            type: 'object',
+                            properties: {
+                              documentId: { type: 'string' },
+                              url: { type: 'string' },
+                              name: { type: 'string' },
+                              ext: { type: 'string' },
+                              mime: { type: 'string' },
+                              size: { type: 'integer' }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
