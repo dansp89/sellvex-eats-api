@@ -8,6 +8,7 @@ export default {
         auth: false,
         swagger: {
           tags: ['Ingredient'],
+          security: [],
           description: 'Buscar ingredientes disponíveis',
           summary: 'Lista todos os ingredientes',
           responses: {

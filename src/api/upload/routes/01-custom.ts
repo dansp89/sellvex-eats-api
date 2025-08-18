@@ -13,6 +13,7 @@ export default {
         auth: false,
         swagger: {
           tags: ['Upload - File'],
+          security: [],
           description: 'Buscar um upload público',
           summary: 'Retorna um upload público',
           parameters: [

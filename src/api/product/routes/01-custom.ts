@@ -8,6 +8,7 @@ export default {
         auth: false,
         swagger: {
           tags: ['Product'],
+          security: [],
           description: 'Buscar todos os produtos públicos',
           summary: 'Lista produtos disponíveis publicamente',
           parameters: [
@@ -130,6 +131,7 @@ export default {
         auth: false,
         swagger: {
           tags: ['Product'],
+          security: [],
           description: 'Buscar um produto específico',
           summary: 'Retorna detalhes de um produto pelo Document ID',
           parameters: [
@@ -228,6 +230,7 @@ export default {
         auth: false,
         swagger: {
           tags: ['Product'],
+          security: [],
           description: 'Buscar produtos por categoria',
           summary: 'Lista produtos de uma categoria específica',
           parameters: [

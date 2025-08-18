@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-08-18T11:21:50.071Z"
+    "x-generation-date": "2025-08-18T15:50:15.645Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -48,6 +48,7 @@
         "tags": [
           "Category"
         ],
+        "security": [],
         "description": "Buscar todas as categorias públicas",
         "summary": "Lista categorias disponíveis publicamente",
         "parameters": [
@@ -357,6 +358,7 @@
         "tags": [
           "Category"
         ],
+        "security": [],
         "description": "Buscar uma categoria específica",
         "summary": "Retorna detalhes de uma categoria pelo Document ID",
         "parameters": [
@@ -629,6 +631,7 @@
         "tags": [
           "Category"
         ],
+        "security": [],
         "description": "Buscar uma categoria pelo slug",
         "summary": "Retorna detalhes de uma categoria pelo slug",
         "parameters": [
@@ -1626,6 +1629,7 @@
         "tags": [
           "Delivery-driver"
         ],
+        "security": [],
         "description": "Buscar todos os entregadores públicos",
         "summary": "Lista entregadores disponíveis publicamente",
         "parameters": [
@@ -1925,6 +1929,7 @@
         "tags": [
           "Delivery-driver"
         ],
+        "security": [],
         "description": "Buscar um entregador específico",
         "summary": "Retorna detalhes de um entregador pelo Document ID",
         "parameters": [
@@ -2143,6 +2148,7 @@
         "tags": [
           "Delivery-driver"
         ],
+        "security": [],
         "description": "Buscar perfil do entregador autenticado",
         "summary": "Retorna dados do perfil do entregador",
         "responses": {
@@ -2384,6 +2390,7 @@
         "tags": [
           "Delivery-driver"
         ],
+        "security": [],
         "description": "Buscar pedidos disponíveis para entrega",
         "summary": "Lista pedidos que podem ser aceitos pelo entregador",
         "parameters": [
@@ -2682,6 +2689,7 @@
         "tags": [
           "Delivery-driver"
         ],
+        "security": [],
         "description": "Buscar entregas do entregador autenticado",
         "summary": "Lista todas as entregas do entregador",
         "parameters": [
@@ -2980,6 +2988,7 @@
         "tags": [
           "Delivery-zone"
         ],
+        "security": [],
         "description": "Buscar todas as zonas de entrega públicas",
         "summary": "Lista zonas de entrega disponíveis publicamente",
         "parameters": [
@@ -3320,6 +3329,7 @@
         "tags": [
           "Delivery-zone"
         ],
+        "security": [],
         "description": "Buscar uma zona de entrega específica",
         "summary": "Retorna detalhes de uma zona de entrega pelo Document ID",
         "parameters": [
@@ -3573,6 +3583,7 @@
         "tags": [
           "Ingredient"
         ],
+        "security": [],
         "description": "Buscar ingredientes disponíveis",
         "summary": "Lista todos os ingredientes",
         "responses": {
@@ -3773,6 +3784,7 @@
         "tags": [
           "Notification"
         ],
+        "security": [],
         "description": "Buscar todas as notificações públicas",
         "summary": "Lista notificações disponíveis publicamente",
         "parameters": [
@@ -4072,6 +4084,7 @@
         "tags": [
           "Notification"
         ],
+        "security": [],
         "description": "Buscar uma notificação específica",
         "summary": "Retorna detalhes de uma notificação pelo Document ID",
         "parameters": [
@@ -4290,6 +4303,7 @@
         "tags": [
           "Notification"
         ],
+        "security": [],
         "description": "Buscar notificações do usuário autenticado",
         "summary": "Lista todas as notificações do usuário",
         "parameters": [
@@ -4579,6 +4593,7 @@
         "tags": [
           "Notification"
         ],
+        "security": [],
         "description": "Marcar notificação como lida",
         "summary": "Marca uma notificação específica como lida",
         "parameters": [
@@ -7403,6 +7418,7 @@
         "tags": [
           "Product"
         ],
+        "security": [],
         "description": "Buscar todos os produtos públicos",
         "summary": "Lista produtos disponíveis publicamente",
         "parameters": [
@@ -7795,6 +7811,7 @@
         "tags": [
           "Product"
         ],
+        "security": [],
         "description": "Buscar um produto específico",
         "summary": "Retorna detalhes de um produto pelo Document ID",
         "parameters": [
@@ -8114,6 +8131,7 @@
         "tags": [
           "Product"
         ],
+        "security": [],
         "description": "Buscar produtos por categoria",
         "summary": "Lista produtos de uma categoria específica",
         "parameters": [
@@ -8498,6 +8516,7 @@
         "tags": [
           "Review"
         ],
+        "security": [],
         "description": "Buscar avaliações públicas",
         "summary": "Lista todas as avaliações disponíveis",
         "responses": {
@@ -8698,6 +8717,7 @@
         "tags": [
           "Setting"
         ],
+        "security": [],
         "description": "Buscar configurações públicas",
         "summary": "Lista todas as configurações públicas do sistema",
         "responses": {
@@ -8898,6 +8918,7 @@
         "tags": [
           "Upload - File"
         ],
+        "security": [],
         "description": "Buscar um upload público",
         "summary": "Retorna um upload público",
         "parameters": [

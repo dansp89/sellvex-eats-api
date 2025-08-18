@@ -8,6 +8,7 @@ export default {
         auth: false,
         swagger: {
           tags: ['Delivery-driver'],
+          security: [],
           description: 'Buscar todos os entregadores públicos',
           summary: 'Lista entregadores disponíveis publicamente',
           parameters: [
@@ -85,6 +86,7 @@ export default {
         auth: false,
         swagger: {
           tags: ['Delivery-driver'],
+          security: [],
           description: 'Buscar um entregador específico',
           summary: 'Retorna detalhes de um entregador pelo Document ID',
           parameters: [
@@ -137,6 +139,7 @@ export default {
         auth: {},
         swagger: {
           tags: ['Delivery-driver'],
+          security: [],
           description: 'Buscar perfil do entregador autenticado',
           summary: 'Retorna dados do perfil do entregador',
           responses: {
@@ -177,6 +180,7 @@ export default {
         auth: {},
         swagger: {
           tags: ['Delivery-driver'],
+          security: [],
           description: 'Buscar pedidos disponíveis para entrega',
           summary: 'Lista pedidos que podem ser aceitos pelo entregador',
           parameters: [
@@ -253,6 +257,7 @@ export default {
         auth: {},
         swagger: {
           tags: ['Delivery-driver'],
+          security: [],
           description: 'Buscar entregas do entregador autenticado',
           summary: 'Lista todas as entregas do entregador',
           parameters: [

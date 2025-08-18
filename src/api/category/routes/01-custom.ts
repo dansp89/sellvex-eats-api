@@ -8,6 +8,7 @@ export default {
         auth: false,
         swagger: {
           tags: ['Category'],
+          security: [],
           description: 'Buscar todas as categorias públicas',
           summary: 'Lista categorias disponíveis publicamente',
           parameters: [
@@ -92,6 +93,7 @@ export default {
         auth: false,
         swagger: {
           tags: ['Category'],
+          security: [],
           description: 'Buscar uma categoria específica',
           summary: 'Retorna detalhes de uma categoria pelo Document ID',
           parameters: [
@@ -152,6 +154,7 @@ export default {
         auth: false,
         swagger: {
           tags: ['Category'],
+          security: [],
           description: 'Buscar uma categoria pelo slug',
           summary: 'Retorna detalhes de uma categoria pelo slug',
           parameters: [

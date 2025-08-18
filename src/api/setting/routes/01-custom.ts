@@ -8,6 +8,7 @@ export default {
         auth: false,
         swagger: {
           tags: ['Setting'],
+          security: [],
           description: 'Buscar configurações públicas',
           summary: 'Lista todas as configurações públicas do sistema',
           responses: {

@@ -8,6 +8,7 @@ export default {
         auth: false,
         swagger: {
           tags: ['Notification'],
+          security: [],
           description: 'Buscar todas as notificações públicas',
           summary: 'Lista notificações disponíveis publicamente',
           parameters: [
@@ -85,6 +86,7 @@ export default {
         auth: false,
         swagger: {
           tags: ['Notification'],
+          security: [],
           description: 'Buscar uma notificação específica',
           summary: 'Retorna detalhes de uma notificação pelo Document ID',
           parameters: [
@@ -137,6 +139,7 @@ export default {
         auth: {},
         swagger: {
           tags: ['Notification'],
+          security: [],
           description: 'Buscar notificações do usuário autenticado',
           summary: 'Lista todas as notificações do usuário',
           parameters: [
@@ -210,6 +213,7 @@ export default {
         auth: {},
         swagger: {
           tags: ['Notification'],
+          security: [],
           description: 'Marcar notificação como lida',
           summary: 'Marca uma notificação específica como lida',
           parameters: [

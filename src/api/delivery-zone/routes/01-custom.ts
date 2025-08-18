@@ -8,6 +8,7 @@ export default {
         auth: false,
         swagger: {
           tags: ['Delivery-zone'],
+          security: [],
           description: 'Buscar todas as zonas de entrega públicas',
           summary: 'Lista zonas de entrega disponíveis publicamente',
           parameters: [
@@ -92,6 +93,7 @@ export default {
         auth: false,
         swagger: {
           tags: ['Delivery-zone'],
+          security: [],
           description: 'Buscar uma zona de entrega específica',
           summary: 'Retorna detalhes de uma zona de entrega pelo Document ID',
           parameters: [

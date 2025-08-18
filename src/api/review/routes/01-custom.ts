@@ -8,6 +8,7 @@ export default {
         auth: false,
         swagger: {
           tags: ['Review'],
+          security: [],
           description: 'Buscar avaliações públicas',
           summary: 'Lista todas as avaliações disponíveis',
           responses: {
