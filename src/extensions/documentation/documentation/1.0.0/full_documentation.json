@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-08-18T15:50:15.645Z"
+    "x-generation-date": "2025-08-19T21:24:34.541Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -17255,6 +17255,9 @@
                           "blocked": {
                             "type": "boolean"
                           },
+                          "fullname": {
+                            "type": "string"
+                          },
                           "role": {
                             "type": "object",
                             "properties": {
@@ -18735,6 +18738,9 @@
               },
               "blocked": {
                 "type": "boolean"
+              },
+              "fullname": {
+                "type": "string"
               },
               "role": {
                 "type": "object",
@@ -21380,6 +21386,9 @@
               "blocked": {
                 "type": "boolean"
               },
+              "fullname": {
+                "type": "string"
+              },
               "role": {
                 "type": "object",
                 "properties": {
@@ -23970,6 +23979,9 @@
                     },
                     "blocked": {
                       "type": "boolean"
+                    },
+                    "fullname": {
+                      "type": "string"
                     },
                     "role": {
                       "type": "object",
@@ -27484,6 +27496,9 @@
                           "blocked": {
                             "type": "boolean"
                           },
+                          "fullname": {
+                            "type": "string"
+                          },
                           "role": {
                             "type": "object",
                             "properties": {
@@ -28967,6 +28982,9 @@
               },
               "blocked": {
                 "type": "boolean"
+              },
+              "fullname": {
+                "type": "string"
               },
               "role": {
                 "type": "object",
@@ -31496,6 +31514,9 @@
               },
               "blocked": {
                 "type": "boolean"
+              },
+              "fullname": {
+                "type": "string"
               },
               "role": {
                 "type": "object",
@@ -34069,6 +34090,9 @@
               },
               "blocked": {
                 "type": "boolean"
+              },
+              "fullname": {
+                "type": "string"
               },
               "role": {
                 "type": "object",
@@ -37651,6 +37675,9 @@
                               "blocked": {
                                 "type": "boolean"
                               },
+                              "fullname": {
+                                "type": "string"
+                              },
                               "role": {
                                 "type": "object",
                                 "properties": {
@@ -39210,6 +39237,9 @@
               },
               "blocked": {
                 "type": "boolean"
+              },
+              "fullname": {
+                "type": "string"
               },
               "role": {
                 "type": "object",

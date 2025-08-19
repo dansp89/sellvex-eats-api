@@ -59,6 +59,11 @@
       "default": false,
       "configurable": false
     },
+    "fullname": {
+      "type": "string",
+      "configurable": true,
+      "required": false
+    },
     "role": {
       "type": "relation",
       "relation": "manyToOne",
