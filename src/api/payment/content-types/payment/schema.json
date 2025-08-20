@@ -19,12 +19,22 @@
     },
     "method": {
       "type": "enumeration",
-      "enum": ["credit_card", "debit_card", "pix", "cash"],
+      "enum": [
+        "credit_card",
+        "debit_card",
+        "pix",
+        "cash"
+      ],
       "required": true
     },
     "status": {
       "type": "enumeration",
-      "enum": ["pending", "completed", "failed", "refunded"],
+      "enum": [
+        "pending",
+        "completed",
+        "failed",
+        "refunded"
+      ],
       "default": "pending"
     },
     "transactionId": {

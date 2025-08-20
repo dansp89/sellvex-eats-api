@@ -22,7 +22,11 @@
     },
     "type": {
       "type": "enumeration",
-      "enum": ["order_update", "system", "delivery"],
+      "enum": [
+        "order_update",
+        "system",
+        "delivery"
+      ],
       "required": true
     },
     "isRead": {

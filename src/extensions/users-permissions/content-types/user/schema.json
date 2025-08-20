@@ -59,17 +59,16 @@
       "default": false,
       "configurable": false
     },
-    "fullname": {
-      "type": "string",
-      "configurable": true,
-      "required": false
-    },
     "role": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.role",
       "inversedBy": "users",
       "configurable": false
+    },
+    "fullname": {
+      "type": "string",
+      "required": false
     },
     "birth": {
       "type": "date"
@@ -80,18 +79,18 @@
     },
     "loyaltyPoints": {
       "type": "integer",
-      "min": 0,
-      "default": 0
+      "default": 0,
+      "min": 0
     },
     "totalSpent": {
       "type": "decimal",
-      "min": 0,
-      "default": 0
+      "default": 0,
+      "min": 0
     },
     "totalOrders": {
       "type": "integer",
-      "min": 0,
-      "default": 0
+      "default": 0,
+      "min": 0
     },
     "preferences": {
       "type": "json"
@@ -131,6 +130,12 @@
       "relation": "oneToMany",
       "target": "api::payment.payment",
       "mappedBy": "user"
+    },
+    "cpf": {
+      "type": "string",
+      "maxLength": 11,
+      "required": false,
+      "unique": true
     }
   }
 }
