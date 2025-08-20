@@ -84,39 +84,6 @@ export default {
           }
         }
       }
-    },
-    {
-      method: 'POST',
-      path: '/users/logout',
-      handler: 'user.logout',
-      config: {
-        auth: {},
-        tags: ['Users-Permissions - Users & Roles'],
-        swagger: {
-          tags: ['Users-Permissions - Users & Roles'],
-          description: 'Deslogar o usuário',
-          summary: 'Deslogar o usuário',
-          responses: {
-            200: {
-              description: 'Usuário deslogado com sucesso',
-              content: {
-                'application/json': {
-                  schema: {
-                    type: 'object',
-                    properties: {
-                      success: { type: 'boolean' },
-                      message: { type: 'string' },
-                      authenticated: { type: 'boolean' },
-                      documentId: { type: ['string', 'null'] },
-                      role: { type: ['string', 'null'] }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     }
   ]
 };
