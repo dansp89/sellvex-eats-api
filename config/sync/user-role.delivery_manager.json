@@ -6,18 +6,18 @@
   "locale": null,
   "permissions": [
     {
-      "documentId": "del_mgr_order_find",
-      "action": "api::order.order.find",
+      "documentId": "del_mgr_chat_create",
+      "action": "api::chat.chat.create",
       "locale": null
     },
     {
-      "documentId": "del_mgr_order_find_one",
-      "action": "api::order.order.findOne",
+      "documentId": "del_mgr_chat_find",
+      "action": "api::chat.chat.find",
       "locale": null
     },
     {
-      "documentId": "del_mgr_order_update",
-      "action": "api::order.order.update",
+      "documentId": "del_mgr_delivery_driver_create",
+      "action": "api::delivery-driver.delivery-driver.create",
       "locale": null
     },
     {
@@ -36,8 +36,8 @@
       "locale": null
     },
     {
-      "documentId": "del_mgr_delivery_driver_create",
-      "action": "api::delivery-driver.delivery-driver.create",
+      "documentId": "del_mgr_delivery_zone_create",
+      "action": "api::delivery-zone.delivery-zone.create",
       "locale": null
     },
     {
@@ -56,11 +56,6 @@
       "locale": null
     },
     {
-      "documentId": "del_mgr_delivery_zone_create",
-      "action": "api::delivery-zone.delivery-zone.create",
-      "locale": null
-    },
-    {
       "documentId": "del_mgr_notification_create",
       "action": "api::notification.notification.create",
       "locale": null
@@ -71,13 +66,18 @@
       "locale": null
     },
     {
-      "documentId": "del_mgr_chat_find",
-      "action": "api::chat.chat.find",
+      "documentId": "del_mgr_order_find",
+      "action": "api::order.order.find",
       "locale": null
     },
     {
-      "documentId": "del_mgr_chat_create",
-      "action": "api::chat.chat.create",
+      "documentId": "del_mgr_order_find_one",
+      "action": "api::order.order.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "del_mgr_order_update",
+      "action": "api::order.order.update",
       "locale": null
     },
     {

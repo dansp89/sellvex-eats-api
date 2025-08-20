@@ -6,13 +6,68 @@
   "locale": null,
   "permissions": [
     {
-      "documentId": "driver_product_find_public",
-      "action": "api::product.product.findPublic",
+      "documentId": "driver_category_find_public",
+      "action": "api::category.category.findPublic",
       "locale": null
     },
     {
-      "documentId": "driver_category_find_public",
-      "action": "api::category.category.findPublic",
+      "documentId": "driver_chat_create",
+      "action": "api::chat.chat.create",
+      "locale": null
+    },
+    {
+      "documentId": "driver_chat_get_conversation",
+      "action": "api::chat.chat.getConversation",
+      "locale": null
+    },
+    {
+      "documentId": "driver_chat_mark_as_read",
+      "action": "api::chat.chat.markAsRead",
+      "locale": null
+    },
+    {
+      "documentId": "driver_chat_send_message",
+      "action": "api::chat.chat.sendMessage",
+      "locale": null
+    },
+    {
+      "documentId": "driver_delivery_driver_find_available_orders",
+      "action": "api::delivery-driver.delivery-driver.findAvailableOrders",
+      "locale": null
+    },
+    {
+      "documentId": "driver_delivery_driver_find_my_deliveries",
+      "action": "api::delivery-driver.delivery-driver.findMyDeliveries",
+      "locale": null
+    },
+    {
+      "documentId": "driver_delivery_driver_find_profile",
+      "action": "api::delivery-driver.delivery-driver.findProfile",
+      "locale": null
+    },
+    {
+      "documentId": "driver_delivery_zone_find",
+      "action": "api::delivery-zone.delivery-zone.find",
+      "locale": null
+    },
+    {
+      "documentId": "driver_delivery_zone_find_public",
+      "action": "api::delivery-zone.delivery-zone.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "driver_notification_find_user_notifications",
+      "action": "api::notification.notification.findUserNotifications",
+      "locale": null
+    },
+    {
+      "documentId": "driver_notification_mark_as_read",
+      "action": "api::notification.notification.markAsRead",
+      "locale": null
+    },
+    {
+      "documentId": "driver_order_accept_order",
+      "action": "api::order.order.acceptOrder",
       "locale": null
     },
     {
@@ -31,8 +86,8 @@
       "locale": null
     },
     {
-      "documentId": "driver_order_accept_order",
-      "action": "api::order.order.acceptOrder",
+      "documentId": "driver_order_update",
+      "action": "api::order.order.update",
       "locale": null
     },
     {
@@ -41,68 +96,18 @@
       "locale": null
     },
     {
-      "documentId": "driver_order_update",
-      "action": "api::order.order.update",
-      "locale": null
-    },
-    {
-      "documentId": "driver_delivery_driver_find_profile",
-      "action": "api::delivery-driver.delivery-driver.findProfile",
-      "locale": null
-    },
-    {
-      "documentId": "driver_delivery_driver_find_available_orders",
-      "action": "api::delivery-driver.delivery-driver.findAvailableOrders",
-      "locale": null
-    },
-    {
-      "documentId": "driver_delivery_driver_find_my_deliveries",
-      "action": "api::delivery-driver.delivery-driver.findMyDeliveries",
-      "locale": null
-    },
-    {
-      "documentId": "driver_delivery_zone_find",
-      "action": "api::delivery-zone.delivery-zone.find",
-      "locale": null
-    },
-    {
-      "documentId": "driver_delivery_zone_find_public",
-      "action": "api::delivery-zone.delivery-zone.findPublic",
-      "locale": null
-    },
-    {
-      "documentId": "driver_chat_create",
-      "action": "api::chat.chat.create",
-      "locale": null
-    },
-    {
-      "documentId": "driver_chat_get_conversation",
-      "action": "api::chat.chat.getConversation",
-      "locale": null
-    },
-    {
-      "documentId": "driver_chat_send_message",
-      "action": "api::chat.chat.sendMessage",
-      "locale": null
-    },
-    {
-      "documentId": "driver_chat_mark_as_read",
-      "action": "api::chat.chat.markAsRead",
-      "locale": null
-    },
-    {
-      "documentId": "driver_notification_find_user_notifications",
-      "action": "api::notification.notification.findUserNotifications",
-      "locale": null
-    },
-    {
-      "documentId": "driver_notification_mark_as_read",
-      "action": "api::notification.notification.markAsRead",
+      "documentId": "driver_product_find_public",
+      "action": "api::product.product.findPublic",
       "locale": null
     },
     {
       "documentId": "driver_setting_find_public",
       "action": "api::setting.setting.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "driver_user_change_password",
+      "action": "plugin::users-permissions.auth.changePassword",
       "locale": null
     },
     {
@@ -113,11 +118,6 @@
     {
       "documentId": "driver_user_update",
       "action": "plugin::users-permissions.user.update",
-      "locale": null
-    },
-    {
-      "documentId": "driver_user_change_password",
-      "action": "plugin::users-permissions.auth.changePassword",
       "locale": null
     }
   ]

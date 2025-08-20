@@ -11,6 +11,11 @@
       "locale": null
     },
     {
+      "documentId": "admin_category_delete",
+      "action": "api::category.category.delete",
+      "locale": null
+    },
+    {
       "documentId": "admin_category_find",
       "action": "api::category.category.find",
       "locale": null
@@ -26,113 +31,33 @@
       "locale": null
     },
     {
-      "documentId": "admin_category_delete",
-      "action": "api::category.category.delete",
+      "documentId": "admin_chat_create",
+      "action": "api::chat.chat.create",
       "locale": null
     },
     {
-      "documentId": "admin_product_create",
-      "action": "api::product.product.create",
+      "documentId": "admin_chat_delete",
+      "action": "api::chat.chat.delete",
       "locale": null
     },
     {
-      "documentId": "admin_product_find",
-      "action": "api::product.product.find",
+      "documentId": "admin_chat_find",
+      "action": "api::chat.chat.find",
       "locale": null
     },
     {
-      "documentId": "admin_product_find_one",
-      "action": "api::product.product.findOne",
-      "locale": null
-    },
-    {
-      "documentId": "admin_product_update",
-      "action": "api::product.product.update",
-      "locale": null
-    },
-    {
-      "documentId": "admin_product_delete",
-      "action": "api::product.product.delete",
-      "locale": null
-    },
-    {
-      "documentId": "admin_ingredient_create",
-      "action": "api::ingredient.ingredient.create",
-      "locale": null
-    },
-    {
-      "documentId": "admin_ingredient_find",
-      "action": "api::ingredient.ingredient.find",
-      "locale": null
-    },
-    {
-      "documentId": "admin_ingredient_find_one",
-      "action": "api::ingredient.ingredient.findOne",
-      "locale": null
-    },
-    {
-      "documentId": "admin_ingredient_update",
-      "action": "api::ingredient.ingredient.update",
-      "locale": null
-    },
-    {
-      "documentId": "admin_ingredient_delete",
-      "action": "api::ingredient.ingredient.delete",
-      "locale": null
-    },
-    {
-      "documentId": "admin_order_create",
-      "action": "api::order.order.create",
-      "locale": null
-    },
-    {
-      "documentId": "admin_order_find",
-      "action": "api::order.order.find",
-      "locale": null
-    },
-    {
-      "documentId": "admin_order_find_one",
-      "action": "api::order.order.findOne",
-      "locale": null
-    },
-    {
-      "documentId": "admin_order_update",
-      "action": "api::order.order.update",
-      "locale": null
-    },
-    {
-      "documentId": "admin_order_delete",
-      "action": "api::order.order.delete",
-      "locale": null
-    },
-    {
-      "documentId": "admin_payment_create",
-      "action": "api::payment.payment.create",
-      "locale": null
-    },
-    {
-      "documentId": "admin_payment_find",
-      "action": "api::payment.payment.find",
-      "locale": null
-    },
-    {
-      "documentId": "admin_payment_find_one",
-      "action": "api::payment.payment.findOne",
-      "locale": null
-    },
-    {
-      "documentId": "admin_payment_update",
-      "action": "api::payment.payment.update",
-      "locale": null
-    },
-    {
-      "documentId": "admin_payment_delete",
-      "action": "api::payment.payment.delete",
+      "documentId": "admin_chat_update",
+      "action": "api::chat.chat.update",
       "locale": null
     },
     {
       "documentId": "admin_delivery_driver_create",
       "action": "api::delivery-driver.delivery-driver.create",
+      "locale": null
+    },
+    {
+      "documentId": "admin_delivery_driver_delete",
+      "action": "api::delivery-driver.delivery-driver.delete",
       "locale": null
     },
     {
@@ -151,13 +76,13 @@
       "locale": null
     },
     {
-      "documentId": "admin_delivery_driver_delete",
-      "action": "api::delivery-driver.delivery-driver.delete",
+      "documentId": "admin_delivery_zone_create",
+      "action": "api::delivery-zone.delivery-zone.create",
       "locale": null
     },
     {
-      "documentId": "admin_delivery_zone_create",
-      "action": "api::delivery-zone.delivery-zone.create",
+      "documentId": "admin_delivery_zone_delete",
+      "action": "api::delivery-zone.delivery-zone.delete",
       "locale": null
     },
     {
@@ -176,8 +101,128 @@
       "locale": null
     },
     {
-      "documentId": "admin_delivery_zone_delete",
-      "action": "api::delivery-zone.delivery-zone.delete",
+      "documentId": "admin_ingredient_create",
+      "action": "api::ingredient.ingredient.create",
+      "locale": null
+    },
+    {
+      "documentId": "admin_ingredient_delete",
+      "action": "api::ingredient.ingredient.delete",
+      "locale": null
+    },
+    {
+      "documentId": "admin_ingredient_find",
+      "action": "api::ingredient.ingredient.find",
+      "locale": null
+    },
+    {
+      "documentId": "admin_ingredient_find_one",
+      "action": "api::ingredient.ingredient.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "admin_ingredient_update",
+      "action": "api::ingredient.ingredient.update",
+      "locale": null
+    },
+    {
+      "documentId": "admin_notification_create",
+      "action": "api::notification.notification.create",
+      "locale": null
+    },
+    {
+      "documentId": "admin_notification_delete",
+      "action": "api::notification.notification.delete",
+      "locale": null
+    },
+    {
+      "documentId": "admin_notification_find",
+      "action": "api::notification.notification.find",
+      "locale": null
+    },
+    {
+      "documentId": "admin_notification_update",
+      "action": "api::notification.notification.update",
+      "locale": null
+    },
+    {
+      "documentId": "admin_order_create",
+      "action": "api::order.order.create",
+      "locale": null
+    },
+    {
+      "documentId": "admin_order_delete",
+      "action": "api::order.order.delete",
+      "locale": null
+    },
+    {
+      "documentId": "admin_order_find",
+      "action": "api::order.order.find",
+      "locale": null
+    },
+    {
+      "documentId": "admin_order_find_one",
+      "action": "api::order.order.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "admin_order_update",
+      "action": "api::order.order.update",
+      "locale": null
+    },
+    {
+      "documentId": "admin_payment_create",
+      "action": "api::payment.payment.create",
+      "locale": null
+    },
+    {
+      "documentId": "admin_payment_delete",
+      "action": "api::payment.payment.delete",
+      "locale": null
+    },
+    {
+      "documentId": "admin_payment_find",
+      "action": "api::payment.payment.find",
+      "locale": null
+    },
+    {
+      "documentId": "admin_payment_find_one",
+      "action": "api::payment.payment.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "admin_payment_update",
+      "action": "api::payment.payment.update",
+      "locale": null
+    },
+    {
+      "documentId": "admin_product_create",
+      "action": "api::product.product.create",
+      "locale": null
+    },
+    {
+      "documentId": "admin_product_delete",
+      "action": "api::product.product.delete",
+      "locale": null
+    },
+    {
+      "documentId": "admin_product_find",
+      "action": "api::product.product.find",
+      "locale": null
+    },
+    {
+      "documentId": "admin_product_find_one",
+      "action": "api::product.product.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "admin_product_update",
+      "action": "api::product.product.update",
+      "locale": null
+    },
+    {
+      "documentId": "admin_review_delete",
+      "action": "api::review.review.delete",
       "locale": null
     },
     {
@@ -196,51 +241,6 @@
       "locale": null
     },
     {
-      "documentId": "admin_review_delete",
-      "action": "api::review.review.delete",
-      "locale": null
-    },
-    {
-      "documentId": "admin_notification_create",
-      "action": "api::notification.notification.create",
-      "locale": null
-    },
-    {
-      "documentId": "admin_notification_find",
-      "action": "api::notification.notification.find",
-      "locale": null
-    },
-    {
-      "documentId": "admin_notification_update",
-      "action": "api::notification.notification.update",
-      "locale": null
-    },
-    {
-      "documentId": "admin_notification_delete",
-      "action": "api::notification.notification.delete",
-      "locale": null
-    },
-    {
-      "documentId": "admin_chat_create",
-      "action": "api::chat.chat.create",
-      "locale": null
-    },
-    {
-      "documentId": "admin_chat_find",
-      "action": "api::chat.chat.find",
-      "locale": null
-    },
-    {
-      "documentId": "admin_chat_update",
-      "action": "api::chat.chat.update",
-      "locale": null
-    },
-    {
-      "documentId": "admin_chat_delete",
-      "action": "api::chat.chat.delete",
-      "locale": null
-    },
-    {
       "documentId": "admin_setting_update",
       "action": "api::setting.setting.update",
       "locale": null
@@ -256,23 +256,23 @@
       "locale": null
     },
     {
-      "documentId": "admin_user_find",
-      "action": "plugin::users-permissions.user.find",
-      "locale": null
-    },
-    {
       "documentId": "admin_user_create",
       "action": "plugin::users-permissions.user.create",
       "locale": null
     },
     {
-      "documentId": "admin_user_update",
-      "action": "plugin::users-permissions.user.update",
+      "documentId": "admin_user_find",
+      "action": "plugin::users-permissions.user.find",
       "locale": null
     },
     {
       "documentId": "admin_user_me",
       "action": "plugin::users-permissions.user.me",
+      "locale": null
+    },
+    {
+      "documentId": "admin_user_update",
+      "action": "plugin::users-permissions.user.update",
       "locale": null
     }
   ]

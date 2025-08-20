@@ -146,6 +146,20 @@
           "sortable": true
         }
       },
+      "fullname": {
+        "edit": {
+          "label": "fullname",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "fullname",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "birth": {
         "edit": {
           "label": "birth",
@@ -305,6 +319,35 @@
           "sortable": false
         }
       },
+      "payments": {
+        "edit": {
+          "label": "payments",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "transactionId"
+        },
+        "list": {
+          "label": "payments",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "cpf": {
+        "edit": {
+          "label": "cpf",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "cpf",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -382,22 +425,18 @@
       "edit": [
         [
           {
+            "name": "fullname",
+            "size": 12
+          }
+        ],
+        [
+          {
             "name": "username",
             "size": 6
           },
           {
             "name": "email",
             "size": 6
-          }
-        ],
-        [
-          {
-            "name": "password",
-            "size": 6
-          },
-          {
-            "name": "confirmed",
-            "size": 4
           }
         ],
         [
@@ -412,12 +451,12 @@
         ],
         [
           {
-            "name": "birth",
-            "size": 4
+            "name": "password",
+            "size": 6
           },
           {
-            "name": "phone",
-            "size": 6
+            "name": "confirmed",
+            "size": 4
           }
         ],
         [
@@ -463,6 +502,26 @@
         [
           {
             "name": "chatsReceived",
+            "size": 6
+          },
+          {
+            "name": "payments",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "birth",
+            "size": 4
+          },
+          {
+            "name": "phone",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "cpf",
             "size": 6
           }
         ]

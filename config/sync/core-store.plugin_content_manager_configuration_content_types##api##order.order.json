@@ -204,6 +204,21 @@
           "sortable": false
         }
       },
+      "payment": {
+        "edit": {
+          "label": "payment",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "transactionId"
+        },
+        "list": {
+          "label": "payment",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -275,7 +290,8 @@
       "list": [
         "id",
         "user",
-        "deliveryZone"
+        "deliveryZone",
+        "payment"
       ],
       "edit": [
         [
@@ -346,6 +362,12 @@
           {
             "name": "deliveryAddress",
             "size": 12
+          }
+        ],
+        [
+          {
+            "name": "payment",
+            "size": 6
           }
         ]
       ]

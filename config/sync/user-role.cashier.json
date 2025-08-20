@@ -6,13 +6,13 @@
   "locale": null,
   "permissions": [
     {
-      "documentId": "cashier_product_find",
-      "action": "api::product.product.find",
+      "documentId": "cashier_category_find",
+      "action": "api::category.category.find",
       "locale": null
     },
     {
-      "documentId": "cashier_category_find",
-      "action": "api::category.category.find",
+      "documentId": "cashier_notification_find_user_notifications",
+      "action": "api::notification.notification.findUserNotifications",
       "locale": null
     },
     {
@@ -31,6 +31,11 @@
       "locale": null
     },
     {
+      "documentId": "cashier_payment_create",
+      "action": "api::payment.payment.create",
+      "locale": null
+    },
+    {
       "documentId": "cashier_payment_find",
       "action": "api::payment.payment.find",
       "locale": null
@@ -41,18 +46,13 @@
       "locale": null
     },
     {
-      "documentId": "cashier_payment_create",
-      "action": "api::payment.payment.create",
-      "locale": null
-    },
-    {
       "documentId": "cashier_payment_update",
       "action": "api::payment.payment.update",
       "locale": null
     },
     {
-      "documentId": "cashier_notification_find_user_notifications",
-      "action": "api::notification.notification.findUserNotifications",
+      "documentId": "cashier_product_find",
+      "action": "api::product.product.find",
       "locale": null
     },
     {

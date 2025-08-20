@@ -6,51 +6,6 @@
   "locale": null,
   "permissions": [
     {
-      "documentId": "acc_order_find",
-      "action": "api::order.order.find",
-      "locale": null
-    },
-    {
-      "documentId": "acc_order_find_one",
-      "action": "api::order.order.findOne",
-      "locale": null
-    },
-    {
-      "documentId": "acc_payment_find",
-      "action": "api::payment.payment.find",
-      "locale": null
-    },
-    {
-      "documentId": "acc_payment_find_one",
-      "action": "api::payment.payment.findOne",
-      "locale": null
-    },
-    {
-      "documentId": "acc_payment_create",
-      "action": "api::payment.payment.create",
-      "locale": null
-    },
-    {
-      "documentId": "acc_payment_update",
-      "action": "api::payment.payment.update",
-      "locale": null
-    },
-    {
-      "documentId": "acc_payment_find_user_payments",
-      "action": "api::payment.payment.findUserPayments",
-      "locale": null
-    },
-    {
-      "documentId": "acc_product_find",
-      "action": "api::product.product.find",
-      "locale": null
-    },
-    {
-      "documentId": "acc_product_find_one",
-      "action": "api::product.product.findOne",
-      "locale": null
-    },
-    {
       "documentId": "acc_category_find",
       "action": "api::category.category.find",
       "locale": null
@@ -66,11 +21,6 @@
       "locale": null
     },
     {
-      "documentId": "acc_review_find",
-      "action": "api::review.review.find",
-      "locale": null
-    },
-    {
       "documentId": "acc_notification_create",
       "action": "api::notification.notification.create",
       "locale": null
@@ -78,6 +28,56 @@
     {
       "documentId": "acc_notification_find",
       "action": "api::notification.notification.find",
+      "locale": null
+    },
+    {
+      "documentId": "acc_order_find",
+      "action": "api::order.order.find",
+      "locale": null
+    },
+    {
+      "documentId": "acc_order_find_one",
+      "action": "api::order.order.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "acc_payment_create",
+      "action": "api::payment.payment.create",
+      "locale": null
+    },
+    {
+      "documentId": "acc_payment_find",
+      "action": "api::payment.payment.find",
+      "locale": null
+    },
+    {
+      "documentId": "acc_payment_find_one",
+      "action": "api::payment.payment.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "acc_payment_find_user_payments",
+      "action": "api::payment.payment.findUserPayments",
+      "locale": null
+    },
+    {
+      "documentId": "acc_payment_update",
+      "action": "api::payment.payment.update",
+      "locale": null
+    },
+    {
+      "documentId": "acc_product_find",
+      "action": "api::product.product.find",
+      "locale": null
+    },
+    {
+      "documentId": "acc_product_find_one",
+      "action": "api::product.product.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "acc_review_find",
+      "action": "api::review.review.find",
       "locale": null
     },
     {

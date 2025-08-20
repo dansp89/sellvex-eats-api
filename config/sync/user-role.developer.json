@@ -11,6 +11,11 @@
       "locale": null
     },
     {
+      "documentId": "dev_category_delete",
+      "action": "api::category.category.delete",
+      "locale": null
+    },
+    {
       "documentId": "dev_category_find",
       "action": "api::category.category.find",
       "locale": null
@@ -26,38 +31,73 @@
       "locale": null
     },
     {
-      "documentId": "dev_category_delete",
-      "action": "api::category.category.delete",
+      "documentId": "dev_chat_create",
+      "action": "api::chat.chat.create",
       "locale": null
     },
     {
-      "documentId": "dev_product_create",
-      "action": "api::product.product.create",
+      "documentId": "dev_chat_delete",
+      "action": "api::chat.chat.delete",
       "locale": null
     },
     {
-      "documentId": "dev_product_find",
-      "action": "api::product.product.find",
+      "documentId": "dev_chat_find",
+      "action": "api::chat.chat.find",
       "locale": null
     },
     {
-      "documentId": "dev_product_find_one",
-      "action": "api::product.product.findOne",
+      "documentId": "dev_chat_update",
+      "action": "api::chat.chat.update",
       "locale": null
     },
     {
-      "documentId": "dev_product_update",
-      "action": "api::product.product.update",
+      "documentId": "dev_delivery_driver_create",
+      "action": "api::delivery-driver.delivery-driver.create",
       "locale": null
     },
     {
-      "documentId": "dev_product_delete",
-      "action": "api::product.product.delete",
+      "documentId": "dev_delivery_driver_delete",
+      "action": "api::delivery-driver.delivery-driver.delete",
+      "locale": null
+    },
+    {
+      "documentId": "dev_delivery_driver_find",
+      "action": "api::delivery-driver.delivery-driver.find",
+      "locale": null
+    },
+    {
+      "documentId": "dev_delivery_driver_update",
+      "action": "api::delivery-driver.delivery-driver.update",
+      "locale": null
+    },
+    {
+      "documentId": "dev_delivery_zone_create",
+      "action": "api::delivery-zone.delivery-zone.create",
+      "locale": null
+    },
+    {
+      "documentId": "dev_delivery_zone_delete",
+      "action": "api::delivery-zone.delivery-zone.delete",
+      "locale": null
+    },
+    {
+      "documentId": "dev_delivery_zone_find",
+      "action": "api::delivery-zone.delivery-zone.find",
+      "locale": null
+    },
+    {
+      "documentId": "dev_delivery_zone_update",
+      "action": "api::delivery-zone.delivery-zone.update",
       "locale": null
     },
     {
       "documentId": "dev_ingredient_create",
       "action": "api::ingredient.ingredient.create",
+      "locale": null
+    },
+    {
+      "documentId": "dev_ingredient_delete",
+      "action": "api::ingredient.ingredient.delete",
       "locale": null
     },
     {
@@ -71,13 +111,33 @@
       "locale": null
     },
     {
-      "documentId": "dev_ingredient_delete",
-      "action": "api::ingredient.ingredient.delete",
+      "documentId": "dev_notification_create",
+      "action": "api::notification.notification.create",
+      "locale": null
+    },
+    {
+      "documentId": "dev_notification_delete",
+      "action": "api::notification.notification.delete",
+      "locale": null
+    },
+    {
+      "documentId": "dev_notification_find",
+      "action": "api::notification.notification.find",
+      "locale": null
+    },
+    {
+      "documentId": "dev_notification_update",
+      "action": "api::notification.notification.update",
       "locale": null
     },
     {
       "documentId": "dev_order_create",
       "action": "api::order.order.create",
+      "locale": null
+    },
+    {
+      "documentId": "dev_order_delete",
+      "action": "api::order.order.delete",
       "locale": null
     },
     {
@@ -96,13 +156,13 @@
       "locale": null
     },
     {
-      "documentId": "dev_order_delete",
-      "action": "api::order.order.delete",
+      "documentId": "dev_payment_create",
+      "action": "api::payment.payment.create",
       "locale": null
     },
     {
-      "documentId": "dev_payment_create",
-      "action": "api::payment.payment.create",
+      "documentId": "dev_payment_delete",
+      "action": "api::payment.payment.delete",
       "locale": null
     },
     {
@@ -116,53 +176,38 @@
       "locale": null
     },
     {
-      "documentId": "dev_payment_delete",
-      "action": "api::payment.payment.delete",
+      "documentId": "dev_product_create",
+      "action": "api::product.product.create",
       "locale": null
     },
     {
-      "documentId": "dev_delivery_driver_create",
-      "action": "api::delivery-driver.delivery-driver.create",
+      "documentId": "dev_product_delete",
+      "action": "api::product.product.delete",
       "locale": null
     },
     {
-      "documentId": "dev_delivery_driver_find",
-      "action": "api::delivery-driver.delivery-driver.find",
+      "documentId": "dev_product_find",
+      "action": "api::product.product.find",
       "locale": null
     },
     {
-      "documentId": "dev_delivery_driver_update",
-      "action": "api::delivery-driver.delivery-driver.update",
+      "documentId": "dev_product_find_one",
+      "action": "api::product.product.findOne",
       "locale": null
     },
     {
-      "documentId": "dev_delivery_driver_delete",
-      "action": "api::delivery-driver.delivery-driver.delete",
-      "locale": null
-    },
-    {
-      "documentId": "dev_delivery_zone_create",
-      "action": "api::delivery-zone.delivery-zone.create",
-      "locale": null
-    },
-    {
-      "documentId": "dev_delivery_zone_find",
-      "action": "api::delivery-zone.delivery-zone.find",
-      "locale": null
-    },
-    {
-      "documentId": "dev_delivery_zone_update",
-      "action": "api::delivery-zone.delivery-zone.update",
-      "locale": null
-    },
-    {
-      "documentId": "dev_delivery_zone_delete",
-      "action": "api::delivery-zone.delivery-zone.delete",
+      "documentId": "dev_product_update",
+      "action": "api::product.product.update",
       "locale": null
     },
     {
       "documentId": "dev_review_create",
       "action": "api::review.review.create",
+      "locale": null
+    },
+    {
+      "documentId": "dev_review_delete",
+      "action": "api::review.review.delete",
       "locale": null
     },
     {
@@ -173,51 +218,6 @@
     {
       "documentId": "dev_review_update",
       "action": "api::review.review.update",
-      "locale": null
-    },
-    {
-      "documentId": "dev_review_delete",
-      "action": "api::review.review.delete",
-      "locale": null
-    },
-    {
-      "documentId": "dev_notification_create",
-      "action": "api::notification.notification.create",
-      "locale": null
-    },
-    {
-      "documentId": "dev_notification_find",
-      "action": "api::notification.notification.find",
-      "locale": null
-    },
-    {
-      "documentId": "dev_notification_update",
-      "action": "api::notification.notification.update",
-      "locale": null
-    },
-    {
-      "documentId": "dev_notification_delete",
-      "action": "api::notification.notification.delete",
-      "locale": null
-    },
-    {
-      "documentId": "dev_chat_create",
-      "action": "api::chat.chat.create",
-      "locale": null
-    },
-    {
-      "documentId": "dev_chat_find",
-      "action": "api::chat.chat.find",
-      "locale": null
-    },
-    {
-      "documentId": "dev_chat_update",
-      "action": "api::chat.chat.update",
-      "locale": null
-    },
-    {
-      "documentId": "dev_chat_delete",
-      "action": "api::chat.chat.delete",
       "locale": null
     },
     {
@@ -246,6 +246,11 @@
       "locale": null
     },
     {
+      "documentId": "dev_upload_destroy",
+      "action": "plugin::upload.content-api.destroy",
+      "locale": null
+    },
+    {
       "documentId": "dev_upload_find",
       "action": "plugin::upload.content-api.find",
       "locale": null
@@ -256,28 +261,8 @@
       "locale": null
     },
     {
-      "documentId": "dev_upload_destroy",
-      "action": "plugin::upload.content-api.destroy",
-      "locale": null
-    },
-    {
-      "documentId": "dev_user_find",
-      "action": "plugin::users-permissions.user.find",
-      "locale": null
-    },
-    {
-      "documentId": "dev_user_create",
-      "action": "plugin::users-permissions.user.create",
-      "locale": null
-    },
-    {
-      "documentId": "dev_user_update",
-      "action": "plugin::users-permissions.user.update",
-      "locale": null
-    },
-    {
-      "documentId": "dev_user_me",
-      "action": "plugin::users-permissions.user.me",
+      "documentId": "dev_permissions_get_permissions",
+      "action": "plugin::users-permissions.permissions.getPermissions",
       "locale": null
     },
     {
@@ -286,8 +271,23 @@
       "locale": null
     },
     {
-      "documentId": "dev_permissions_get_permissions",
-      "action": "plugin::users-permissions.permissions.getPermissions",
+      "documentId": "dev_user_create",
+      "action": "plugin::users-permissions.user.create",
+      "locale": null
+    },
+    {
+      "documentId": "dev_user_find",
+      "action": "plugin::users-permissions.user.find",
+      "locale": null
+    },
+    {
+      "documentId": "dev_user_me",
+      "action": "plugin::users-permissions.user.me",
+      "locale": null
+    },
+    {
+      "documentId": "dev_user_update",
+      "action": "plugin::users-permissions.user.update",
       "locale": null
     }
   ]

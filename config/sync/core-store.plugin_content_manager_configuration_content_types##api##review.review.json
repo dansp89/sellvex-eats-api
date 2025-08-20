@@ -160,27 +160,21 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "product",
-        "user",
-        "order"
-      ],
       "edit": [
         [
           {
             "name": "product",
             "size": 6
+          },
+          {
+            "name": "rating",
+            "size": 6
           }
         ],
         [
           {
-            "name": "rating",
-            "size": 4
-          },
-          {
             "name": "comment",
-            "size": 6
+            "size": 12
           }
         ],
         [
@@ -193,6 +187,12 @@
             "size": 6
           }
         ]
+      ],
+      "list": [
+        "id",
+        "product",
+        "user",
+        "order"
       ]
     },
     "uid": "api::review.review"

@@ -61,6 +61,11 @@
       "locale": null
     },
     {
+      "documentId": "c4nq50ki2vc0yuevwkw5ju5l",
+      "action": "api::user.user.isLoggedIn",
+      "locale": null
+    },
+    {
       "documentId": "wiwbwxq8wt3zggygl57zej3f",
       "action": "plugin::users-permissions.auth.callback",
       "locale": null

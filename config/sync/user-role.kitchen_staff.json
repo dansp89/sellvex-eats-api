@@ -11,21 +11,6 @@
       "locale": null
     },
     {
-      "documentId": "kitchen_product_find",
-      "action": "api::product.product.find",
-      "locale": null
-    },
-    {
-      "documentId": "kitchen_product_find_one",
-      "action": "api::product.product.findOne",
-      "locale": null
-    },
-    {
-      "documentId": "kitchen_product_update",
-      "action": "api::product.product.update",
-      "locale": null
-    },
-    {
       "documentId": "kitchen_ingredient_find",
       "action": "api::ingredient.ingredient.find",
       "locale": null
@@ -38,6 +23,16 @@
     {
       "documentId": "kitchen_ingredient_update",
       "action": "api::ingredient.ingredient.update",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_notification_create",
+      "action": "api::notification.notification.create",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_notification_find_user_notifications",
+      "action": "api::notification.notification.findUserNotifications",
       "locale": null
     },
     {
@@ -56,18 +51,28 @@
       "locale": null
     },
     {
-      "documentId": "kitchen_notification_create",
-      "action": "api::notification.notification.create",
+      "documentId": "kitchen_product_find",
+      "action": "api::product.product.find",
       "locale": null
     },
     {
-      "documentId": "kitchen_notification_find_user_notifications",
-      "action": "api::notification.notification.findUserNotifications",
+      "documentId": "kitchen_product_find_one",
+      "action": "api::product.product.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_product_update",
+      "action": "api::product.product.update",
       "locale": null
     },
     {
       "documentId": "kitchen_setting_find_public",
       "action": "api::setting.setting.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "kitchen_user_change_password",
+      "action": "plugin::users-permissions.auth.changePassword",
       "locale": null
     },
     {
@@ -78,11 +83,6 @@
     {
       "documentId": "kitchen_user_update",
       "action": "plugin::users-permissions.user.update",
-      "locale": null
-    },
-    {
-      "documentId": "kitchen_user_change_password",
-      "action": "plugin::users-permissions.auth.changePassword",
       "locale": null
     }
   ]

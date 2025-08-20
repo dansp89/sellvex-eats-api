@@ -11,33 +11,28 @@
       "locale": null
     },
     {
-      "documentId": "api_category_find_public",
-      "action": "api::category.category.findPublic",
-      "locale": null
-    },
-    {
       "documentId": "api_category_find_by_slug",
       "action": "api::category.category.findBySlug",
       "locale": null
     },
     {
-      "documentId": "api_product_find",
-      "action": "api::product.product.find",
+      "documentId": "api_category_find_public",
+      "action": "api::category.category.findPublic",
       "locale": null
     },
     {
-      "documentId": "api_product_find_public",
-      "action": "api::product.product.findPublic",
+      "documentId": "api_delivery_zone_find_public",
+      "action": "api::delivery-zone.delivery-zone.findPublic",
       "locale": null
     },
     {
-      "documentId": "api_product_find_one",
-      "action": "api::product.product.findOne",
+      "documentId": "api_ingredient_find_public",
+      "action": "api::ingredient.ingredient.findPublic",
       "locale": null
     },
     {
-      "documentId": "api_product_find_by_category",
-      "action": "api::product.product.findByCategory",
+      "documentId": "api_notification_create",
+      "action": "api::notification.notification.create",
       "locale": null
     },
     {
@@ -56,13 +51,13 @@
       "locale": null
     },
     {
-      "documentId": "api_order_update",
-      "action": "api::order.order.update",
+      "documentId": "api_order_track_order",
+      "action": "api::order.order.trackOrder",
       "locale": null
     },
     {
-      "documentId": "api_order_track_order",
-      "action": "api::order.order.trackOrder",
+      "documentId": "api_order_update",
+      "action": "api::order.order.update",
       "locale": null
     },
     {
@@ -81,18 +76,23 @@
       "locale": null
     },
     {
-      "documentId": "api_delivery_zone_find_public",
-      "action": "api::delivery-zone.delivery-zone.findPublic",
+      "documentId": "api_product_find",
+      "action": "api::product.product.find",
       "locale": null
     },
     {
-      "documentId": "api_ingredient_find_public",
-      "action": "api::ingredient.ingredient.findPublic",
+      "documentId": "api_product_find_by_category",
+      "action": "api::product.product.findByCategory",
       "locale": null
     },
     {
-      "documentId": "api_review_find_public",
-      "action": "api::review.review.findPublic",
+      "documentId": "api_product_find_one",
+      "action": "api::product.product.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "api_product_find_public",
+      "action": "api::product.product.findPublic",
       "locale": null
     },
     {
@@ -101,8 +101,8 @@
       "locale": null
     },
     {
-      "documentId": "api_notification_create",
-      "action": "api::notification.notification.create",
+      "documentId": "api_review_find_public",
+      "action": "api::review.review.findPublic",
       "locale": null
     },
     {
@@ -116,23 +116,23 @@
       "locale": null
     },
     {
-      "documentId": "api_user_find",
-      "action": "plugin::users-permissions.user.find",
-      "locale": null
-    },
-    {
       "documentId": "api_user_create",
       "action": "plugin::users-permissions.user.create",
       "locale": null
     },
     {
-      "documentId": "api_user_update",
-      "action": "plugin::users-permissions.user.update",
+      "documentId": "api_user_find",
+      "action": "plugin::users-permissions.user.find",
       "locale": null
     },
     {
       "documentId": "api_user_me",
       "action": "plugin::users-permissions.user.me",
+      "locale": null
+    },
+    {
+      "documentId": "api_user_update",
+      "action": "plugin::users-permissions.user.update",
       "locale": null
     }
   ]

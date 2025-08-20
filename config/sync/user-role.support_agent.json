@@ -16,6 +16,121 @@
       "locale": null
     },
     {
+      "documentId": "support_chat_create",
+      "action": "api::chat.chat.create",
+      "locale": null
+    },
+    {
+      "documentId": "support_chat_find",
+      "action": "api::chat.chat.find",
+      "locale": null
+    },
+    {
+      "documentId": "support_chat_get_conversation",
+      "action": "api::chat.chat.getConversation",
+      "locale": null
+    },
+    {
+      "documentId": "support_chat_get_recent_conversations",
+      "action": "api::chat.chat.getRecentConversations",
+      "locale": null
+    },
+    {
+      "documentId": "support_chat_mark_as_read",
+      "action": "api::chat.chat.markAsRead",
+      "locale": null
+    },
+    {
+      "documentId": "support_chat_send_message",
+      "action": "api::chat.chat.sendMessage",
+      "locale": null
+    },
+    {
+      "documentId": "support_chat_update",
+      "action": "api::chat.chat.update",
+      "locale": null
+    },
+    {
+      "documentId": "support_delivery_driver_find",
+      "action": "api::delivery-driver.delivery-driver.find",
+      "locale": null
+    },
+    {
+      "documentId": "support_delivery_zone_find",
+      "action": "api::delivery-zone.delivery-zone.find",
+      "locale": null
+    },
+    {
+      "documentId": "support_notification_create",
+      "action": "api::notification.notification.create",
+      "locale": null
+    },
+    {
+      "documentId": "support_notification_find",
+      "action": "api::notification.notification.find",
+      "locale": null
+    },
+    {
+      "documentId": "support_notification_find_user_notifications",
+      "action": "api::notification.notification.findUserNotifications",
+      "locale": null
+    },
+    {
+      "documentId": "support_notification_mark_as_read",
+      "action": "api::notification.notification.markAsRead",
+      "locale": null
+    },
+    {
+      "documentId": "support_notification_update",
+      "action": "api::notification.notification.update",
+      "locale": null
+    },
+    {
+      "documentId": "support_order_find",
+      "action": "api::order.order.find",
+      "locale": null
+    },
+    {
+      "documentId": "support_order_find_one",
+      "action": "api::order.order.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "support_order_find_order_for_user",
+      "action": "api::order.order.findOrderForUser",
+      "locale": null
+    },
+    {
+      "documentId": "support_order_track_order",
+      "action": "api::order.order.trackOrder",
+      "locale": null
+    },
+    {
+      "documentId": "support_order_update",
+      "action": "api::order.order.update",
+      "locale": null
+    },
+    {
+      "documentId": "support_payment_find",
+      "action": "api::payment.payment.find",
+      "locale": null
+    },
+    {
+      "documentId": "support_payment_find_one",
+      "action": "api::payment.payment.findOne",
+      "locale": null
+    },
+    {
+      "documentId": "support_payment_find_user_payments",
+      "action": "api::payment.payment.findUserPayments",
+      "locale": null
+    },
+    {
+      "documentId": "support_payment_update",
+      "action": "api::payment.payment.update",
+      "locale": null
+    },
+    {
       "documentId": "support_product_find",
       "action": "api::product.product.find",
       "locale": null
@@ -31,58 +146,8 @@
       "locale": null
     },
     {
-      "documentId": "support_order_find",
-      "action": "api::order.order.find",
-      "locale": null
-    },
-    {
-      "documentId": "support_order_find_one",
-      "action": "api::order.order.findOne",
-      "locale": null
-    },
-    {
-      "documentId": "support_order_update",
-      "action": "api::order.order.update",
-      "locale": null
-    },
-    {
-      "documentId": "support_order_find_order_for_user",
-      "action": "api::order.order.findOrderForUser",
-      "locale": null
-    },
-    {
-      "documentId": "support_order_track_order",
-      "action": "api::order.order.trackOrder",
-      "locale": null
-    },
-    {
-      "documentId": "support_payment_find",
-      "action": "api::payment.payment.find",
-      "locale": null
-    },
-    {
-      "documentId": "support_payment_find_one",
-      "action": "api::payment.payment.findOne",
-      "locale": null
-    },
-    {
-      "documentId": "support_payment_update",
-      "action": "api::payment.payment.update",
-      "locale": null
-    },
-    {
-      "documentId": "support_payment_find_user_payments",
-      "action": "api::payment.payment.findUserPayments",
-      "locale": null
-    },
-    {
-      "documentId": "support_delivery_driver_find",
-      "action": "api::delivery-driver.delivery-driver.find",
-      "locale": null
-    },
-    {
-      "documentId": "support_delivery_zone_find",
-      "action": "api::delivery-zone.delivery-zone.find",
+      "documentId": "support_review_delete",
+      "action": "api::review.review.delete",
       "locale": null
     },
     {
@@ -98,71 +163,6 @@
     {
       "documentId": "support_review_update",
       "action": "api::review.review.update",
-      "locale": null
-    },
-    {
-      "documentId": "support_review_delete",
-      "action": "api::review.review.delete",
-      "locale": null
-    },
-    {
-      "documentId": "support_chat_find",
-      "action": "api::chat.chat.find",
-      "locale": null
-    },
-    {
-      "documentId": "support_chat_create",
-      "action": "api::chat.chat.create",
-      "locale": null
-    },
-    {
-      "documentId": "support_chat_update",
-      "action": "api::chat.chat.update",
-      "locale": null
-    },
-    {
-      "documentId": "support_chat_get_conversation",
-      "action": "api::chat.chat.getConversation",
-      "locale": null
-    },
-    {
-      "documentId": "support_chat_get_recent_conversations",
-      "action": "api::chat.chat.getRecentConversations",
-      "locale": null
-    },
-    {
-      "documentId": "support_chat_send_message",
-      "action": "api::chat.chat.sendMessage",
-      "locale": null
-    },
-    {
-      "documentId": "support_chat_mark_as_read",
-      "action": "api::chat.chat.markAsRead",
-      "locale": null
-    },
-    {
-      "documentId": "support_notification_find",
-      "action": "api::notification.notification.find",
-      "locale": null
-    },
-    {
-      "documentId": "support_notification_create",
-      "action": "api::notification.notification.create",
-      "locale": null
-    },
-    {
-      "documentId": "support_notification_update",
-      "action": "api::notification.notification.update",
-      "locale": null
-    },
-    {
-      "documentId": "support_notification_find_user_notifications",
-      "action": "api::notification.notification.findUserNotifications",
-      "locale": null
-    },
-    {
-      "documentId": "support_notification_mark_as_read",
-      "action": "api::notification.notification.markAsRead",
       "locale": null
     },
     {
@@ -186,13 +186,13 @@
       "locale": null
     },
     {
-      "documentId": "support_user_update",
-      "action": "plugin::users-permissions.user.update",
+      "documentId": "support_user_me",
+      "action": "plugin::users-permissions.user.me",
       "locale": null
     },
     {
-      "documentId": "support_user_me",
-      "action": "plugin::users-permissions.user.me",
+      "documentId": "support_user_update",
+      "action": "plugin::users-permissions.user.update",
       "locale": null
     }
   ]

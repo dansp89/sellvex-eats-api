@@ -16,18 +16,28 @@
       "locale": null
     },
     {
-      "documentId": "analyst_product_find",
-      "action": "api::product.product.find",
+      "documentId": "analyst_chat_find",
+      "action": "api::chat.chat.find",
       "locale": null
     },
     {
-      "documentId": "analyst_product_find_one",
-      "action": "api::product.product.findOne",
+      "documentId": "analyst_delivery_driver_find",
+      "action": "api::delivery-driver.delivery-driver.find",
       "locale": null
     },
     {
-      "documentId": "analyst_product_find_by_category",
-      "action": "api::product.product.findByCategory",
+      "documentId": "analyst_delivery_zone_find",
+      "action": "api::delivery-zone.delivery-zone.find",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_ingredient_find",
+      "action": "api::ingredient.ingredient.find",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_notification_find",
+      "action": "api::notification.notification.find",
       "locale": null
     },
     {
@@ -51,13 +61,18 @@
       "locale": null
     },
     {
-      "documentId": "analyst_delivery_driver_find",
-      "action": "api::delivery-driver.delivery-driver.find",
+      "documentId": "analyst_product_find",
+      "action": "api::product.product.find",
       "locale": null
     },
     {
-      "documentId": "analyst_delivery_zone_find",
-      "action": "api::delivery-zone.delivery-zone.find",
+      "documentId": "analyst_product_find_by_category",
+      "action": "api::product.product.findByCategory",
+      "locale": null
+    },
+    {
+      "documentId": "analyst_product_find_one",
+      "action": "api::product.product.findOne",
       "locale": null
     },
     {
@@ -76,33 +91,18 @@
       "locale": null
     },
     {
-      "documentId": "analyst_ingredient_find",
-      "action": "api::ingredient.ingredient.find",
-      "locale": null
-    },
-    {
-      "documentId": "analyst_notification_find",
-      "action": "api::notification.notification.find",
-      "locale": null
-    },
-    {
-      "documentId": "analyst_chat_find",
-      "action": "api::chat.chat.find",
-      "locale": null
-    },
-    {
       "documentId": "analyst_setting_find_public",
       "action": "api::setting.setting.findPublic",
       "locale": null
     },
     {
-      "documentId": "analyst_user_find",
-      "action": "plugin::users-permissions.user.find",
+      "documentId": "analyst_user_count",
+      "action": "plugin::users-permissions.user.count",
       "locale": null
     },
     {
-      "documentId": "analyst_user_count",
-      "action": "plugin::users-permissions.user.count",
+      "documentId": "analyst_user_find",
+      "action": "plugin::users-permissions.user.find",
       "locale": null
     },
     {

@@ -6,8 +6,8 @@
   "locale": null,
   "permissions": [
     {
-      "documentId": "vip_category_find_public",
-      "action": "api::category.category.findPublic",
+      "documentId": "vip_category_find_by_slug",
+      "action": "api::category.category.findBySlug",
       "locale": null
     },
     {
@@ -16,28 +16,43 @@
       "locale": null
     },
     {
-      "documentId": "vip_category_find_by_slug",
-      "action": "api::category.category.findBySlug",
+      "documentId": "vip_category_find_public",
+      "action": "api::category.category.findPublic",
       "locale": null
     },
     {
-      "documentId": "vip_product_find_public",
-      "action": "api::product.product.findPublic",
+      "documentId": "vip_chat_create",
+      "action": "api::chat.chat.create",
       "locale": null
     },
     {
-      "documentId": "vip_product_find_one_public",
-      "action": "api::product.product.findOnePublic",
+      "documentId": "vip_chat_get_conversation",
+      "action": "api::chat.chat.getConversation",
       "locale": null
     },
     {
-      "documentId": "vip_product_find_by_category",
-      "action": "api::product.product.findByCategory",
+      "documentId": "vip_chat_get_recent_conversations",
+      "action": "api::chat.chat.getRecentConversations",
       "locale": null
     },
     {
-      "documentId": "vip_product_find",
-      "action": "api::product.product.find",
+      "documentId": "vip_chat_send_message",
+      "action": "api::chat.chat.sendMessage",
+      "locale": null
+    },
+    {
+      "documentId": "vip_delivery_zone_find_public",
+      "action": "api::delivery-zone.delivery-zone.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "vip_notification_find_user_notifications",
+      "action": "api::notification.notification.findUserNotifications",
+      "locale": null
+    },
+    {
+      "documentId": "vip_notification_mark_as_read",
+      "action": "api::notification.notification.markAsRead",
       "locale": null
     },
     {
@@ -66,13 +81,28 @@
       "locale": null
     },
     {
-      "documentId": "vip_review_create",
-      "action": "api::review.review.create",
+      "documentId": "vip_product_find",
+      "action": "api::product.product.find",
       "locale": null
     },
     {
-      "documentId": "vip_review_update",
-      "action": "api::review.review.update",
+      "documentId": "vip_product_find_by_category",
+      "action": "api::product.product.findByCategory",
+      "locale": null
+    },
+    {
+      "documentId": "vip_product_find_one_public",
+      "action": "api::product.product.findOnePublic",
+      "locale": null
+    },
+    {
+      "documentId": "vip_product_find_public",
+      "action": "api::product.product.findPublic",
+      "locale": null
+    },
+    {
+      "documentId": "vip_review_create",
+      "action": "api::review.review.create",
       "locale": null
     },
     {
@@ -81,38 +111,8 @@
       "locale": null
     },
     {
-      "documentId": "vip_chat_create",
-      "action": "api::chat.chat.create",
-      "locale": null
-    },
-    {
-      "documentId": "vip_chat_get_conversation",
-      "action": "api::chat.chat.getConversation",
-      "locale": null
-    },
-    {
-      "documentId": "vip_chat_send_message",
-      "action": "api::chat.chat.sendMessage",
-      "locale": null
-    },
-    {
-      "documentId": "vip_chat_get_recent_conversations",
-      "action": "api::chat.chat.getRecentConversations",
-      "locale": null
-    },
-    {
-      "documentId": "vip_notification_find_user_notifications",
-      "action": "api::notification.notification.findUserNotifications",
-      "locale": null
-    },
-    {
-      "documentId": "vip_notification_mark_as_read",
-      "action": "api::notification.notification.markAsRead",
-      "locale": null
-    },
-    {
-      "documentId": "vip_delivery_zone_find_public",
-      "action": "api::delivery-zone.delivery-zone.findPublic",
+      "documentId": "vip_review_update",
+      "action": "api::review.review.update",
       "locale": null
     },
     {
@@ -126,6 +126,11 @@
       "locale": null
     },
     {
+      "documentId": "vip_user_change_password",
+      "action": "plugin::users-permissions.auth.changePassword",
+      "locale": null
+    },
+    {
       "documentId": "vip_user_me",
       "action": "plugin::users-permissions.user.me",
       "locale": null
@@ -133,11 +138,6 @@
     {
       "documentId": "vip_user_update",
       "action": "plugin::users-permissions.user.update",
-      "locale": null
-    },
-    {
-      "documentId": "vip_user_change_password",
-      "action": "plugin::users-permissions.auth.changePassword",
       "locale": null
     }
   ]

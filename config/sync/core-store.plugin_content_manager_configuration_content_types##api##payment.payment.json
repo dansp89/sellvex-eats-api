@@ -90,6 +90,21 @@
           "sortable": true
         }
       },
+      "order": {
+        "edit": {
+          "label": "order",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "documentId"
+        },
+        "list": {
+          "label": "order",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -190,6 +205,10 @@
         [
           {
             "name": "user",
+            "size": 6
+          },
+          {
+            "name": "order",
             "size": 6
           }
         ]
