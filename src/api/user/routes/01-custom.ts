@@ -5,7 +5,6 @@ export default {
       path: '/users/profile',
       handler: 'user.findProfile',
       config: {
-        auth: {},
         tags: ['Users-Permissions - Users & Roles'],
         swagger: {
           tags: ['Users-Permissions - Users & Roles'],
@@ -24,7 +23,6 @@ export default {
       path: '/users/orders',
       handler: 'user.findOrders',
       config: {
-        auth: {},
         tags: ['Users-Permissions - Users & Roles'],
         swagger: {
           tags: ['Users-Permissions - Users & Roles'],
@@ -59,7 +57,6 @@ export default {
       path: '/users/isLoggedIn',
       handler: 'user.isLoggedIn',
       config: {
-        auth: {},
         tags: ['Users-Permissions - Users & Roles'],
         swagger: {
           tags: ['Users-Permissions - Users & Roles'],

@@ -52,7 +52,7 @@ export default ({ env }) => ({
         expiresIn: env('JWT_EXPIRES_IN', '7d'),
       },
       register: {
-        allowedFields: ['fullname', 'birth', 'tos_customer', 'tos_customer_date', 'gender', 'referrer']
+        allowedFields: ['fullname', 'birth', 'cpf', 'phone', 'tos_customer', 'tos_customer_date', 'gender', 'referrer']
       }
     },
   }
