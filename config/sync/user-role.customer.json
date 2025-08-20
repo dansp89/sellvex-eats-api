@@ -131,11 +131,6 @@
       "locale": null
     },
     {
-      "documentId": "xev8xtam063id4kvxxtmrhn1",
-      "action": "api::user.user.logout",
-      "locale": null
-    },
-    {
       "documentId": "customer_user_change_password",
       "action": "plugin::users-permissions.auth.changePassword",
       "locale": null

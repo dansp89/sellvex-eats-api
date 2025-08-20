@@ -1185,7 +1185,7 @@
       "locale": null
     },
     {
-      "documentId": "lvv2uoh459yqlhaf7speyg8l",
+      "documentId": "m573xhovnrk0g77agtvip2bm",
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
       "subject": "plugin::users-permissions.user",
@@ -1213,7 +1213,14 @@
           "chatsSent",
           "chatsReceived",
           "payments",
-          "cpf"
+          "cpf",
+          "gender",
+          "current_role",
+          "tos_customer",
+          "tos_customer_date",
+          "tos_driver",
+          "tos_driver_date",
+          "referrer"
         ]
       },
       "conditions": [],
@@ -1238,7 +1245,7 @@
       "locale": null
     },
     {
-      "documentId": "grh207si1qh870y3wxk7h4pg",
+      "documentId": "vws0lrabnyg97gw2j5aluwop",
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "plugin::users-permissions.user",
@@ -1266,14 +1273,21 @@
           "chatsSent",
           "chatsReceived",
           "payments",
-          "cpf"
+          "cpf",
+          "gender",
+          "current_role",
+          "tos_customer",
+          "tos_customer_date",
+          "tos_driver",
+          "tos_driver_date",
+          "referrer"
         ]
       },
       "conditions": [],
       "locale": null
     },
     {
-      "documentId": "ek3i9q1ei8bjjvcyndmz0o2i",
+      "documentId": "oig0h4v1b38pp90z49kg97zp",
       "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
       "subject": "plugin::users-permissions.user",
@@ -1301,7 +1315,14 @@
           "chatsSent",
           "chatsReceived",
           "payments",
-          "cpf"
+          "cpf",
+          "gender",
+          "current_role",
+          "tos_customer",
+          "tos_customer_date",
+          "tos_driver",
+          "tos_driver_date",
+          "referrer"
         ]
       },
       "conditions": [],

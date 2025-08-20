@@ -134,7 +134,7 @@
       "role": {
         "edit": {
           "label": "role",
-          "description": "",
+          "description": "Role principal",
           "placeholder": "",
           "visible": true,
           "editable": true,
@@ -163,7 +163,7 @@
       "birth": {
         "edit": {
           "label": "birth",
-          "description": "",
+          "description": "nascimento",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -348,6 +348,105 @@
           "sortable": true
         }
       },
+      "gender": {
+        "edit": {
+          "label": "gender",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "gender",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "current_role": {
+        "edit": {
+          "label": "current_role",
+          "description": "O usuário pode escolher entre a role para exibir no app",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "current_role",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "tos_customer": {
+        "edit": {
+          "label": "tos_customer",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "tos_customer",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "tos_customer_date": {
+        "edit": {
+          "label": "tos_customer_date",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "tos_customer_date",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "tos_driver": {
+        "edit": {
+          "label": "tos_driver",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "tos_driver",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "tos_driver_date": {
+        "edit": {
+          "label": "tos_driver_date",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "tos_driver_date",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "referrer": {
+        "edit": {
+          "label": "referrer",
+          "description": "Quem indicou esse usuário?",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "username"
+        },
+        "list": {
+          "label": "referrer",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -416,47 +515,87 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "username",
-        "email",
-        "confirmed"
-      ],
       "edit": [
         [
           {
             "name": "fullname",
-            "size": 12
+            "size": 8
+          },
+          {
+            "name": "referrer",
+            "size": 4
           }
         ],
         [
           {
             "name": "username",
-            "size": 6
+            "size": 4
           },
           {
             "name": "email",
-            "size": 6
+            "size": 4
+          },
+          {
+            "name": "password",
+            "size": 4
           }
         ],
         [
+          {
+            "name": "confirmed",
+            "size": 4
+          },
           {
             "name": "blocked",
             "size": 4
           },
           {
+            "name": "gender",
+            "size": 4
+          }
+        ],
+        [
+          {
             "name": "role",
+            "size": 6
+          },
+          {
+            "name": "current_role",
             "size": 6
           }
         ],
         [
           {
-            "name": "password",
+            "name": "birth",
+            "size": 4
+          },
+          {
+            "name": "cpf",
+            "size": 4
+          },
+          {
+            "name": "phone",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "tos_customer",
             "size": 6
           },
           {
-            "name": "confirmed",
-            "size": 4
+            "name": "tos_customer_date",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "tos_driver",
+            "size": 6
+          },
+          {
+            "name": "tos_driver_date",
+            "size": 6
           }
         ],
         [
@@ -475,56 +614,44 @@
         ],
         [
           {
-            "name": "preferences",
-            "size": 12
+            "name": "reviews",
+            "size": 4
+          },
+          {
+            "name": "chatsSent",
+            "size": 4
+          },
+          {
+            "name": "chatsReceived",
+            "size": 4
           }
         ],
         [
           {
             "name": "orders",
-            "size": 6
-          },
-          {
-            "name": "notifications",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "reviews",
-            "size": 6
-          },
-          {
-            "name": "chatsSent",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "chatsReceived",
-            "size": 6
-          },
-          {
-            "name": "payments",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "birth",
             "size": 4
           },
           {
-            "name": "phone",
-            "size": 6
+            "name": "payments",
+            "size": 4
+          },
+          {
+            "name": "notifications",
+            "size": 4
           }
         ],
         [
           {
-            "name": "cpf",
-            "size": 6
+            "name": "preferences",
+            "size": 12
           }
         ]
+      ],
+      "list": [
+        "id",
+        "username",
+        "email",
+        "confirmed"
       ]
     },
     "uid": "plugin::users-permissions.user"
