@@ -1447,12 +1447,15 @@ export interface PluginUsersPermissionsUser
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    current_role: Schema.Attribute.Enumeration<['customer', 'driver']> &
+      Schema.Attribute.DefaultTo<'customer'>;
     email: Schema.Attribute.Email &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
     fullname: Schema.Attribute.String;
+    gender: Schema.Attribute.Enumeration<['male', 'female']>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1478,16 +1481,29 @@ export interface PluginUsersPermissionsUser
         minLength: 6;
       }>;
     payments: Schema.Attribute.Relation<'oneToMany', 'api::payment.payment'>;
-    phone: Schema.Attribute.String & Schema.Attribute.Required;
+    phone: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 11;
+        minLength: 10;
+      }>;
     preferences: Schema.Attribute.JSON;
     provider: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    referrer: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     resetPasswordToken: Schema.Attribute.String & Schema.Attribute.Private;
     reviews: Schema.Attribute.Relation<'oneToMany', 'api::review.review'>;
     role: Schema.Attribute.Relation<
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    tos_customer: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    tos_customer_date: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    tos_driver: Schema.Attribute.Boolean;
+    tos_driver_date: Schema.Attribute.DateTime;
     totalOrders: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-08-20T18:07:40.835Z"
+    "x-generation-date": "2025-08-20T21:36:46.722Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -18968,6 +18968,45 @@
                           "cpf": {
                             "type": "string"
                           },
+                          "gender": {
+                            "type": "string",
+                            "enum": [
+                              "male",
+                              "female"
+                            ]
+                          },
+                          "current_role": {
+                            "type": "string",
+                            "enum": [
+                              "customer",
+                              "driver"
+                            ]
+                          },
+                          "tos_customer": {
+                            "type": "boolean"
+                          },
+                          "tos_customer_date": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "tos_driver": {
+                            "type": "boolean"
+                          },
+                          "tos_driver_date": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "referrer": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "documentId": {
+                                "type": "string"
+                              }
+                            }
+                          },
                           "createdAt": {
                             "type": "string",
                             "format": "date-time"
@@ -21573,6 +21612,45 @@
               },
               "cpf": {
                 "type": "string"
+              },
+              "gender": {
+                "type": "string",
+                "enum": [
+                  "male",
+                  "female"
+                ]
+              },
+              "current_role": {
+                "type": "string",
+                "enum": [
+                  "customer",
+                  "driver"
+                ]
+              },
+              "tos_customer": {
+                "type": "boolean"
+              },
+              "tos_customer_date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "tos_driver": {
+                "type": "boolean"
+              },
+              "tos_driver_date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "referrer": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
               },
               "createdAt": {
                 "type": "string",
@@ -24224,6 +24302,45 @@
               "cpf": {
                 "type": "string"
               },
+              "gender": {
+                "type": "string",
+                "enum": [
+                  "male",
+                  "female"
+                ]
+              },
+              "current_role": {
+                "type": "string",
+                "enum": [
+                  "customer",
+                  "driver"
+                ]
+              },
+              "tos_customer": {
+                "type": "boolean"
+              },
+              "tos_customer_date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "tos_driver": {
+                "type": "boolean"
+              },
+              "tos_driver_date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "referrer": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
@@ -26672,6 +26789,45 @@
                     },
                     "cpf": {
                       "type": "string"
+                    },
+                    "gender": {
+                      "type": "string",
+                      "enum": [
+                        "male",
+                        "female"
+                      ]
+                    },
+                    "current_role": {
+                      "type": "string",
+                      "enum": [
+                        "customer",
+                        "driver"
+                      ]
+                    },
+                    "tos_customer": {
+                      "type": "boolean"
+                    },
+                    "tos_customer_date": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "tos_driver": {
+                      "type": "boolean"
+                    },
+                    "tos_driver_date": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "referrer": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "documentId": {
+                          "type": "string"
+                        }
+                      }
                     },
                     "createdAt": {
                       "type": "string",
@@ -29220,6 +29376,45 @@
                           },
                           "cpf": {
                             "type": "string"
+                          },
+                          "gender": {
+                            "type": "string",
+                            "enum": [
+                              "male",
+                              "female"
+                            ]
+                          },
+                          "current_role": {
+                            "type": "string",
+                            "enum": [
+                              "customer",
+                              "driver"
+                            ]
+                          },
+                          "tos_customer": {
+                            "type": "boolean"
+                          },
+                          "tos_customer_date": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "tos_driver": {
+                            "type": "boolean"
+                          },
+                          "tos_driver_date": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "referrer": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "documentId": {
+                                "type": "string"
+                              }
+                            }
                           },
                           "createdAt": {
                             "type": "string",
@@ -31830,6 +32025,45 @@
               "cpf": {
                 "type": "string"
               },
+              "gender": {
+                "type": "string",
+                "enum": [
+                  "male",
+                  "female"
+                ]
+              },
+              "current_role": {
+                "type": "string",
+                "enum": [
+                  "customer",
+                  "driver"
+                ]
+              },
+              "tos_customer": {
+                "type": "boolean"
+              },
+              "tos_customer_date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "tos_driver": {
+                "type": "boolean"
+              },
+              "tos_driver_date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "referrer": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
@@ -34364,6 +34598,45 @@
               },
               "cpf": {
                 "type": "string"
+              },
+              "gender": {
+                "type": "string",
+                "enum": [
+                  "male",
+                  "female"
+                ]
+              },
+              "current_role": {
+                "type": "string",
+                "enum": [
+                  "customer",
+                  "driver"
+                ]
+              },
+              "tos_customer": {
+                "type": "boolean"
+              },
+              "tos_customer_date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "tos_driver": {
+                "type": "boolean"
+              },
+              "tos_driver_date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "referrer": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
               },
               "createdAt": {
                 "type": "string",
@@ -36944,6 +37217,45 @@
               "cpf": {
                 "type": "string"
               },
+              "gender": {
+                "type": "string",
+                "enum": [
+                  "male",
+                  "female"
+                ]
+              },
+              "current_role": {
+                "type": "string",
+                "enum": [
+                  "customer",
+                  "driver"
+                ]
+              },
+              "tos_customer": {
+                "type": "boolean"
+              },
+              "tos_customer_date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "tos_driver": {
+                "type": "boolean"
+              },
+              "tos_driver_date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "referrer": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
@@ -39411,6 +39723,45 @@
                               },
                               "cpf": {
                                 "type": "string"
+                              },
+                              "gender": {
+                                "type": "string",
+                                "enum": [
+                                  "male",
+                                  "female"
+                                ]
+                              },
+                              "current_role": {
+                                "type": "string",
+                                "enum": [
+                                  "customer",
+                                  "driver"
+                                ]
+                              },
+                              "tos_customer": {
+                                "type": "boolean"
+                              },
+                              "tos_customer_date": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "tos_driver": {
+                                "type": "boolean"
+                              },
+                              "tos_driver_date": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "referrer": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number"
+                                  },
+                                  "documentId": {
+                                    "type": "string"
+                                  }
+                                }
                               },
                               "createdAt": {
                                 "type": "string",
@@ -42096,6 +42447,45 @@
               },
               "cpf": {
                 "type": "string"
+              },
+              "gender": {
+                "type": "string",
+                "enum": [
+                  "male",
+                  "female"
+                ]
+              },
+              "current_role": {
+                "type": "string",
+                "enum": [
+                  "customer",
+                  "driver"
+                ]
+              },
+              "tos_customer": {
+                "type": "boolean"
+              },
+              "tos_customer_date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "tos_driver": {
+                "type": "boolean"
+              },
+              "tos_driver_date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "referrer": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
               },
               "createdAt": {
                 "type": "string",

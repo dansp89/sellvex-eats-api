@@ -75,7 +75,10 @@
     },
     "phone": {
       "type": "string",
-      "required": true
+      "minLength": 10,
+      "maxLength": 11,
+      "required": true,
+      "regex": "^[1-9][0-9]{9,10}$"
     },
     "loyaltyPoints": {
       "type": "integer",
@@ -136,6 +139,60 @@
       "maxLength": 11,
       "required": false,
       "unique": true
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female"
+      ]
+    },
+    "current_role": {
+      "type": "enumeration",
+      "default": "customer",
+      "enum": [
+        "customer",
+        "driver"
+      ]
+    },
+    "tos_customer": {
+      "type": "boolean",
+      "required": true
+    },
+    "tos_customer_date": {
+      "type": "datetime",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "tos_customer"
+            },
+            true
+          ]
+        }
+      },
+      "required": true
+    },
+    "tos_driver": {
+      "type": "boolean"
+    },
+    "tos_driver_date": {
+      "type": "datetime",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "tos_driver"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "referrer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }
