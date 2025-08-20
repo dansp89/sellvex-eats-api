@@ -1,6 +1,6 @@
 import { getCustomSwaggerPaths } from 'strapi-swagger-custom-paths';
 
-export default () => ({
+export default ({ env }) => ({
   documentation: {
     enabled: true,
     config: {
@@ -46,4 +46,14 @@ export default () => ({
       paths: getCustomSwaggerPaths(),
     }
   },
+  'users-permissions': {
+    config: {
+      jwt: {
+        expiresIn: env('JWT_EXPIRES_IN', '7d'),
+      },
+      register: {
+        allowedFields: ['fullname', 'birth', 'tos_customer', 'tos_customer_date', 'gender', 'referrer']
+      }
+    },
+  }
 });
