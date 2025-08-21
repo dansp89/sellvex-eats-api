@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-08-20T23:40:15.895Z"
+    "x-generation-date": "2025-08-21T01:53:10.472Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -9771,6 +9771,274 @@
           }
         },
         "operationId": "user_isLoggedIn_get"
+      }
+    },
+    "/users/check/{field}/{value}": {
+      "get": {
+        "tags": [
+          "Users-Permissions - Users & Roles"
+        ],
+        "summary": "Verifica se um valor já existe em um campo específico",
+        "description": "Verifica a existência de um valor nos campos: email, cpf, phone ou username",
+        "parameters": [
+          {
+            "name": "field",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "email",
+                "cpf",
+                "phone",
+                "username"
+              ],
+              "example": "email"
+            },
+            "description": "Nome do campo a ser verificado"
+          },
+          {
+            "name": "value",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "usuario@exemplo.com"
+            },
+            "description": "Valor a ser verificado"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "exists": {
+                      "type": "boolean",
+                      "example": true,
+                      "description": "Indica se o valor já existe no campo especificado"
+                    },
+                    "type": {
+                      "type": "enum",
+                      "enum": [
+                        "email",
+                        "cpf",
+                        "phone",
+                        "username"
+                      ],
+                      "example": "email",
+                      "description": "Tipo do campo verificado"
+                    },
+                    "value": {
+                      "type": "string",
+                      "example": "usuario@exemplo.com",
+                      "description": "Valor verificado"
+                    },
+                    "isLogged": {
+                      "type": "boolean",
+                      "example": true,
+                      "description": "Indica se o usuário está autenticado"
+                    },
+                    "isMe": {
+                      "type": "boolean",
+                      "example": true,
+                      "description": "Indica se o usuário está autenticado e o valor verificado pertence ao usuário"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 400
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "BadRequestError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Bad Request"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 401
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "UnauthorizedError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Unauthorized"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 403
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "ForbiddenError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Forbidden"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 404
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "NotFoundError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Not Found"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "nullable": true,
+                      "example": null
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 500
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "InternalServerError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Internal Server Error"
+                        },
+                        "details": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "user_checkFieldExists_get"
       }
     },
     "/categories": {

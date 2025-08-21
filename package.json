@@ -2,7 +2,7 @@
   "name": "sellvex-eats",
   "version": "0.1.0",
   "private": true,
-  "description": "A Strapi application",
+  "description": "Sellvex Eats API Rest - By: DanSP.DEV",
   "scripts": {
     "build": "strapi ts:generate-types && strapi build",
     "console": "strapi console",
@@ -22,8 +22,8 @@
     "populate:test": "bun run scripts/test-populate.ts"
   },
   "dependencies": {
-    "@strapi/plugin-documentation": "^5.22.0",
-    "@strapi/plugin-users-permissions": "5.22.0",
+    "@strapi/plugin-documentation": "^5.23.0",
+    "@strapi/plugin-users-permissions": "5.23.0",
     "pg": "8.8.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -33,7 +33,7 @@
     "styled-components": "^6.0.0"
   },
   "devDependencies": {
-    "@strapi/strapi": "^5.22.0",
+    "@strapi/strapi": "^5.23.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
