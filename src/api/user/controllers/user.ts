@@ -124,7 +124,7 @@ export default factories.createCoreController('plugin::users-permissions.user', 
         [field, field, cleanedValue]
       );
 
-      console.log("checkFieldExists:result", result);
+      // console.log("checkFieldExists:result", result);
       const loggedin = user?.id ? true : false;
       const resultData = {  
         exists: result.rows.length > 0,
@@ -134,7 +134,7 @@ export default factories.createCoreController('plugin::users-permissions.user', 
         isMe: user?.id === result.rows?.find((row) => row.id === user?.id)?.id  && loggedin
       };
 
-      console.log("checkFieldExists:resultData", resultData);
+      // console.log("checkFieldExists:resultData", resultData);
       return ctx.send(resultData);
     } catch (error) {
       return ctx.badRequest(`Erro ao verificar ${field}`, { 
